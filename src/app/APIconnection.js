@@ -1,12 +1,23 @@
 
 //próba, loguje dane z api
-const ul = document.getElementById('authors');
-fetch('https://swapi.dev/api/people/', {method: 'GET'})
+
+//people max index = 83/
+const urlPeopleRequest = 'https://swapi.dev/api/people/';
+const randomUrlPeopleRequest = (url)=>{
+   const randomizator = Math.floor(Math.random()*84);
+   return `${url}${randomizator}/`
+}
+
+//dla pojadow 76
+const urlVehiclesRequest = 'https://swapi.dev/api/vehicles/';
+// 75 dla statków
+const urlStarshipsRequest ='https://swapi.dev/api/starships/';
+
+
+//losowa postac pobrana z api/losowy url/PROBLEM wypada 0
+fetch(randomUrlPeopleRequest(urlPeopleRequest))
 .then(res=> res.json()
 )
 .then(data=>{
-   const characters = data.results;
-   return characters.map(elm=>{
-   console.log(elm.name)
-   })
+   return console.log(data.name);
 })
