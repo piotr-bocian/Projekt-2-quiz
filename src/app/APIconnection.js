@@ -7,9 +7,6 @@ function addElement (text, zmienna) {
    const currentDiv = document.getElementById("swquiz-app");
    document.body.insertBefore(newDiv, currentDiv);
  }
-
-
-const el = document.createElement("div");
 // Pytania są generowane w następujący sposób:
 // zostaje pobrany losowy zasób z danego trybu (np people o id 5)
 // zostanie pobrane dla wylosowanego zasobu zdjęcie
