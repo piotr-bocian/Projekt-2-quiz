@@ -1,12 +1,13 @@
+//dodałem to tylko po to żeby nie zaglądać co chwila do consoli i sprawdzić czy ładnie pobiera img, ustawione na People
+function addingEl(obj) {
+  const htmlSegment = `<div class="user">
+                           <h1>${obj.name}</h1>
+                            <img src="../../../../static/assets/img/modes/people/${obj.id}.jpg" >
+                        </div>`;
 
-//dodałem to tylko po to żeby nie zaglądać co chwila do consoli
-function addElement (text, zmienna, id) {
-   const newDiv = document.createElement("p");
-   const newContent = document.createTextNode(`${text}=====>${zmienna}====> ID = ${id}`);
-   newDiv.appendChild(newContent);
-   const currentDiv = document.getElementById("swquiz-app");
-   document.body.insertBefore(newDiv, currentDiv);
- }
+  const container = document.getElementById('swquiz-app');
+  container.innerHTML = htmlSegment;
+}
 // Pytania są generowane w następujący sposób:
 // zostaje pobrany losowy zasób z danego trybu (np people o id 5)
 // zostanie pobrane dla wylosowanego zasobu zdjęcie
@@ -14,74 +15,56 @@ function addElement (text, zmienna, id) {
 
 //TRZEBA NAPISAĆ TESTY!!!!!!!!!!!
 
-//people max index = 83
-//będziemy losować id z zakresu 1-84 i pobierać właściwość name
-//by ujednolicić zapis people wyszukujemy i pobieramy jak pozostałe dane
-
 // fetch zwróci tablice z Promise, nas interesują jej results - tablica z obiektami,
 //w tablicy włściwość name oraz url, z url pobieramy id. Mając ID dobierzemy odpowiednie zdjęcie do wyświetlenia.
 
-
 //PROBLEM: ID STATKOW I POJAZDOW JEST DZIURAWE!!!
 //losowanie strony jest lepsze niz jazda po ID jak przy people bo tutaj mamy często puste ID i zwraca błąd 404, losujemy strony z zakresu 1-5 (5 jest nieosiagalna przy math random wiec zatrzyma się na 4), wchodzimy w .results i odstajemy tablice z obiektami, potem wystarczy wylosować index i pobrać jego name. Mamy losowść.
-
 
 // Wydaje mi się, że pojawi się tutaj problem powtarzalności tak pobranych danych tzn moglibyśmy pobrać 3 odpowiedzi z api z czego dwie lub wszystkie byłyby identyczne i trzeba temu jakoś zaradzić. Dodatkowy problem to odświeżanie strony i pobieranie danych na nowo
 
 const urlPeopleRequest = 'https://swapi.dev/api/people/?page=';
 const urlVehiclesRequest = 'https://swapi.dev/api/vehicles/?page=';
-const urlStarshipsRequest ='https://swapi.dev/api/starships/?page=';
+const urlStarshipsRequest = 'https://swapi.dev/api/starships/?page=';
 
 //losowanie url strony dla people oraz pojazdów i statków
-const randomUrlPeopleRequest = (url)=>{
-   const randomizator = Math.floor(Math.random()*(10-1) + 1);
-   return `${url}${randomizator}`
-}
-const randomUrlVehicleStarshipRequest = (url)=>{
-   const randomizator = Math.floor(Math.random()*(5-1) + 1);
-   return `${url}${randomizator}`
+const randomUrlPeopleRequest = (url) => {
+  const randomizator = Math.floor(Math.random() * (10 - 1) + 1);
+  return `${url}${randomizator}`;
+};
+const randomUrlVehicleStarshipRequest = (url) => {
+  const randomizator = Math.floor(Math.random() * (5 - 1) + 1);
+  return `${url}${randomizator}`;
+};
+
+//wpisanie na sztywno url do fetcha czy masz lepszy pomysł???
+async function getData() {
+  try {
+    // const response = await fetch(randomUrlVehicleStarshipRequest(urlVehiclesRequest))
+    // const response = await fetch(randomUrlPeopleRequest(urlStarshipsRequest))
+    const response = await fetch(randomUrlPeopleRequest(urlPeopleRequest));
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.log(response.status);
+  }
 }
 
-//wystarczy jeden fetch???
-//Masz pomysł jak to wszystko skrócić???
-fetch(randomUrlPeopleRequest(urlPeopleRequest))
-.then(res=> res.json()
-)
-.then(data=>{
-      const randomIndex = Math.floor(Math.random()*data.results.length);
-      const randomPeopleName = data.results[randomIndex].name;
-      //pobierzemy ID, dzięki temu dopasujemu pobrane dane do img
-      const getUrl = data.results[randomIndex].url;
-      //getID zwróci nam zawsze liczbę, przy 1-9 wyskoczy NaN
-      const getID = parseInt(getUrl.slice(-3, -1)) || parseInt(getUrl.slice(-2, -1));
-      addElement ('Postać',randomPeopleName, getID);
-      console.log('Postać: ' + randomPeopleName + ' ID: ' + getID);
-   })
-
-fetch(randomUrlVehicleStarshipRequest(urlStarshipsRequest))
-.then(res=> {
-   return res.json()
+// ta funkcja jest w zasadzie uniwersalna
+async function getNameAndId() {
+  const rawData = await getData();
+  const randomIndex = Math.floor(Math.random() * rawData.results.length);
+  const randomPeopleName = rawData.results[randomIndex].name;
+  const getUrl = rawData.results[randomIndex].url;
+  //getID zwróci nam zawsze liczbę, przy 1-9 wyskoczy NaN
+  const getId =
+    parseInt(getUrl.slice(-3, -1)) || parseInt(getUrl.slice(-2, -1));
+  const nameAndId = {
+    name: randomPeopleName,
+    id: getId,
+  };
+  console.log(nameAndId);
+  addingEl(nameAndId);
+  return nameAndId;
 }
-)
-.then(data=>{
-   const randomIndex = Math.floor(Math.random()*data.results.length);
-   const randomStarshipName = data.results[randomIndex].name;
-   const getUrl = data.results[randomIndex].url;
-   const getID = parseInt(getUrl.slice(-3, -1)) || parseInt(getUrl.slice(-2, -1));
-   addElement ('Statek kosmiczny',randomStarshipName, getID);
-   return console.log('Statek kosmiczny: ' + randomStarshipName + ' ID: ' + getID);
-})
-
-fetch(randomUrlVehicleStarshipRequest(urlVehiclesRequest))
-.then(res=> {
-   return res.json()
-}
-)
-.then(data=>{
-   const randomIndex = Math.floor(Math.random()*data.results.length);
-   const randomVehicleName = data.results[randomIndex].name;
-   const getUrl = data.results[randomIndex].url;
-   const getID = parseInt(getUrl.slice(-3, -1)) || parseInt(getUrl.slice(-2, -1));
-   addElement ('Pojazd',randomVehicleName, getID);
-   return console.log('Pojazd: ' + randomVehicleName + ' ID: ' + getID);
-})
+getNameAndId();
