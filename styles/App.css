@@ -1,3 +1,67 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Montserrat', sans-serif;
+    background-image: url("../static/assets/ui/QuizBackground.png");
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+img{
+    display: block;
+    width: 100%;
+}
+
+.container{
+    max-width: 85%;
+
+    display: grid;
+    grid-template-columns: 1fr 2.5fr;
+    column-gap: 5rem;
+}
+
+.img-container{
+    width: 80%;
+    margin: 1rem auto;
+    box-shadow: 2px 2px 15px darkred;
+}
+
+.menu{
+    background-color: white;
+    padding: 2.5rem 1rem;
+    box-shadow: 2px 2px 15px darkred;
+}
+
+.modes-list{
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.modes-list li{
+    font-size: 1.5rem;
+    color: darkgrey;
+}
+
+.modes-list li:hover{
+    cursor: pointer;
+    color: black;
+}
+
+.title{
+    margin-top: 2.5rem;
+    background-color: white;
+    padding: 1.5rem 1rem;
+    box-shadow: 2px 2px 15px darkred;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
 }
