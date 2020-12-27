@@ -1,8 +1,12 @@
 //dodałem to tylko po to żeby nie zaglądać co chwila do consoli i sprawdzić czy ładnie pobiera img, ustawione na People
+
+//dodałem obj.type żeby ścieżka do katalogu ze zdjęciami zmianiała się dynamicznie
+//PROBLEM - w katalogach jest mniej zdjęć niż obiektów w api, z tego powodu zwraca error 404
+//działa prawidłowo jedynie dla people
 function addingEl(obj) {
   const htmlSegment = `<div class="user">
                            <h1>${obj.name}</h1>
-                            <img src="../../../../static/assets/img/modes/people/${obj.id}.jpg" >
+                            <img src="../../../../static/assets/img/modes/${obj.type}/${obj.id}.jpg" >
                         </div>`;
 
   const container = document.getElementById('swquiz-app');
@@ -70,14 +74,18 @@ async function getNameAndId(url) {
   );
   //
   const getUrl = rawData.results[randomIndex].url;
+  //wyciąga typ : people || vehicles || starships z url
+  const type = getUrl.split('/')[getUrl.split('/').length - 3];
+  console.log(type);
   const getId =
     parseInt(getUrl.slice(-3, -1)) || parseInt(getUrl.slice(-2, -1));
   const completeData = {
     name: swName,
     id: getId,
     films: swFilm,
+    type: type
   };
   return completeData;
 }
 
-getNameAndId(urlPeopleRequest).then((val) => addingEl(val));
+getNameAndId(urlStarshipsRequest).then((val) => addingEl(val));
