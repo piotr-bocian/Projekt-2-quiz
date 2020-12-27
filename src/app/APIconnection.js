@@ -8,6 +8,7 @@ function addingEl(obj) {
   const container = document.getElementById('swquiz-app');
   container.innerHTML = htmlSegment;
 }
+
 // Pytania są generowane w następujący sposób:
 // zostaje pobrany losowy zasób z danego trybu (np people o id 5)
 // zostanie pobrane dla wylosowanego zasobu zdjęcie
@@ -59,6 +60,7 @@ async function getNameAndId(url) {
   const rawData = await getData(url);
   const randomIndex = Math.floor(Math.random() * rawData.results.length);
   const swName = rawData.results[randomIndex].name;
+  //opcjonalnie
   const swFilm = await Promise.all(
     rawData.results[randomIndex].films.map(async (film) => {
       const response = await fetch(film);
@@ -66,8 +68,8 @@ async function getNameAndId(url) {
       return movie.title;
     }),
   );
+  //
   const getUrl = rawData.results[randomIndex].url;
-  //getID zwróci nam zawsze liczbę, przy 1-9 wyskoczy NaN
   const getId =
     parseInt(getUrl.slice(-3, -1)) || parseInt(getUrl.slice(-2, -1));
   const completeData = {
@@ -75,8 +77,7 @@ async function getNameAndId(url) {
     id: getId,
     films: swFilm,
   };
-  console.log(completeData);
-  addingEl(completeData);
   return completeData;
 }
-getNameAndId(urlPeopleRequest);
+
+getNameAndId(urlPeopleRequest).then((val) => addingEl(val));
