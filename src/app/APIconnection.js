@@ -37,34 +37,46 @@ const randomUrlVehicleStarshipRequest = (url) => {
   return `${url}${randomizator}`;
 };
 
-//wpisanie na sztywno url do fetcha czy masz lepszy pomysł???
-async function getData() {
+async function getData(url) {
+  let data;
   try {
-    // const response = await fetch(randomUrlVehicleStarshipRequest(urlVehiclesRequest))
-    // const response = await fetch(randomUrlPeopleRequest(urlStarshipsRequest))
-    const response = await fetch(randomUrlPeopleRequest(urlPeopleRequest));
-    const data = await response.json();
-    return data;
+    if (url.includes('people')) {
+      const responsePeople = await fetch(randomUrlPeopleRequest(url));
+      data = responsePeople.json();
+    } else {
+      const responsVehiclesStarships = await fetch(
+        randomUrlVehicleStarshipRequest(url),
+      );
+      data = responsVehiclesStarships.json();
+    }
+    return await data;
   } catch (error) {
     console.log(response.status);
   }
 }
 
-// ta funkcja jest w zasadzie uniwersalna
-async function getNameAndId() {
-  const rawData = await getData();
+async function getNameAndId(url) {
+  const rawData = await getData(url);
   const randomIndex = Math.floor(Math.random() * rawData.results.length);
-  const randomPeopleName = rawData.results[randomIndex].name;
+  const swName = rawData.results[randomIndex].name;
+  const swFilm = await Promise.all(
+    rawData.results[randomIndex].films.map(async (film) => {
+      const response = await fetch(film);
+      const movie = await response.json();
+      return movie.title;
+    }),
+  );
   const getUrl = rawData.results[randomIndex].url;
   //getID zwróci nam zawsze liczbę, przy 1-9 wyskoczy NaN
   const getId =
     parseInt(getUrl.slice(-3, -1)) || parseInt(getUrl.slice(-2, -1));
-  const nameAndId = {
-    name: randomPeopleName,
+  const completeData = {
+    name: swName,
     id: getId,
+    films: swFilm,
   };
-  console.log(nameAndId);
-  addingEl(nameAndId);
-  return nameAndId;
+  console.log(completeData);
+  addingEl(completeData);
+  return completeData;
 }
-getNameAndId();
+getNameAndId(urlPeopleRequest);
