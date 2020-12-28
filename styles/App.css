@@ -51,6 +51,10 @@ img{
     color: darkgrey;
 }
 
+.modes-list li.dark{
+    color: black;
+}
+
 .modes-list li:hover{
     cursor: pointer;
     color: black;
@@ -64,4 +68,21 @@ img{
     text-align: center;
     font-size: 2rem;
     font-weight: bold;
+}
+
+.rules{
+    margin-top: 3rem;
+    background-color: white;
+    padding: 3rem 2.5rem;
+    box-shadow: 2px 2px 15px darkred;
+}
+
+.rules h2{
+    text-align: center;
+    font-weight: bold;
+}
+
+.rules p{
+    margin-top: 2rem;
+    font-size: 1.2rem;
 }
