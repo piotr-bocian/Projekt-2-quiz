@@ -1,32 +1,103 @@
-//dodałem to tylko po to żeby nie zaglądać co chwila do consoli i sprawdzić czy ładnie pobiera img, ustawione na People
-
 //dodałem obj.type żeby ścieżka do katalogu ze zdjęciami zmianiała się dynamicznie
 //PROBLEM - w katalogach jest mniej zdjęć niż obiektów w api, z tego powodu zwraca error 404
-//działa prawidłowo jedynie dla people
-function addingEl(obj) {
-  const htmlSegment = `<div class="user">
+
+const starshipImg = (obj) => {
+  const starshipArrayImg = [
+    5,
+    9,
+    10,
+    11,
+    12,
+    13,
+    15,
+    21,
+    22,
+    23,
+    27,
+    28,
+    29,
+    31,
+    39,
+    40,
+    41,
+    43,
+    47,
+    48,
+  ];
+  if (starshipArrayImg.includes(obj.id)) {
+    const htmlSegmentAllData = `<div class="user">
                            <h1>${obj.name}</h1>
                             <img src="../../../../static/assets/img/modes/${obj.type}/${obj.id}.jpg" >
                         </div>`;
 
-  const container = document.getElementById('swquiz-app');
-  container.innerHTML = htmlSegment;
+    const container = document.getElementById('swquiz-app');
+    container.innerHTML = htmlSegmentAllData;
+  } else {
+    const htmlSegmentNameOnly = `<div class="user">
+                           <h1>${obj.name}</h1>
+                        </div>`;
+
+    const container = document.getElementById('swquiz-app');
+    container.innerHTML = htmlSegmentNameOnly;
+  }
+};
+
+const vehicleImg = (obj) => {
+  const vehiclesArrayImg = [
+    4,
+    6,
+    7,
+    8,
+    14,
+    16,
+    18,
+    19,
+    20,
+    24,
+    25,
+    26,
+    30,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    42,
+  ];
+  if (vehiclesArrayImg.includes(obj.id)) {
+    const htmlSegmentAllData = `<div class="user">
+                           <h1>${obj.name}</h1>
+                            <img src="../../../../static/assets/img/modes/${obj.type}/${obj.id}.jpg" >
+                        </div>`;
+
+    const container = document.getElementById('swquiz-app');
+    container.innerHTML = htmlSegmentAllData;
+  } else {
+    const htmlSegmentNameOnly = `<div class="user">
+                           <h1>${obj.name}</h1>
+                        </div>`;
+
+    const container = document.getElementById('swquiz-app');
+    container.innerHTML = htmlSegmentNameOnly;
+  }
+};
+
+function addingEl(obj) {
+  if (obj.type !== 'people')
+    obj.type === 'starships' ? starshipImg(obj) : vehicleImg(obj);
+  else {
+    const htmlSegment = `<div class="user">
+                           <h1>${obj.name}</h1>
+                            <img src="../../../../static/assets/img/modes/${obj.type}/${obj.id}.jpg" >
+                        </div>`;
+
+    const container = document.getElementById('swquiz-app');
+    container.innerHTML = htmlSegment;
+  }
 }
 
-// Pytania są generowane w następujący sposób:
-// zostaje pobrany losowy zasób z danego trybu (np people o id 5)
-// zostanie pobrane dla wylosowanego zasobu zdjęcie
-// losowane są 3 odpowiedzi z zapytania do StarWars API. Dla trybu "People" będzie to: https://swapi.co/api/people (jedna brana jest z wcześniej wylosowanego, musi być poprawna)
-
 //TRZEBA NAPISAĆ TESTY!!!!!!!!!!!
-
-// fetch zwróci tablice z Promise, nas interesują jej results - tablica z obiektami,
-//w tablicy włściwość name oraz url, z url pobieramy id. Mając ID dobierzemy odpowiednie zdjęcie do wyświetlenia.
-
-//PROBLEM: ID STATKOW I POJAZDOW JEST DZIURAWE!!!
-//losowanie strony jest lepsze niz jazda po ID jak przy people bo tutaj mamy często puste ID i zwraca błąd 404, losujemy strony z zakresu 1-5 (5 jest nieosiagalna przy math random wiec zatrzyma się na 4), wchodzimy w .results i odstajemy tablice z obiektami, potem wystarczy wylosować index i pobrać jego name. Mamy losowść.
-
-// Wydaje mi się, że pojawi się tutaj problem powtarzalności tak pobranych danych tzn moglibyśmy pobrać 3 odpowiedzi z api z czego dwie lub wszystkie byłyby identyczne i trzeba temu jakoś zaradzić. Dodatkowy problem to odświeżanie strony i pobieranie danych na nowo
 
 const urlPeopleRequest = 'https://swapi.dev/api/people/?page=';
 const urlVehiclesRequest = 'https://swapi.dev/api/vehicles/?page=';
@@ -76,14 +147,13 @@ async function getNameAndId(url) {
   const getUrl = rawData.results[randomIndex].url;
   //wyciąga typ : people || vehicles || starships z url
   const type = getUrl.split('/')[getUrl.split('/').length - 3];
-  console.log(type);
   const getId =
     parseInt(getUrl.slice(-3, -1)) || parseInt(getUrl.slice(-2, -1));
   const completeData = {
     name: swName,
     id: getId,
     films: swFilm,
-    type: type
+    type: type,
   };
   return completeData;
 }
