@@ -1,7 +1,7 @@
 //dodałem obj.type żeby ścieżka do katalogu ze zdjęciami zmianiała się dynamicznie
 //PROBLEM - w katalogach jest mniej zdjęć niż obiektów w api, z tego powodu zwraca error 404
 
-const missingImg = (obj) => {
+const addingEl = (obj) => {
   console.log(obj);
   const htmlSegmentAllData = `<div class="user">
                            <h1>${obj.name}</h1>
@@ -11,66 +11,27 @@ const missingImg = (obj) => {
                         <h1>${obj.name}</h1>
                      </div>`;
   const container = document.getElementById('swquiz-app');
-  const vehiclesArrayImg = [
-    4,
-    6,
-    7,
-    8,
-    14,
-    16,
-    18,
-    19,
-    20,
-    24,
-    25,
-    26,
-    30,
-    33,
-    34,
-    35,
-    36,
-    37,
-    38,
-    42,
-  ];
-  const starshipArrayImg = [
-    5,
-    9,
-    10,
-    11,
-    12,
-    13,
-    15,
-    21,
-    22,
-    23,
-    27,
-    28,
-    29,
-    31,
-    39,
-    40,
-    41,
-    43,
-    47,
-    48,
-  ];
-  vehiclesArrayImg.includes(obj.id) || starshipArrayImg.includes(obj.id)
+  const vehiclesArrayImg = [4, 6, 7, 8, 14, 16, 18, 19, 20, 24, 25, 26, 30, 33, 34, 35, 36, 37, 38, 42];
+  const starshipArrayImg = [5, 9, 10, 11, 12, 13, 15, 21, 22, 23, 27, 28, 29, 31, 39, 40, 41, 43, 47, 48];
+
+  obj.type === 'people' || vehiclesArrayImg.includes(obj.id) || starshipArrayImg.includes(obj.id)
     ? (container.innerHTML = htmlSegmentAllData)
     : (container.innerHTML = htmlSegmentNameOnly);
 };
-function peopleImg(obj) {
-  const htmlSegment = `<div class="user">
-                           <h1>${obj.name}</h1>
-                            <img src="../../../../static/assets/img/modes/${obj.type}/${obj.id}.jpg" >
-                        </div>`;
 
-  const container = document.getElementById('swquiz-app');
-  container.innerHTML = htmlSegment;
-}
-function addingEl(obj) {
-  obj.type !== 'people' ? missingImg(obj) : peopleImg(obj);
-}
+//TERAZ TO JEST NIEPOTRZEBNE
+// function peopleImg(obj) {
+//   const htmlSegment = `<div class="user">
+//                            <h1>${obj.name}</h1>
+//                             <img src="../../../../static/assets/img/modes/${obj.type}/${obj.id}.jpg" >
+//                         </div>`;
+
+//   const container = document.getElementById('swquiz-app');
+//   container.innerHTML = htmlSegment;
+// }
+// function addingEl(obj) {
+//   obj.type !== 'people' ? missingImg(obj) : peopleImg(obj);
+// }
 
 //TRZEBA NAPISAĆ TESTY!!!!!!!!!!!
 
@@ -118,7 +79,7 @@ async function getNameAndId(url) {
       return movie.title;
     }),
   );
-  //
+
   const getUrl = rawData.results[randomIndex].url;
   //wyciąga typ : people || vehicles || starships z url
   const type = getUrl.split('/')[getUrl.split('/').length - 3];
@@ -133,4 +94,4 @@ async function getNameAndId(url) {
   return completeData;
 }
 
-getNameAndId(urlStarshipsRequest).then((val) => addingEl(val));
+getNameAndId(urlVehiclesRequest).then((val) => addingEl(val));
