@@ -1,48 +1,16 @@
 //dodałem obj.type żeby ścieżka do katalogu ze zdjęciami zmianiała się dynamicznie
 //PROBLEM - w katalogach jest mniej zdjęć niż obiektów w api, z tego powodu zwraca error 404
 
-const starshipImg = (obj) => {
-  const starshipArrayImg = [
-    5,
-    9,
-    10,
-    11,
-    12,
-    13,
-    15,
-    21,
-    22,
-    23,
-    27,
-    28,
-    29,
-    31,
-    39,
-    40,
-    41,
-    43,
-    47,
-    48,
-  ];
-  if (starshipArrayImg.includes(obj.id)) {
-    const htmlSegmentAllData = `<div class="user">
+const missingImg = (obj) => {
+  console.log(obj);
+  const htmlSegmentAllData = `<div class="user">
                            <h1>${obj.name}</h1>
                             <img src="../../../../static/assets/img/modes/${obj.type}/${obj.id}.jpg" >
                         </div>`;
-
-    const container = document.getElementById('swquiz-app');
-    container.innerHTML = htmlSegmentAllData;
-  } else {
-    const htmlSegmentNameOnly = `<div class="user">
-                           <h1>${obj.name}</h1>
-                        </div>`;
-
-    const container = document.getElementById('swquiz-app');
-    container.innerHTML = htmlSegmentNameOnly;
-  }
-};
-
-const vehicleImg = (obj) => {
+  const htmlSegmentNameOnly = `<div class="user">
+                        <h1>${obj.name}</h1>
+                     </div>`;
+  const container = document.getElementById('swquiz-app');
   const vehiclesArrayImg = [
     4,
     6,
@@ -65,36 +33,43 @@ const vehicleImg = (obj) => {
     38,
     42,
   ];
-  if (vehiclesArrayImg.includes(obj.id)) {
-    const htmlSegmentAllData = `<div class="user">
-                           <h1>${obj.name}</h1>
-                            <img src="../../../../static/assets/img/modes/${obj.type}/${obj.id}.jpg" >
-                        </div>`;
-
-    const container = document.getElementById('swquiz-app');
-    container.innerHTML = htmlSegmentAllData;
-  } else {
-    const htmlSegmentNameOnly = `<div class="user">
-                           <h1>${obj.name}</h1>
-                        </div>`;
-
-    const container = document.getElementById('swquiz-app');
-    container.innerHTML = htmlSegmentNameOnly;
-  }
+  const starshipArrayImg = [
+    5,
+    9,
+    10,
+    11,
+    12,
+    13,
+    15,
+    21,
+    22,
+    23,
+    27,
+    28,
+    29,
+    31,
+    39,
+    40,
+    41,
+    43,
+    47,
+    48,
+  ];
+  vehiclesArrayImg.includes(obj.id) || starshipArrayImg.includes(obj.id)
+    ? (container.innerHTML = htmlSegmentAllData)
+    : (container.innerHTML = htmlSegmentNameOnly);
 };
-
-function addingEl(obj) {
-  if (obj.type !== 'people')
-    obj.type === 'starships' ? starshipImg(obj) : vehicleImg(obj);
-  else {
-    const htmlSegment = `<div class="user">
+function peopleImg(obj) {
+  const htmlSegment = `<div class="user">
                            <h1>${obj.name}</h1>
                             <img src="../../../../static/assets/img/modes/${obj.type}/${obj.id}.jpg" >
                         </div>`;
 
-    const container = document.getElementById('swquiz-app');
-    container.innerHTML = htmlSegment;
-  }
+  const container = document.getElementById('swquiz-app');
+  container.innerHTML = htmlSegment;
+}
+function addingEl(obj) {
+  obj.type !== 'people' ? missingImg(obj) : peopleImg(obj);
 }
 
 //TRZEBA NAPISAĆ TESTY!!!!!!!!!!!
