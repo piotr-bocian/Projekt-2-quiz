@@ -1,4 +1,3 @@
-//dodałem obj.type żeby ścieżka do katalogu ze zdjęciami zmianiała się dynamicznie
 //PROBLEM - w katalogach jest mniej zdjęć niż obiektów w api, z tego powodu zwraca error 404
 
 const addingEl = (obj) => {
@@ -18,20 +17,6 @@ const addingEl = (obj) => {
     ? (container.innerHTML = htmlSegmentAllData)
     : (container.innerHTML = htmlSegmentNameOnly);
 };
-
-//TERAZ TO JEST NIEPOTRZEBNE
-// function peopleImg(obj) {
-//   const htmlSegment = `<div class="user">
-//                            <h1>${obj.name}</h1>
-//                             <img src="../../../../static/assets/img/modes/${obj.type}/${obj.id}.jpg" >
-//                         </div>`;
-
-//   const container = document.getElementById('swquiz-app');
-//   container.innerHTML = htmlSegment;
-// }
-// function addingEl(obj) {
-//   obj.type !== 'people' ? missingImg(obj) : peopleImg(obj);
-// }
 
 //TRZEBA NAPISAĆ TESTY!!!!!!!!!!!
 
