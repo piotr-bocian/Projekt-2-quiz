@@ -95,6 +95,32 @@ img{
     font-size: 1.2rem;
 }
 
+/* ANSWEARS */
+.answears{
+    margin-top: 2rem;
+    height: 35%;
+    flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    display: none;
+}
+
+.answears div{
+    font-size: 1.5rem;
+    width:48%;
+    padding: 1rem 0 1rem;
+    background-color: white;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.answears div:hover{
+    cursor: pointer;
+    font-weight: bold;
+}
+
+
 /* RANKING */
 
 .ranking{
@@ -136,13 +162,13 @@ img{
     margin: 1rem 0;
 }
 
-.btn1, .btn2, .btn3 {
+.buttons button {
     font-size: 1.5rem;
     width:50%;
     padding: 1rem 0 1rem;
     border-radius: 20px;
     border: none;
-    cursor: pointer;
+    outline:none;
 }
 
 .btn1 {
@@ -159,4 +185,9 @@ img{
     background-color: red;
     color: white;
     box-shadow: 2px 2px 15px darkred;
+}
+
+.buttons button:hover {
+    cursor: pointer;
+    font-weight: bold;
 }
