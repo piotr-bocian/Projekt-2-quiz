@@ -6,9 +6,6 @@ const addingEl = (obj) => {
                            <h1>${obj.name}</h1>
                             <img src="../../../../static/assets/img/modes/${obj.type}/${obj.id}.jpg" >
                         </div>`;
-  const htmlSegmentNameOnly = `<div class="user">
-                        <h1>${obj.name}</h1>
-                     </div>`;
   const container = document.getElementById('swquiz-app');
   const vehiclesArrayImg = [
     4,
@@ -59,7 +56,7 @@ const addingEl = (obj) => {
   vehiclesArrayImg.includes(obj.id) ||
   starshipArrayImg.includes(obj.id)
     ? (container.innerHTML = htmlSegmentAllData)
-    : (container.innerHTML = htmlSegmentNameOnly);
+    : resolveF();
 };
 
 //TRZEBA NAPISAĆ TESTY!!!!!!!!!!!
@@ -128,4 +125,7 @@ async function createSWObject(url) {
   return completeData;
 }
 
-createSWObject(urlVehiclesRequest).then((val) => addingEl(val));
+const resolveF = () => createSWObject(urlVehiclesRequest).then((val) => addingEl(val));
+
+resolveF();
+
