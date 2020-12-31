@@ -1,12 +1,4 @@
-// FUNKCJA TEMPLATE
-
-//CZY POTRZEBNE???
-//1. template question
-
-/* <div class="title">
-            <p>Who is this character?</p> // tutaj
-         </div> */
-
+//do testowania
 const titleTemplate = (question) => {
   const pInject = `<p>${question}</p>`;
   return pInject;
@@ -45,6 +37,9 @@ const imgTemplate = () => {
   return imgInject;
 };
 
+//Funkcja przyjmuje dwa argumenty:
+// 1. callback z templatka html
+// 2. string reprezentujacy pozycje: beforebegin || domyślnie - afterbegin || beforeend || afterend
 const renderFunction = (module, place = 'afterbegin') => {
   let htmlTemplate = `${module}`;
   document.body.insertAdjacentHTML(`${place}`, htmlTemplate);
