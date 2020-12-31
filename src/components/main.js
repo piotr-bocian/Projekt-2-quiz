@@ -38,16 +38,16 @@ const imgTemplate = () => {
 };
 
 //Funkcja przyjmuje dwa argumenty:
-// 1. callback z templatka html
-// 2. string reprezentujacy pozycje: beforebegin || domyślnie - afterbegin || beforeend || afterend
-const renderFunction = (module, place = 'afterbegin') => {
+// 1. module => callback z templatka html
+// 2. selector => selektor html rodzica - miejsce dodania elementu
+// 3. opt => string reprezentujacy pozycje: beforebegin || domyślnie - afterbegin || beforeend || afterend
+const renderFunction = (module, selector, opt = 'afterbegin') => {
   let htmlTemplate = `${module}`;
-  document.body.insertAdjacentHTML(`${place}`, htmlTemplate);
+  const place = document.querySelector(selector);
+  place.insertAdjacentHTML(`${opt}`, htmlTemplate);
 };
 
-renderFunction(titleTemplate('Co robisz?'), 'afterbegin');
-renderFunction(answearTemplate());
-renderFunction(rankingTemplate(rankingPeople));
-renderFunction(imgTemplate(), 'afterbegin');
-
-export { renderFunction };
+renderFunction(titleTemplate('Co robisz?'), '#swquiz-app');
+renderFunction(imgTemplate(), '#swquiz-app');
+renderFunction(answearTemplate(), '#swquiz-app');
+renderFunction(rankingTemplate(rankingPeople), '.answear4');
