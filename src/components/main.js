@@ -66,7 +66,7 @@ const moduleLoader = (destinationSelector, moduleSelector, fileName) => {
       // 1. Funkcja wykonuje się tylko raz, potem rzuca błędem
       // 2. Nie działa podanie nazwy pliku, zgłąsza błąd MIME przy odpaleniu przez serwer
       const module = await import(`../app/${fileName}`);
-      module.loadPageInto(placeToLoad);
+      module.append(placeToLoad);
     } catch {
       placeToLoad.textContent = 'Błąd';
     }
