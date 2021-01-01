@@ -47,7 +47,31 @@ const renderFunction = (module, selector, opt = 'afterbegin') => {
   place.insertAdjacentHTML(`${opt}`, htmlTemplate);
 };
 
-renderFunction(titleTemplate('Co robisz?'), '#swquiz-app');
-renderFunction(imgTemplate(), '#swquiz-app');
-renderFunction(answearTemplate(), '#swquiz-app');
-renderFunction(rankingTemplate(rankingPeople), '.answear4');
+// renderFunction(titleTemplate('Co robisz?'), '#swquiz-app');
+// renderFunction(imgTemplate(), '#swquiz-app');
+// renderFunction(answearTemplate(), '#swquiz-app');
+// renderFunction(rankingTemplate(rankingPeople), '.answear4');
+
+//Dynamiczne ładuje cały moduł ze wskazanego miejsca po wykonaniu akcji
+const moduleLoader = (destinationSelector, moduleSelector, fileName) => {
+  // miejsce gdzie moduł ma się ładować
+  const placeToLoad = document.querySelector(destinationSelector);
+  // po wykrytym evencie na moduleActivator np po kliknięciu na People ma się załadować moduł
+  const moduleActivator = document.querySelector(moduleSelector);
+  moduleActivator.addEventListener('click', async (e) => {
+    e.preventDefault();
+    try {
+      console.log(fileName);
+      // const module = await import(`../app/APIconnection.js`);
+      // 1. Funkcja wykonuje się tylko raz, potem rzuca błędem
+      // 2. Nie działa podanie nazwy pliku, zgłąsza błąd MIME przy odpaleniu przez serwer
+      const module = await import(`../app/${fileName}`);
+      module.loadPageInto(placeToLoad);
+    } catch {
+      placeToLoad.textContent = 'Błąd';
+    }
+  });
+};
+
+moduleLoader('#swquiz-app', '.btn', 'APIconnection.js');
+moduleLoader('#swquiz-app', '.btn1', 'APIconnection.js');
