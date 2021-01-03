@@ -6,19 +6,41 @@
 //////PROBLEM
 // 1. Nie działa podanie nazwy pliku, zgłąsza błąd MIME oraz Failed to fetch dynamically imported modul przy odpaleniu przez serwer
 
-const moduleLoader = (place, listenerSelector, fileName) => {
+const moduleLoader = (listenerSelector, folderName, fileName) => {
   const moduleActivator = document.querySelector(listenerSelector);
   moduleActivator.addEventListener('click', async (event) => {
     event.preventDefault();
     try {
-      const module = await import(`./${fileName}`);
+      const module = await import(`./${folderName}/${fileName}`);
       //wywołanie pobranej funkcji z innego pliku
-      // module.renderFunction(place);
+      module.rankingTemplate();
     } catch (e) {
       console.log(e);
     }
   });
 };
+
+moduleLoader('.btn', 'loader', 'loader.js');
+
+//Funkcja przyjmuje dwa argumenty:
+// 1. module => callback z templatka html
+// 2. selector => selektor html rodzica - miejsce dodania elementu
+const renderFn = (module, selector) => {
+  const htmlTemplate = `${module}`;
+  const place = document.querySelector(selector);
+  place.innerHTML = htmlTemplate;
+};
+
+const rankingTemplates = () => {
+  const place = document.querySelector('#swquiz-app');
+  const liInject = `<ul class="ranking-people">
+   <li class="bold">Player</li>
+   <li>Karolina</li>
+ </ul>`;
+  return (place.innerHTML = liInject);
+};
+
+// renderFn(rankingTemplates(), '#swquiz-app');
 
 // DO TESTOWANIA
 // const rankingTemplate = (name, selector) => {
@@ -28,16 +50,6 @@ const moduleLoader = (place, listenerSelector, fileName) => {
 //  </ul>`;
 //   const place = document.querySelector(selector);
 //   place.innerHTML = liInject;
-// };
-
-//Funkcja przyjmuje dwa argumenty:
-// 1. module => callback z templatka html
-// 2. selector => selektor html rodzica - miejsce dodania elementu
-
-// const renderFn = (module, selector) => {
-//   const htmlTemplate = `${module}`;
-//   const place = document.querySelector(selector);
-//   place.innerHTML = htmlTemplate;
 // };
 
 // export const renderFunction = (selector) => {
