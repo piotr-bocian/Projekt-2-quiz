@@ -1,3 +1,48 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
+    font-family: 'Montserrat', sans-serif;
+    background-image: url("../static/assets/ui/QuizBackground.png");
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     overflow-x: hidden;
+}
+
+/* RANKING */
+
+.ranking{
+    margin-top: 2rem;
+    background-color: white;
+    padding: 3rem 2.5rem;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    display: none;
+}
+
+.ranking h2{
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.ranking div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.ranking ul {
+    list-style-type: none;
+}
+
+.ranking li.bold{
+    font-weight: bold;
 }
