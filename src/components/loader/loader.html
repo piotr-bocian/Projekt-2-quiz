@@ -27,15 +27,16 @@
 
       }
 
-      .hider {
+      .hider{
          display: block;
          width: 100%;
          height: 20px;
          background-color: red;
          border-radius: 20px;
          box-shadow: -2px 1px 10px 9px rgba(255, 13, 13, 0.96);
-         animation: slider 10s linear;
-         animation-play-state: play;
+         animation: slider 100s linear;
+         animation-play-state: running;
+         animation-fill-mode: forwards;
       }
 
       @keyframes slider {
@@ -53,7 +54,7 @@
          font-size: 50px;
       }
    </style>
-   <div class="loader">
+  <div class="loader">
       <div class='lightsaber'>
 
          <img class='lighstaberHandler' src="../../../static/assets/ui/LightsaberHandle.png">
@@ -63,7 +64,7 @@
          </div>
       </div>
       <div class='counter'>
-         <p class='countdown-text'>Time Left:<span class='countdown-timer'></span></p>
+         <p class='countdown-text'><span class = 'timer'></span></p>
       </div>
 </body>
 

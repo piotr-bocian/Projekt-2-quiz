@@ -44,7 +44,7 @@ const loader = () => {
          }
       }
 
-      .countdown-text {
+      .countdown-text, .timer {
          color: rgb(158, 42, 42);
          font-size: 50px;
       }
@@ -60,6 +60,7 @@ const loader = () => {
       </div>
       <div class='counter'>
          <p class='countdown-text'></p>
+         <p class= 'timer'></p>
       </div>
   `;
   class StarWarsLoader extends HTMLElement {
@@ -72,15 +73,28 @@ const loader = () => {
         '../../../static/assets/ui/LightsaberHandle.png';
       this.shadowRoot.querySelector(
         '.countdown-text',
-      ).innerText = `Time Left: 1m 20s`;
+      ).innerText = `Time Left: `;
       this.shadowRoot.querySelector('.lightsaberColor');
-      //na tym działam
+      // this.shadowRoot.querySelector('.timer').innerText = `${sec}s`;
+      this.shadowRoot.querySelector('.countdown-text').innerText = `Time Left:`;
+    }
 
-      this.shadowRoot.querySelector(
-        '.countdown-text',
-      ).innerText = `Time Left: ${min}m ${sec}s`;
+    timer() {
+      let sec = 100;
+      const count = this.shadowRoot.querySelector('.timer');
+      const timer = setInterval(function () {
+         count.innerText = `${sec}s`
+        sec--;
+        if (sec < 0) {
+          clearInterval(timer);
+        }
+      }, 1000);
+    }
+    connectedCallback() {
+      window.addEventListener('load', this.timer());
     }
   }
+
   window.customElements.define('star-wars-loader', StarWarsLoader);
 };
 
