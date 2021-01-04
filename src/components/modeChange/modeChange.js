@@ -44,6 +44,8 @@ const load = () => {
         constructor(){
             super();
 
+            this.currentMode = 'People';
+
             this.attachShadow({ mode: 'open'});
             this.shadowRoot.appendChild(template.content.cloneNode(true));
         }
@@ -53,7 +55,8 @@ const load = () => {
             
             modes.forEach(mode => {
                 mode.addEventListener('click', (e) => {
-                    console.log('Wybrano tryb: ' + e.target.innerText);
+                    this.currentMode = e.target.innerText;
+                    console.log('Wybrano tryb: ' + this.currentMode);
                     
                     modes.forEach(mode => mode.classList.remove('dark'));
                     e.target.classList.add('dark');
