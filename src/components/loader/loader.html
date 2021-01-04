@@ -5,56 +5,11 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Document</title>
+   <link rel="stylesheet" href="./loader.css">
 </head>
 
 <body>
-   <style>
-      .lightsaber,
-      .counter {
-         display: flex;
-         flex-wrap: no-wrap;
-         justify-content: center;
-         align-items: center;
-      }
-
-      .lighstaberHandler {
-         flex-shrink: 0;
-      }
-
-      .lightsaberColor {
-         width: 100%;
-         height: 20px;
-
-      }
-
-      .hider{
-         display: block;
-         width: 100%;
-         height: 20px;
-         background-color: red;
-         border-radius: 20px;
-         box-shadow: -2px 1px 10px 9px rgba(255, 13, 13, 0.96);
-         animation: slider 100s linear;
-         animation-play-state: running;
-         animation-fill-mode: forwards;
-      }
-
-      @keyframes slider {
-         0% {
-            width: 100%
-         }
-
-         100% {
-            width: 0;
-         }
-      }
-
-      .countdown-text {
-         color: rgb(158, 42, 42);
-         font-size: 50px;
-      }
-   </style>
-  <div class="loader">
+   <div>
       <div class='lightsaber'>
 
          <img class='lighstaberHandler' src="../../../static/assets/ui/LightsaberHandle.png">
@@ -64,7 +19,8 @@
          </div>
       </div>
       <div class='counter'>
-         <p class='countdown-text'><span class = 'timer'></span></p>
+         <p class='countdown-text'>twoj czas</p>
+         <p class='timer'>19s</p>
       </div>
 </body>
 

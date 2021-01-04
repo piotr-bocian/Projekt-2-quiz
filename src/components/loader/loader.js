@@ -1,53 +1,53 @@
-//loader
-
-const loader = () => {
+const timerComponent = () => {
   const template = document.createElement('template');
   template.innerHTML = `
   <style>
-      .lightsaber,
-      .counter {
-         display: flex;
-         flex-wrap: no-wrap;
-         justify-content: center;
-         align-items: center;
-      }
+  .lightsaber,
+  .counter {
+     display: flex;
+     flex-wrap: no-wrap;
+     justify-content: center;
+     align-items: center;
+  }
 
-      .lighstaberHandler {
-         flex-shrink: 0;
-      }
+  .lighstaberHandler {
+     flex-shrink: 0;
+  }
 
-      .lightsaberColor {
-         width: 100%;
-         height: 20px;
+  .lightsaberColor {
+     width: 100%;
+     height: 20px;
+     border-radius: 20px;
+     background-color: #bcbcbc;
+  }
 
-      }
+  .hider {
+     display: block;
+     width: 100%;
+     height: 20px;
+     background-color: white;
+     border-radius: 20px;
+     box-shadow: 0px 0px 10px 10px #fa250e;
+     animation: slider 100s linear;
+     animation-play-state: running;
+     animation-fill-mode: forwards;
+  }
 
-      .hider{
-         display: block;
-         width: 100%;
-         height: 20px;
-         background-color: red;
-         border-radius: 20px;
-         box-shadow: -2px 1px 10px 9px rgba(255, 13, 13, 0.96);
-         animation: slider 100s linear;
-         animation-play-state: running;
-         animation-fill-mode: forwards;
-      }
+  @keyframes slider {
+     0% {
+        width: 100%
+     }
 
-      @keyframes slider {
-         0% {
-            width: 100%
-         }
+     100% {
+        width: 0;
+     }
+  }
 
-         100% {
-            width: 0;
-         }
-      }
-
-      .countdown-text, .timer {
-         color: rgb(158, 42, 42);
-         font-size: 50px;
-      }
+  .countdown-text,
+  .timer {
+     color: #d81e06;
+     font-size: 24px;
+  }
    </style>
   <div class="loader">
       <div class='lightsaber'>
@@ -63,7 +63,7 @@ const loader = () => {
          <p class= 'timer'></p>
       </div>
   `;
-  class StarWarsLoader extends HTMLElement {
+  class StarWarsTimer extends HTMLElement {
     constructor() {
       super();
 
@@ -71,22 +71,19 @@ const loader = () => {
       this.shadowRoot.appendChild(template.content.cloneNode(true));
       this.shadowRoot.querySelector('.lighstaberHandler').src =
         '../../../static/assets/ui/LightsaberHandle.png';
-      this.shadowRoot.querySelector(
-        '.countdown-text',
-      ).innerText = `Time Left: `;
       this.shadowRoot.querySelector('.lightsaberColor');
-      // this.shadowRoot.querySelector('.timer').innerText = `${sec}s`;
-      this.shadowRoot.querySelector('.countdown-text').innerText = `Time Left:`;
+      this.shadowRoot.querySelector('.countdown-text').innerText = `Time Left`;
     }
-
     timer() {
-      let sec = 100;
+      let sec = 120;
       const count = this.shadowRoot.querySelector('.timer');
-      const timer = setInterval(function () {
-         count.innerText = `${sec}s`
+      const countdown = setInterval(function () {
+        count.innerText = `: ${sec}s`;
         sec--;
-        if (sec < 0) {
-          clearInterval(timer);
+        //trzeba naprawić skaczący tekst oraz dodać minuty
+        if (sec <= 0) {
+          clearInterval(countdown);
+          count.innerText = `: Twój czas się skończył`;
         }
       }, 1000);
     }
@@ -94,8 +91,7 @@ const loader = () => {
       window.addEventListener('load', this.timer());
     }
   }
-
-  window.customElements.define('star-wars-loader', StarWarsLoader);
+  window.customElements.define('star-wars-loader', StarWarsTimer);
 };
 
-export { loader };
+export { timerComponent };
