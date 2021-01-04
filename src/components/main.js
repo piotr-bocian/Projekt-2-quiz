@@ -20,7 +20,7 @@ const moduleLoader = (listenerSelector, folderName, fileName) => {
   });
 };
 
-moduleLoader('.btn', 'loader', 'loader.js');
+//moduleLoader('.btn', 'loader', 'loader.js');
 
 //Funkcja przyjmuje dwa argumenty:
 // 1. module => callback z templatka html
