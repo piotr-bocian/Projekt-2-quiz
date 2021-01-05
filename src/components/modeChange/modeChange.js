@@ -63,6 +63,10 @@ const modeChange = () => {
                 })
             })
         }
+
+        getCurrentMode(){
+            return this.currentMode;
+        }
     }
 
     window.customElements.define('mode-change', modeChangeComponent);
