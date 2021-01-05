@@ -11,26 +11,43 @@
 const arrayIds = (num) => {
     const idArray = [];
     for(let i = 1; i <= num; i++) {
+        if(i !== 17) {
         idArray.push(i);
+        } else {
+            continue;
+        }
     }
     return idArray;
 }
 
   
 const randomId = (data) => {
-        const randomizator = Math.floor(Math.random() * data.length);
+        const randomizator = Math.floor(Math.random() * data.length + 1);
         return randomizator;
 }
 
 const rndArrayOfIds = (arr, arr2) => {
     while(arr.length < 4) {
-        let id = randomId(arr2);
-        if (!arr.includes(id)) {
+        let id = arr2[randomId(arr2)];
+        if (!arr.includes(id) || id !== 17) {
             arr.push(id);
         }
     }    
     return arr;
 }
+// PYTANIE DO PIOTRKA: CZY DA SIĘ WYCIĄGNĄĆ DANE Z API POZA FUNKCJĘ ASYNC?
+
+async function getNames(arr, basicUrl) {
+    const names = await Promise.all(
+      arr.map(async (num) => {
+        const response = await fetch(basicUrl+num + "/");
+        const fullObject = await response.json();
+        return fullObject.name;
+      }),
+    );
+    // console.log(names);
+    return names;
+  } 
 
 async function getNumberOfResults(url) {
     let data;
@@ -41,9 +58,14 @@ async function getNumberOfResults(url) {
         data = await responsePeople.json();
         numOfRes = data.count;
         const apiIds = arrayIds(numOfRes);
+        console.log(apiIds);
         const rndIds = rndArrayOfIds(fourAnswers, apiIds);
-        console.log(rndIds.length);
-        return rndIds;
+        const correctAns = rndIds[Math.floor(Math.random() * rndIds.length)];
+        console.log(correctAns, rndIds);
+        const namesArr = await getNames(rndIds, url)
+        questions.answers = namesArr;
+
+        console.log(namesArr);
     } catch (error) {
       console.log(error);
     }
@@ -51,5 +73,6 @@ async function getNumberOfResults(url) {
   }
 
 getNumberOfResults(urlPeopleRequest);
+
 
   
