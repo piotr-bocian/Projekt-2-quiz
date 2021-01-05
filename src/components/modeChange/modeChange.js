@@ -1,4 +1,4 @@
-const load = () => {
+const modeChange = () => {
     const template = document.createElement('template');
     template.innerHTML = `
         <style>
@@ -44,7 +44,7 @@ const load = () => {
         constructor(){
             super();
 
-            this.currentMode = 'People';
+            this.currentMode = 'People';    //domyślnie wybrany jest tryb People
 
             this.attachShadow({ mode: 'open'});
             this.shadowRoot.appendChild(template.content.cloneNode(true));
@@ -56,10 +56,10 @@ const load = () => {
             modes.forEach(mode => {
                 mode.addEventListener('click', (e) => {
                     this.currentMode = e.target.innerText;
-                    console.log('Wybrano tryb: ' + this.currentMode);
+                    alert('Wybrano tryb: ' + this.currentMode);
                     
-                    modes.forEach(mode => mode.classList.remove('dark'));
-                    e.target.classList.add('dark');
+                    modes.forEach(mode => mode.classList.remove('dark'));   //usuwamy klasę dark ze wszystkich elementów li
+                    e.target.classList.add('dark');   //dodajemy klasę dark do klikniętego elementu li
                 })
             })
         }
@@ -68,4 +68,4 @@ const load = () => {
     window.customElements.define('mode-change', modeChangeComponent);
 }
 
-load();
+modeChange();
