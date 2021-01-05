@@ -9,7 +9,7 @@ const timerComponent = () => {
    background-color: white;
    border-radius: 20px;
    box-shadow: 0px 0px 10px 10px #fa250e;
-   animation: slider 100s linear;
+   animation: slider 120s linear;
    animation-play-state: running;
    animation-fill-mode: forwards;
 }

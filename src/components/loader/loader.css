@@ -45,3 +45,28 @@ star-wars-loader::part(counter) {
          color: #d81e06;
          font-size: 24px;
       }
+
+      /* .lightsaber,
+.counter {
+         display: flex;
+         flex-wrap: no-wrap;
+         justify-content: center;
+         align-items: center;
+      }
+
+      .lighstaberHandler {
+         flex-shrink: 0;
+      }
+
+      .lightsaberColor {
+         width: 100%;
+         height: 20px;
+         border-radius: 20px;
+         background-color: #bcbcbc;
+      }
+
+      .countdown-text,
+      .timer {
+         color: #d81e06;
+         font-size: 24px;
+      } */
