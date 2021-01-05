@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+
+.rules {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    background: rgba(5, 0, 24, 0.1);
+    border-radius: 16px;
+    width: 100%;
+}
+
+#modeRules {
+    font-family: 'Audiowide', cursive;
+    color: #FFE81F;
+    font-size: 1em;
+    line-height: 1.5em;
+}
+
+#gameRules {
+    font-family: 'Montserrat', sans-serif;
+    color: #FFE81F;
+    text-align: center;
+}
+
+#iconRules {
+    height: 1.25em;
+    filter: invert(99%) sepia(0%) saturate(160%) hue-rotate(254deg) brightness(111%) contrast(101%);
+}
