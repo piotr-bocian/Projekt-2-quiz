@@ -1,23 +1,24 @@
-.lightsaber,
-      .counter {
+star-wars-loader::part(lightsaber),
+star-wars-loader::part(counter) {
          display: flex;
          flex-wrap: no-wrap;
          justify-content: center;
          align-items: center;
       }
 
-      .lighstaberHandler {
+      star-wars-loader::part(lighstaberHandler) {
          flex-shrink: 0;
       }
 
-      .lightsaberColor {
+      star-wars-loader::part(lightsaberColor) {
          width: 100%;
          height: 20px;
          border-radius: 20px;
          background-color: #bcbcbc;
       }
 
-      .hider {
+      /* NIE DZIAŁA, DLACZEGO????? */
+      /* star-wars-loader::part(hider) {
          display: block;
          width: 100%;
          height: 20px;
@@ -37,10 +38,10 @@
          100% {
             width: 0;
          }
-      }
+      } */
 
-      .countdown-text,
-      .timer {
+      star-wars-loader::part(countdown-text),
+      star-wars-loader::part(timer) {
          color: #d81e06;
          font-size: 24px;
       }

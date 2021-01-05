@@ -2,65 +2,40 @@ const timerComponent = () => {
   const template = document.createElement('template');
   template.innerHTML = `
   <style>
-  .lightsaber,
-  .counter {
-     display: flex;
-     flex-wrap: no-wrap;
-     justify-content: center;
-     align-items: center;
-  }
-
-  .lighstaberHandler {
-     flex-shrink: 0;
-  }
-
-  .lightsaberColor {
-     width: 100%;
-     height: 20px;
-     border-radius: 20px;
-     background-color: #bcbcbc;
-  }
-
   .hider {
-     display: block;
-     width: 100%;
-     height: 20px;
-     background-color: white;
-     border-radius: 20px;
-     box-shadow: 0px 0px 10px 10px #fa250e;
-     animation: slider 100s linear;
-     animation-play-state: running;
-     animation-fill-mode: forwards;
-  }
+   display: block;
+   width: 100%;
+   height: 20px;
+   background-color: white;
+   border-radius: 20px;
+   box-shadow: 0px 0px 10px 10px #fa250e;
+   animation: slider 100s linear;
+   animation-play-state: running;
+   animation-fill-mode: forwards;
+}
 
-  @keyframes slider {
-     0% {
-        width: 100%
-     }
+@keyframes slider {
+   0% {
+      width: 100%
+   }
 
-     100% {
-        width: 0;
-     }
-  }
+   100% {
+      width: 0;
+   }
+}
+  </style>
+  <div part="loader">
+      <div part='lightsaber'>
 
-  .countdown-text,
-  .timer {
-     color: #d81e06;
-     font-size: 24px;
-  }
-   </style>
-  <div class="loader">
-      <div class='lightsaber'>
+         <img part='lighstaberHandler' class = 'lighstaberHandler' src="../../../static/assets/ui/LightsaberHandle.png">
 
-         <img class='lighstaberHandler' src="../../../static/assets/ui/LightsaberHandle.png">
-
-         <div class='lightsaberColor'>
-            <span class='hider'></span>
+         <div part='lightsaberColor' class = 'lightsaberColor'>
+            <span part='hider' class = 'hider'></span>
          </div>
       </div>
-      <div class='counter'>
-         <p class='countdown-text'></p>
-         <p class= 'timer'></p>
+      <div part='counter'>
+         <p part='countdown-text' class = 'countdown-text'></p>
+         <p part= 'timer' class = 'timer'></p>
       </div>
   `;
   class StarWarsTimer extends HTMLElement {
