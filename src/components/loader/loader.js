@@ -9,7 +9,7 @@ const timerComponent = () => {
    background-color: white;
    border-radius: 20px;
    box-shadow: 0px 0px 10px 10px #fa250e;
-   animation: slider 120s linear;
+   animation: slider 60s linear;
    animation-play-state: running;
    animation-fill-mode: forwards;
 }
@@ -50,7 +50,7 @@ const timerComponent = () => {
       this.shadowRoot.querySelector('.countdown-text').innerText = `Time Left`;
     }
     timer() {
-      let sec = 120;
+      let sec = 60;
       const count = this.shadowRoot.querySelector('.timer');
       const countdown = setInterval(function () {
         count.innerText = `: ${sec}s`;
