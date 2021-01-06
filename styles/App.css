@@ -1,4 +1,4 @@
- /* @import "src\components\question\question.css"; */
+  @import "../src/components/question/question.css";
 
 body {
     font-family: 'Montserrat', sans-serif;
