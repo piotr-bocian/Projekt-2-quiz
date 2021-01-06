@@ -1,3 +1,5 @@
+import { check } from "prettier";
+
 const vehiclesArrayImg = [
   4,
   6,
@@ -179,3 +181,5 @@ checkMode('vehicles').then(e=>{
   `
   console.log(e);
 });
+
+export { checkMode };
