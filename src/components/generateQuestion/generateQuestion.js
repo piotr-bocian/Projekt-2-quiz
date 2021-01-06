@@ -1,8 +1,47 @@
-// const questions = {
-//   image: '',
-//   answers: [],
-//   rightAnswer: '',
-// };
+const vehiclesArrayImg = [
+  4,
+  6,
+  7,
+  8,
+  14,
+  16,
+  18,
+  19,
+  20,
+  24,
+  25,
+  26,
+  30,
+  33,
+  34,
+  35,
+  36,
+  37,
+  38,
+  42,
+];
+const starshipArrayImg = [
+  5,
+  9,
+  10,
+  11,
+  12,
+  13,
+  15,
+  21,
+  22,
+  23,
+  27,
+  28,
+  29,
+  31,
+  39,
+  40,
+  41,
+  43,
+  47,
+  48,
+];
 
 const urlPeopleRequest = 'https://swapi.dev/api/people/';
 const urlVehiclesRequest = 'https://swapi.dev/api/vehicles/';
@@ -34,7 +73,6 @@ const rndArrayOfIds = (arr, arr2) => {
   }
   return arr;
 };
-// PYTANIE DO PIOTRKA: CZY DA SIĘ WYCIĄGNĄĆ DANE Z API POZA FUNKCJĘ ASYNC?
 
 async function getNames(arr, basicUrl) {
   const names = await Promise.all(
@@ -44,17 +82,16 @@ async function getNames(arr, basicUrl) {
       return fullObject.name;
     }),
   );
-  // console.log(names);
   return names;
 }
 
-const getImg = (id) => {
-  const imgQuestion = `people/${id}.jpg`;
-  // console.log(imgQuestion);
+const getImg = (mode, id) => {
+  const imgQuestion = `${mode}/${id}.jpg`;
   return imgQuestion;
 };
 
-async function getNumberOfResults(url) {
+async function createPeopleObject(url) {
+  const mode = 'people';
   const questions = {
       image: '',
       answers: [],
@@ -68,25 +105,77 @@ async function getNumberOfResults(url) {
     data = await responsePeople.json();
     numOfRes = data.count;
     const apiIds = arrayIds(numOfRes);
-    // console.log(apiIds);
     const rndIds = rndArrayOfIds(fourAnswers, apiIds);
     const correctAns = rndIds[Math.floor(Math.random() * rndIds.length)];
-
-    // console.log(correctAns, rndIds);
     const namesArr = await getNames(rndIds, url);
     questions.answers = namesArr;
     questions.rightAnswer = namesArr[rndIds.indexOf(correctAns)];
-    questions.image = getImg(correctAns);
-    console.log(questions);
-    // console.log();
-    // console.log(correctAns,namesArr, questions);
+    questions.image = getImg(mode, correctAns);
     return questions;
   } catch (error) {
     console.log(error);
   }
 }
-getNumberOfResults(urlPeopleRequest).then(e=>{
+
+async function createStarshipsObject(url) {
+  const mode = 'starships';
+  const questions = {
+      image: '',
+      answers: [],
+      rightAnswer: '',
+    };
+  let fourAnswers = [];
+  try {
+    const apiIds = starshipArrayImg;
+    const rndIds = rndArrayOfIds(fourAnswers, apiIds);
+    const correctAns = rndIds[Math.floor(Math.random() * rndIds.length)];
+    const namesArr = await getNames(rndIds, url);
+    questions.answers = namesArr;
+    questions.rightAnswer = namesArr[rndIds.indexOf(correctAns)];
+    questions.image = getImg(mode, correctAns);
+    return questions;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function createVehiclesObject(url) {
+  const mode = 'vehicles';
+  const questions = {
+      image: '',
+      answers: [],
+      rightAnswer: '',
+    };
+  let fourAnswers = [];
+  try {
+    const apiIds = vehiclesArrayImg;
+    const rndIds = rndArrayOfIds(fourAnswers, apiIds);
+    const correctAns = rndIds[Math.floor(Math.random() * rndIds.length)];
+    const namesArr = await getNames(rndIds, url);
+    questions.answers = namesArr;
+    questions.rightAnswer = namesArr[rndIds.indexOf(correctAns)];
+    questions.image = getImg(mode, correctAns);
+    return questions;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+
+function checkMode(mode) {
+  switch(mode.toLowerCase()) {
+    case 'people':
+      return createPeopleObject(urlPeopleRequest);
+    case 'vehicles':
+      return createVehiclesObject(urlVehiclesRequest);
+    case 'starships':
+      return createStarshipsObject(urlStarshipsRequest);
+  }
+}
+
+checkMode('vehicles').then(e=>{
   document.getElementById('swquiz-app').innerHTML = `
   <img src="../../../static/assets/img/modes/${e.image}" >
   `
+  console.log(e);
 });
