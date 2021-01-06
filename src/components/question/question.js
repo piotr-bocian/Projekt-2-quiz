@@ -1,72 +1,28 @@
-const loadQuestion = () => {
-    const template = document.createElement('template');
-    template.innerHTML = `
-        <style>
-            .menu{
-                margin-top: 1rem;
-                background-color: white;
-                padding: 2.5rem 1rem;
-                box-shadow: 2px 2px 15px darkred;
-                border-radius: 20px;
-            }
-            
-            .modes-list{
-                list-style-type: none;
-                display: flex;
-                justify-content: space-around;
-                align-items: center;
-            }
-            
-            .modes-list li{
-                font-size: 1.5rem;
-                color: darkgrey;
-            }
-            
-            .modes-list li.dark{
-                color: black;
-            }
-            
-            .modes-list li:hover{
-                cursor: pointer;
-                color: black;
-            }
-            .title{
-                margin-top: 2.5rem;
-                background-color: white;
-                padding: 1.5rem 1rem;
-                box-shadow: 2px 2px 15px darkred;
-                text-align: center;
-                font-size: 2rem;
-                font-weight: bold;
-                border-radius: 20px;
-            }
-        </style>
-        <div class="menu">
-            <ul class="modes-list">
-                <li class="dark">People</li>
-                <li>Vehicles</li>
-                <li>Starships</li>
-            </ul>
-        </div>
+function gameQuestion(text) {
 
-        <div class="title">
-            <p>Who is this character?</p>
-        </div>
-    `;
-    
-    // class question extends HTMLElement {};
-    const question = document.querySelector('.title p');
-    const modes = document.querySelectorAll('.modes-list li');
+    const divQuestion = document.createElement("div");
+    divQuestion.className = "title";
 
-    modes[0].addEventListener('click', function(){
-        question.innerHTML = 'Who is this character?'
-    })
-    modes[1].addEventListener('click', function(){
-        question.innerHTML = 'Do you recognize this vehicle?'
-    })
-    modes[2].addEventListener('click', function(){
-        question.innerHTML = 'Do you recognize this starship?'
-    })
+    const pQuestion = document.createElement("p");
+    pQuestion.id = "question"
+    pQuestion.innerHTML = text;
+
+    divQuestion.appendChild(pQuestion);
+
+    return divQuestion;
 }
 
-loadQuestion();
+// document.body.appendChild(gameQuestion("test"));
+
+
+function question(mode, cb) {
+    if (mode === "People"){
+        return cb("Who is this character?")
+    } else if (mode === "Vehicles") {
+        return cb("Do you recognize this vehicle?")
+    } else if (mode === "Starships"){
+        return cb("Do you recognize this starship?")
+    }
+}
+
+document.body.appendChild(question("Vehicles", gameQuestion));
