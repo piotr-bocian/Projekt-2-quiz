@@ -1,3 +1,4 @@
+import 'regenerator-runtime/runtime'
 const vehiclesArrayImg = [
   4,
   6,
