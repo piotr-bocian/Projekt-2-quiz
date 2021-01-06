@@ -1,3 +1,8 @@
+import gameRules from '../gameRules/gameRules.js'
+import rulesText from '../gameRules/gameRulesText.js'
+import gameQuestion from '../question/question.js';
+import questionText from '../question/questionText.js';
+
 const modeChange = () => {
     const template = document.createElement('template');
     template.innerHTML = `
@@ -9,7 +14,6 @@ const modeChange = () => {
                 box-shadow: 2px 2px 15px darkred;
                 border-radius: 20px;
             }
-            
             .modes-list{
                 list-style-type: none;
                 display: flex;
@@ -56,10 +60,19 @@ const modeChange = () => {
             modes.forEach(mode => {
                 mode.addEventListener('click', (e) => {
                     this.currentMode = e.target.innerText;
-                    alert('Wybrano tryb: ' + this.currentMode);
+                  //  alert('Wybrano tryb: ' + this.currentMode);
                     
                     modes.forEach(mode => mode.classList.remove('dark'));   //usuwamy klasę dark ze wszystkich elementów li
                     e.target.classList.add('dark');   //dodajemy klasę dark do klikniętego elementu li
+                   
+                    switch (this.currentMode){
+                        case 'Vehicles':
+                          console.log(gameRules(rulesText.vehicles));
+                          gameQuestion(questionText.vehivles);
+
+
+                    }
+
                 })
             })
         }
@@ -72,4 +85,6 @@ const modeChange = () => {
     window.customElements.define('mode-change', modeChangeComponent);
 }
 
-modeChange();
+// modeChange();
+
+export default modeChange;
