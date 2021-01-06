@@ -10,7 +10,7 @@
 
 const arrayIds = (num) => {
     const idArray = [];
-    for(let i = 1; i <= num; i++) {
+    for(let i = 1; idArray.length < num; i++) {
         if(i !== 17) {
         idArray.push(i);
         } else {
@@ -22,14 +22,14 @@ const arrayIds = (num) => {
 
   
 const randomId = (data) => {
-        const randomizator = Math.floor(Math.random() * data.length + 1);
+        const randomizator = Math.floor(Math.random() * (data.length - 1) + 1);
         return randomizator;
 }
 
 const rndArrayOfIds = (arr, arr2) => {
     while(arr.length < 4) {
         let id = arr2[randomId(arr2)];
-        if (!arr.includes(id) || id !== 17) {
+        if (!arr.includes(id)) {
             arr.push(id);
         }
     }    
