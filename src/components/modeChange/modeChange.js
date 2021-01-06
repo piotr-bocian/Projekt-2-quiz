@@ -8,11 +8,7 @@ const modeChange = () => {
     template.innerHTML = `
         <style>
             .menu{
-                margin-top: 1rem;
-                background-color: white;
-                padding: 2.5rem 1rem;
-                box-shadow: 2px 2px 15px darkred;
-                border-radius: 20px;
+                background-color: transparent;
             }
             .modes-list{
                 list-style-type: none;
@@ -22,17 +18,25 @@ const modeChange = () => {
             }
             
             .modes-list li{
+                width: 28%;
+                padding: 0.5rem 0;
+                border-radius: 16px;
+                text-align: center;
+                font-family: Montserrat;
+                font-weight: 600;
                 font-size: 1.5rem;
-                color: darkgrey;
+                line-height: 51px;
+                color: #FFFFFF;
+                background-color: #050018;
+                box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 4px 4px 40px rgba(255, 0, 0, 0.9);
             }
             
             .modes-list li.dark{
-                color: black;
+                box-shadow: 6px 6px 6px rgba(255, 0, 0, 0.25), 10px 10px 90px #FF0000;
             }
             
             .modes-list li:hover{
                 cursor: pointer;
-                color: black;
             }
         </style>
         <div class="menu">
