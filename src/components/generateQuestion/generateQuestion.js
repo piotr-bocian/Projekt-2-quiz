@@ -20,7 +20,6 @@ const arrayIds = (num) => {
     return idArray;
 }
 
-  
 const randomId = (data) => {
         const randomizator = Math.floor(Math.random() * (data.length - 1) + 1);
         return randomizator;
@@ -32,7 +31,7 @@ const rndArrayOfIds = (arr, arr2) => {
         if (!arr.includes(id)) {
             arr.push(id);
         }
-    }    
+    }
     return arr;
 }
 // PYTANIE DO PIOTRKA: CZY DA SIĘ WYCIĄGNĄĆ DANE Z API POZA FUNKCJĘ ASYNC?
@@ -47,7 +46,13 @@ async function getNames(arr, basicUrl) {
     );
     // console.log(names);
     return names;
-  } 
+  }
+  
+  const getImg = (id)=>{
+    const imgQuestion = `../../../../static/assets/img/modes/people/${id}.jpg>`;
+    // console.log(imgQuestion);
+    return imgQuestion
+  }
 
 async function getNumberOfResults(url) {
     let data;
@@ -58,14 +63,18 @@ async function getNumberOfResults(url) {
         data = await responsePeople.json();
         numOfRes = data.count;
         const apiIds = arrayIds(numOfRes);
-        console.log(apiIds);
+        // console.log(apiIds);
         const rndIds = rndArrayOfIds(fourAnswers, apiIds);
         const correctAns = rndIds[Math.floor(Math.random() * rndIds.length)];
-        console.log(correctAns, rndIds);
+
+        // console.log(correctAns, rndIds);
         const namesArr = await getNames(rndIds, url)
         questions.answers = namesArr;
-
-        console.log(namesArr);
+        questions.rightAnswer = namesArr[rndIds.indexOf(correctAns)]
+        questions.image = getImg(correctAns)
+        console.log(questions);
+        console.log();
+        // console.log(correctAns,namesArr, questions);
     } catch (error) {
       console.log(error);
     }
@@ -74,5 +83,3 @@ async function getNumberOfResults(url) {
 
 getNumberOfResults(urlPeopleRequest);
 
-
-  
