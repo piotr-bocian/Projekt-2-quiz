@@ -1,0 +1,28 @@
+.menu{
+    margin-top: 1rem;
+    background-color: white;
+    padding: 2.5rem 1rem;
+    box-shadow: 2px 2px 15px darkred;
+    border-radius: 20px;
+}
+
+.modes-list{
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.modes-list li{
+    font-size: 1.5rem;
+    color: darkgrey;
+}
+
+.modes-list li.dark{
+    color: black;
+}
+
+.modes-list li:hover{
+    cursor: pointer;
+    color: black;
+}

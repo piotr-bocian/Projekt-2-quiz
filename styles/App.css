@@ -1,4 +1,5 @@
-  @import "./question.css";
+@import "./question.css";
+@import './gameRules.css';
 
 body {
     font-family: 'Montserrat', sans-serif;
