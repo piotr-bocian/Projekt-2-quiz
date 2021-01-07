@@ -27,4 +27,5 @@
 #iconRules {
     height: 1.25em;
     filter: invert(99%) sepia(0%) saturate(160%) hue-rotate(254deg) brightness(111%) contrast(101%);
+    fill: white;
 }
