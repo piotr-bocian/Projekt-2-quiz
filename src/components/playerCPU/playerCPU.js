@@ -11,6 +11,8 @@ class PlayerCPU {
 
     askQuestion() {
 
+        this.questionAsked = true;
+        this.questionAnswerd = false;
         return question;
     }
 
