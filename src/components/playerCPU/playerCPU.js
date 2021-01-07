@@ -25,11 +25,17 @@ class PlayerCPU {
     }
 }
 
-const cpu = new PlayerCPU();
+// cpu.answerQuestion(['Siara', 'Killer', 'Wąski', 'Ryba']);
 
-cpu.answerQuestion(['Siara', 'Killer', 'Wąski', 'Ryba']);
-console.log(cpu);
 
+const createObjectCPU = () => {
+    const cpu = new PlayerCPU();
+    console.log(cpu);
+    return cpu;
+}
+
+const genObj = document.getElementById('p-t-g');
+genObj.addEventListener('click', createObjectCPU);
 
 // Napisać klasę zawierającą to co powinien zawierać obiekt, z funkcjami aksQuestion
 // answerQuestion.
