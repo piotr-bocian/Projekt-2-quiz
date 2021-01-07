@@ -65,12 +65,28 @@ const modeChange = () => {
                     modes.forEach(mode => mode.classList.remove('dark'));   //usuwamy klasę dark ze wszystkich elementów li
                     e.target.classList.add('dark');   //dodajemy klasę dark do klikniętego elementu li
                    
+                    const gameRulesContainer = document.body.querySelector('.rules');
+                    const questionContainer = document.body.querySelector('.title');
+                    
                     switch (this.currentMode){
+                        case 'People':
+                          console.log(gameRules(rulesText.people));
+                          gameQuestion(questionText.people);
+                          document.body.replaceChild(gameRules(rulesText.people), gameRulesContainer);
+                          document.body.replaceChild(gameQuestion(questionText.people), questionContainer);
+                          break;
                         case 'Vehicles':
-                          console.log(gameRules(rulesText.vehicles));
+                          gameRules(rulesText.vehicles);
                           gameQuestion(questionText.vehivles);
-
-
+                          document.body.replaceChild(gameRules(rulesText.vehicles), gameRulesContainer);
+                          document.body.replaceChild(gameQuestion(questionText.vehicles), questionContainer);
+                          break;
+                        case 'Starships':
+                           gameRules(rulesText.starships);
+                           gameQuestion(questionText.starships);
+                           document.body.replaceChild(gameRules(rulesText.starships), gameRulesContainer);
+                           document.body.replaceChild(gameQuestion(questionText.starships), questionContainer);
+                           break;
                     }
 
                 })
