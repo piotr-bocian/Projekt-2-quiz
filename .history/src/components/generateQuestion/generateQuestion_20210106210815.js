@@ -176,11 +176,10 @@ function checkMode(mode) {
   }
 }
 
-export default checkMode('vehicles').then(e=>{
+checkMode('vehicles').then(e=>{
   document.getElementById('swquiz-app').innerHTML = `
   <img src="../../../static/assets/img/modes/${e.image}" >
   `
 
   console.log(e);
 });
-
