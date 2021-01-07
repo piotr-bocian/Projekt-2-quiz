@@ -8,19 +8,20 @@ const totalQuestions = (selector) => {
 };
 
 const pickedAnswer = (selector) => {
+  let playerAnswer = [];
   const questionQuery = document.querySelectorAll(selector);
   questionQuery.forEach((element) => {
-    element.addEventListener('click', (event) => {
-      let playerAnswer;
-      playerAnswer = event.currentTarget.innerHTML;
-      console.log(playerAnswer);
-      return playerAnswer;
-    });
+    element.addEventListener(
+      'click',
+      (event) => {
+        playerAnswer.push(event.currentTarget.innerHTML);
+        console.log(playerAnswer);
+      },
+      { once: true },
+    );
   });
-
+  return playerAnswer;
 };
-
-pickedAnswer('.q');
 
 //na wyjsciu mam obiekt player
 //allQuestions to tablica, która kumuluje odpowiedzi z divów z pytaniami w formie tablicy, każda wewnętrzna tablica będzie o dlugości 4 elementów, każdy z elementów to zadane pytania;
@@ -40,4 +41,4 @@ function playerGames(allQuestionsClb, pickedAnswersClb) {
   return player;
 }
 
-console.log(playerGames(totalQuestions('.q'), pickedAnswer()));
+console.log(playerGames(totalQuestions('.q'), pickedAnswer('.q')));
