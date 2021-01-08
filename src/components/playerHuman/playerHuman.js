@@ -1,27 +1,30 @@
-//do klasy przepisać
-
 class PlayerHuman {
   constructor() {
-    this.pickedAnswer = [];
-    this.correctAnswer = 0;
+    this.playerAnswer = this.playerChose();
+    // this.answersCounter = this.playerAnswer.length;
+
   }
-  getAnswer() {
-    let playerAnswer = [];
-    const questionQuery = document.querySelectorAll('.q');
-    questionQuery.forEach((element) => {
+  playerChose() {
+    const pickedAnswer = [];
+    const questionQuery = [...document.querySelectorAll('.q')];
+    questionQuery.map((element) => {
       element.addEventListener(
         'click',
         (event) => {
-          playerAnswer.push(event.currentTarget.innerHTM);
-          console.log(playerAnswer);
+          pickedAnswer.push(event.currentTarget.innerText);
         },
         { once: true },
       );
     });
-    return this.pickedAnswer.push(playerAnswer);
+    return pickedAnswer;
   }
 }
 
-const player = new PlayerHuman();
-console.log(player);
-player.getAnswer();
+function createPlayer() {
+  const playerHuman = new PlayerHuman();
+  console.log(playerHuman);
+  return playerHuman;
+}
+
+const playGame = document.querySelector('button');
+playGame.addEventListener('click', createPlayer);
