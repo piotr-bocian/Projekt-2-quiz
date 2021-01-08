@@ -1,35 +1,40 @@
 class PlayerHuman {
   constructor() {
     this.allAnswer = 0;
-    this.playerAnswer = this.playerChose();
+    this.rightAnswer = 0;
+    this.playerAnswer = '';
     this.answeredQuestion = false;
+    this.playerChose();
   }
+
   playerChose() {
-    const pickedAnswer = [];
     const questionQuery = [...document.querySelectorAll('.q')];
     questionQuery.map((element) => {
       element.addEventListener('click', (event) => {
-        pickedAnswer.push(event.currentTarget.innerText);
+        return (this.playerAnswer = event.currentTarget.innerText);
       });
     });
-    return pickedAnswer;
   }
 
   answerCounter() {
-    if (this.playerAnswer.length > 0) {
+    if (this.playerAnswer) {
       this.allAnswer++;
       this.answeredQuestion = true;
     }
   }
 
+  rightAnswer() {}
+
   restoreDefault() {
     this.allAnswer = 0;
-    this.playerAnswer = this.playerChose();
+    this.playerAnswer = '';
+    this.playerAnswer = '';
     this.answeredQuestion = false;
   }
 }
 
 const playerHuman = new PlayerHuman();
+
 function playerUpdate() {
   playerHuman.playerChose();
   playerHuman.answerCounter();
@@ -38,10 +43,10 @@ function playerUpdate() {
 }
 
 const playGame = document.querySelector('button');
-document.querySelector('.restore').addEventListener('click', () => {
+document.querySelector('button').addEventListener('click', () => {
   playerHuman.restoreDefault();
 });
 document.querySelectorAll('.q').forEach((e) => {
   e.addEventListener('click', playerUpdate);
 });
-playGame.addEventListener('click', playerUpdate);
+// playGame.addEventListener('click', playerUpdate);
