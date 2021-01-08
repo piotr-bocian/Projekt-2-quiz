@@ -8,7 +8,8 @@ function gameRules(text) {
     divRules.innerHTML = text;
 
     const icon = document.createElement("img");
-    icon.src = '../../../../Projekt-2-quiz/static/assets/ui/school_24px.png';
+    const src = "../../../static/assets/ui/graduation-cap-solid.svg";
+    icon.setAttribute('src', src);
     icon.id = 'iconRules';
 
     const modeRules = document.createElement("div");
@@ -22,4 +23,4 @@ function gameRules(text) {
     return divRulesContainer;
 }
 
-export default gameRules
+export default gameRules;
