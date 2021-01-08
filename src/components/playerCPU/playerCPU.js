@@ -2,52 +2,60 @@
 
 class PlayerCPU {
     constructor() {
-        this.noOfQuestions = 0;
         this.noOfAnswers = 0;
+        this.correctAnswers = 0;
         this.questionAsked = false;
         this.questionAnswerd = false;
         this.answer = '';
     }
 
     askQuestion() {
-
+        const question = [];
+        const childDivs = document.getElementById('game').getElementsByTagName('div');
+        for (let i = 0; i < childDivs.length; i++) {
+            question.push(childDivs[i].innerText);
+        }
+        console.log(question);
         this.questionAsked = true;
         this.questionAnswerd = false;
         return question;
     }
 
-    answerQuestion(question) {
+    answerQuestion() {
+        const question = this.askQuestion();
         const cpuRandomPicked = Math.floor(Math.random()*4);
         const cpuAnswer = question[cpuRandomPicked];
         this.questionAnswerd = true;
-        this.noOfAnswers += 1;
+        this.questionAsked = false;
+        this.noOfAnswers +=1;
         this.answer = cpuAnswer;
+    }
+
+    set qAsked(val) {
+        this.questionAsked = val;
+        this.answerQuestion();
     }
 }
 
-// cpu.answerQuestion(['Siara', 'Killer', 'Wąski', 'Ryba']);
-
-
 const createObjectCPU = () => {
     const cpu = new PlayerCPU();
+    const gameAns = document.getElementById('game');
+    gameAns.addEventListener('click', inputTxt);
+    cpu.qAsked = true;
     console.log(cpu);
     return cpu;
 }
 
-const genObj = document.getElementById('p-t-g');
-genObj.addEventListener('click', createObjectCPU);
+function inputTxt(cpu) {
+    const tab = ['Siara', 'Killer', 'Wąski', 'Ryba'];
+    const rndPicked = Math.floor(Math.random()*4);
+    const ans = tab[rndPicked];
+    const div1 = document.getElementById('1');
+    div1.textContent = ans;
+    cpu.qAsked = true;
+}
 
-// Napisać klasę zawierającą to co powinien zawierać obiekt, z funkcjami aksQuestion
-// answerQuestion.
-// Potem napisać funkcję, która w wyniku kliknięcia btn 'playTheGame' tworzy nowy obiekt
-// 'autoPlayer'
 
-
-
-    // const func = playerCPU(['Siara', 'Killer', 'Wąski', 'Ryba']);
-// console.log(func);
-
-// funkcja zadaj pytanie - eventListener('change') na divie wywoła funkcje getAnswers, która
-// pobierze z diva 4 możliwe odp do tablicy i potem zostanie wywołana funkcja answerQestion,
-// losująca odpowiedź i zwracająca ale gdzie? do funkcji sprawdzającej czy odp poprawna?
+const playTheGameBtn = document.getElementById('p-t-g');
+playTheGameBtn.addEventListener('click', createObjectCPU);
 
