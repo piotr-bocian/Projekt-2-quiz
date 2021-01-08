@@ -1,30 +1,39 @@
 class PlayerHuman {
   constructor() {
+    this.allAnswer = 0;
     this.playerAnswer = this.playerChose();
-    // this.answersCounter = this.playerAnswer.length;
-
   }
   playerChose() {
     const pickedAnswer = [];
     const questionQuery = [...document.querySelectorAll('.q')];
     questionQuery.map((element) => {
-      element.addEventListener(
-        'click',
-        (event) => {
-          pickedAnswer.push(event.currentTarget.innerText);
-        },
-        { once: true },
-      );
+      element.addEventListener('click', (event) => {
+        pickedAnswer.push(event.currentTarget.innerText);
+      });
     });
     return pickedAnswer;
   }
+  answerCounter() {
+    this.playerAnswer.length > 0 ? this.allAnswer++ : (this.allAnswer = 0);
+  }
+
+  restoreDefault() {
+    this.allAnswer = 0;
+    this.playerAnswer = [];
+  }
 }
 
-function createPlayer() {
-  const playerHuman = new PlayerHuman();
+const playerHuman = new PlayerHuman();
+function playerUpdate() {
+  playerHuman.playerChose();
+  playerHuman.answerCounter();
   console.log(playerHuman);
   return playerHuman;
 }
+const p = playerUpdate();
 
 const playGame = document.querySelector('button');
-playGame.addEventListener('click', createPlayer);
+document.querySelector('.restore').addEventListener('click', () => {
+  playerHuman.restoreDefault();
+});
+playGame.addEventListener('click', playerUpdate);
