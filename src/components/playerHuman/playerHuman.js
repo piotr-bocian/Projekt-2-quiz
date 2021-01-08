@@ -2,6 +2,7 @@ class PlayerHuman {
   constructor() {
     this.allAnswer = 0;
     this.playerAnswer = this.playerChose();
+    this.answeredQuestion = false;
   }
   playerChose() {
     const pickedAnswer = [];
@@ -15,12 +16,16 @@ class PlayerHuman {
   }
 
   answerCounter() {
-    this.playerAnswer.length > 0 ? this.allAnswer++ : (this.allAnswer = 0);
+    if (this.playerAnswer.length > 0) {
+      this.allAnswer++;
+      this.answeredQuestion = true;
+    }
   }
 
   restoreDefault() {
     this.allAnswer = 0;
     this.playerAnswer = this.playerChose();
+    this.answeredQuestion = false;
   }
 }
 
@@ -36,7 +41,7 @@ const playGame = document.querySelector('button');
 document.querySelector('.restore').addEventListener('click', () => {
   playerHuman.restoreDefault();
 });
-document.querySelectorAll('.q').forEach(e=>{
-  e.addEventListener('click', playerUpdate)
-})
+document.querySelectorAll('.q').forEach((e) => {
+  e.addEventListener('click', playerUpdate);
+});
 playGame.addEventListener('click', playerUpdate);
