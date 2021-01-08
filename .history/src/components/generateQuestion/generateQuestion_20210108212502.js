@@ -3,9 +3,9 @@ import questionToAnswer from '../questionToAnswer/questionToAnswer'
 import renderQuestions from '../questionToAnswer/renderQuestions';
 
 function generadeRandomQuestions(answerAfterClickedQuestion) {
-    
-    // zrobic if answerAfterClickedQuestion jest true to przekazac argument to questionToAnswer bo na poczatku jest undefinde
 
+    // zrobic if answerAfterClickedQuestion jest true to przekazac argument to questionToAnswer bo na poczatku jest undefinde
+    
     console.log(answerAfterClickedQuestion)
     const test = {}
     const vehiclesArrayImg = [

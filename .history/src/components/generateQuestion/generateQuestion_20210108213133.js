@@ -3,7 +3,7 @@ import questionToAnswer from '../questionToAnswer/questionToAnswer'
 import renderQuestions from '../questionToAnswer/renderQuestions';
 
 function generadeRandomQuestions(answerAfterClickedQuestion) {
-    
+
     // zrobic if answerAfterClickedQuestion jest true to przekazac argument to questionToAnswer bo na poczatku jest undefinde
 
     console.log(answerAfterClickedQuestion)
@@ -186,7 +186,14 @@ function generadeRandomQuestions(answerAfterClickedQuestion) {
     // startuje funkcję z wybranego 'mode' wraz z wylosowanymi pytaniami. Obiekt przekazywany w argumencie.
     checkMode('vehicles').then(e => {
         // funkcja wyswietla odpowiedzi na stronie
-        questionToAnswer(e, answerAfterClickedQuestion)
+
+        if(answerAfterClickedQuestion == true){
+            questionToAnswer(e, answerAfterClickedQuestion)
+        }
+        else{
+            questionToAnswer(e)
+        }
+
     });
 }
 export default generadeRandomQuestions;

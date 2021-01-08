@@ -3,9 +3,14 @@ import questionToAnswer from '../questionToAnswer/questionToAnswer'
 import renderQuestions from '../questionToAnswer/renderQuestions';
 
 function generadeRandomQuestions(answerAfterClickedQuestion) {
-    
+    let trueOrFalse = null;
     // zrobic if answerAfterClickedQuestion jest true to przekazac argument to questionToAnswer bo na poczatku jest undefinde
-
+    if(answerAfterClickedQuestion == undefined ){
+        trueOrFalse = false
+    }
+    else{
+        trueOrFalse = true;
+    }
     console.log(answerAfterClickedQuestion)
     const test = {}
     const vehiclesArrayImg = [
@@ -186,7 +191,13 @@ function generadeRandomQuestions(answerAfterClickedQuestion) {
     // startuje funkcję z wybranego 'mode' wraz z wylosowanymi pytaniami. Obiekt przekazywany w argumencie.
     checkMode('vehicles').then(e => {
         // funkcja wyswietla odpowiedzi na stronie
-        questionToAnswer(e, answerAfterClickedQuestion)
+
+        if(trueOrFalse == true){
+            questionToAnswer(e, trueOrFalse)
+        }
+        else{
+            questionToAnswer(e)
+        }
     });
 }
 export default generadeRandomQuestions;
