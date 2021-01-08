@@ -2,6 +2,8 @@ import gameRules from '../gameRules/gameRules.js';
 import rulesText from '../gameRules/gameRulesText.js';
 import gameQuestion from '../question/question.js';
 import questionText from '../question/questionText.js';
+import showHallOfFame from '../hallOfFame/hallOfFame.js';
+import fameText from '../hallOfFame/hallOfFameText.js';
 import img from '../imgContainer/img.js';
 import imgSrc from '../imgContainer/imgSrc.js'
 
@@ -74,29 +76,39 @@ const modeChange = () => {
                     const gameRulesContainer = document.body.querySelector('.rules');
                     const questionContainer = document.body.querySelector('.title');
                     const imageContainer = document.body.querySelector('.img-container');
+                    const hallOfFameContainer = document.body.querySelector('.fame-container');
                     
                     switch (this.currentMode){
                         case 'People':
-                          console.log(gameRules(rulesText.people));
+                          //console.log(gameRules(rulesText.people));
                           gameQuestion(questionText.people);
-                          document.body.replaceChild(gameRules(rulesText.people), gameRulesContainer);
+                          if(gameRulesContainer != null)
+                            document.body.replaceChild(gameRules(rulesText.people), gameRulesContainer);
                           document.body.replaceChild(gameQuestion(questionText.people), questionContainer);
+                          if(hallOfFameContainer != null)
+                            document.body.replaceChild(showHallOfFame(fameText.people), hallOfFameContainer);
                           document.body.replaceChild(img(imgSrc.people), imageContainer);
                           break;
                         case 'Vehicles':
                           gameRules(rulesText.vehicles);
                           gameQuestion(questionText.vehivles);
-                          document.body.replaceChild(gameRules(rulesText.vehicles), gameRulesContainer);
+                          if(gameRulesContainer != null)
+                            document.body.replaceChild(gameRules(rulesText.vehicles), gameRulesContainer);
                           document.body.replaceChild(gameQuestion(questionText.vehicles), questionContainer);
+                          if(hallOfFameContainer != null)
+                            document.body.replaceChild(showHallOfFame(fameText.vehicles), hallOfFameContainer);
                           document.body.replaceChild(img(imgSrc.vehicles), imageContainer);
                           break;
                         case 'Starships':
                            gameRules(rulesText.starships);
                            gameQuestion(questionText.starships);
-                           document.body.replaceChild(gameRules(rulesText.starships), gameRulesContainer);
+                           if(gameRulesContainer != null)
+                            document.body.replaceChild(gameRules(rulesText.starships), gameRulesContainer);
                            document.body.replaceChild(gameQuestion(questionText.starships), questionContainer);
+                           if(hallOfFameContainer != null)
+                            document.body.replaceChild(showHallOfFame(fameText.starships), hallOfFameContainer);
                            document.body.replaceChild(img(imgSrc.starships), imageContainer);
-                           break;
+                           break; 
                     }
 
                 })

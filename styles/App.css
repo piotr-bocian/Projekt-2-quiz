@@ -1,9 +1,14 @@
 @import "./question.css";
 @import './gameRules.css';
 @import './modeChange.css';
+
+@import './buttons.css';
+@import './hallOfFame.css';
+
 @import './redButton.css';
 @import './img.css';
 @import './logo.css';
+
 
 body {
     font-family: 'Montserrat', sans-serif;
