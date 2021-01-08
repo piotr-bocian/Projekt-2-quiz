@@ -13,17 +13,13 @@ class PlayerCPU {
         for (let i = 0; i < childDivs.length; i++) {
             question.push(childDivs[i].innerText);
         }
-        // console.log(question);
         return question;
     }
     
     answerQuestion() {
         const question = this.askQuestion();
         const cpuRandomPicked = Math.floor(Math.random()*4);
-        const cpuAnswer = question[cpuRandomPicked];
-        // console.log(cpuAnswer);
-        this.questionAnswerd = true;
-        this.questionAsked = false;
+        const cpuAnswer = question[cpuRandomPicked];;
         this.noOfAnswers +=1;
         this.answer = cpuAnswer;
         return this.answer;
@@ -46,6 +42,7 @@ const cpu = new PlayerCPU();
 const startGame = () => {
     cpu.restoreDefault();
     cpu.answerQuestion();
+    console.log(cpu);
     return cpu;
 }
 
@@ -58,7 +55,7 @@ function inputTxt() {
     const ans = tab[rndPicked];
     const div1 = document.getElementById('1');
     div1.textContent = ans;
-    cpu.qAsked = true;
+    cpu.answerQuestion();
     console.log(cpu);
 }
 
