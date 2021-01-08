@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+
+button:hover{
+    cursor: pointer;
+}
+
+.hall-of-fame-btn{
+    display: block;
+    width: 45%;
+    padding: 1.2rem 0;
+    background-color: #FFE81F;
+    border: none;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+    font-family: 'Audiowide', cursive;
+    color: #FFFFFF;
+
+    transition: transform 200ms ease-in-out;
+}
+
+.hall-of-fame-btn:active{
+    transform: translateY(10%)
+}
