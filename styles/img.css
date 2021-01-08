@@ -1,6 +1,6 @@
-.img-container{
-    width: 80%;
-    margin: 1rem auto;
+.img-container img {
+    max-height: 60vh;
     box-shadow: 2px 2px 15px darkred;
     border-radius: 20px;
+    object-fit: cover;
 }
