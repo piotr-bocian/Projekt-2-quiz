@@ -1,3 +1,5 @@
+.img-container { grid-area: img-container; }
+
 .img-container img {
     max-height: 60vh;
     box-shadow: 2px 2px 15px darkred;

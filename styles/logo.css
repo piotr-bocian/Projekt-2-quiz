@@ -1,5 +1,8 @@
+.logo { grid-area: logo; }
+
 .logo img {
     display: block;
-    max-width: 20vw;
+    max-width: 25vw;
     border-radius: 20px;
+    margin: auto;
 }

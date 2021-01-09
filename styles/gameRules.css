@@ -6,22 +6,25 @@
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
-    background: rgba(5, 0, 24, 0.1);
+    background: rgba(5, 0, 24, 0.6);
     border-radius: 16px;
     width: 100%;
+    grid-area: rules;
 }
 
 #modeRules {
     font-family: 'Audiowide', cursive;
     color: #FFE81F;
-    font-size: 1em;
+    font-size: 2em;
     line-height: 1.5em;
+    padding: 10px;
 }
 
 #gameRules {
     font-family: 'Montserrat', sans-serif;
     color: #FFE81F;
     text-align: center;
+    font-size: 1.75em;
 }
 
 #iconRules {
