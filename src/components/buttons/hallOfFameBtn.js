@@ -14,12 +14,15 @@ function hallOfFameButton(){
     yellowButtonContainer.appendChild(btn);
 
     const currentMode = document.querySelector('mode-change').getCurrentMode();
+
+    
     btn.addEventListener('click', () => {
+        
         document.body.replaceChild(showHallOfFame(fameText[currentMode.toLowerCase()]), document.querySelector('.rules'));
-        document.body.replaceChild(rulesButton(), btn);
+      
+        yellowButtonContainer.replaceChild(rulesButton(), btn);
     
     })
-
     return yellowButtonContainer;
 }
 

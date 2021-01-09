@@ -1,5 +1,6 @@
 .fame-container{
     padding: 2rem 0;
+    grid-area: rules;
 }
 
 .fame-paragraph{
