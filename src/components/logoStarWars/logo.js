@@ -1,15 +1,20 @@
 function logo() {
 
-    const aLogo = document.createElement("div");
-    aLogo.className = "logo";
+    const divLogo = document.createElement("div");
+    divLogo.className = "logo";
 
+    const reloadLogo = document.createElement("a");
+    reloadLogo.className = "logoreloadLogo";
+    reloadLogo.setAttribute('href', '../../../index.html' )
+    
     const imgLogo = document.createElement("img");
     const src = "../../../static/assets/ui/StarWarsLogo.png";
     imgLogo.setAttribute('src', src);
     
-    aLogo.appendChild(imgLogo);
+    divLogo.appendChild(reloadLogo);
+    reloadLogo.appendChild(imgLogo)
 
-    return aLogo;
+    return divLogo;
 }
 
 export default logo;
