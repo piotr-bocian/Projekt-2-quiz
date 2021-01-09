@@ -5,8 +5,9 @@
     border: 1px solid rgba(255, 0, 0, 0.5);
     box-sizing: border-box;
     opacity: 0.8;
-    max-width: 25vw;
+    width: 25vw;
     height: fit-content;
+    margin: 0 auto;
     grid-area: red-button;
     font-family: 'Audiowide', cursive;
     font-size: 2em;

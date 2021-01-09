@@ -1,8 +1,16 @@
-.img-container { grid-area: img-container; }
+.img-container { 
+    grid-area: img-container;
+    margin: auto auto;
+    height: 50vh;
+    display: grid;
+    align-content: center;
+}
 
 .img-container img {
-    max-height: 60vh;
+    max-height: 55vh;
+    max-width: 25vw;
     box-shadow: 2px 2px 15px darkred;
     border-radius: 20px;
     object-fit: cover;
+    
 }

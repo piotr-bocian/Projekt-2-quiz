@@ -15,11 +15,12 @@ body {
     background-image: url(../static/assets/ui/QuizBackground.png);
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 0.75fr 1.25fr 1fr;
     gap: 5px 5px;
     grid-template-areas: 
     "logo modes-list modes-list"
     "img-container title title"
     "img-container rules rules"
     "settings-button yellow-button red-button";
+    justify-content: center;
 }

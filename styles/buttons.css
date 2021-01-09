@@ -2,8 +2,9 @@
 
 .yellow-button {
     grid-area: yellow-button;
-    max-width: 25vw;
+    width: 25vw;
     height: fit-content;
+    margin: 0 auto;
 }
 
 button:hover{
