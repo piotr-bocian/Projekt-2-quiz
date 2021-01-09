@@ -7,7 +7,7 @@
 }
 
 .img-container img {
-    max-height: 55vh;
+    max-height: 50vh;
     max-width: 25vw;
     box-shadow: 2px 2px 15px darkred;
     border-radius: 20px;

@@ -13,6 +13,7 @@ const modeChange = () => {
         <style>
             .menu{
                 background-color: transparent;
+                grid-area: modes-list;
             }
             .modes-list{
                 list-style-type: none;

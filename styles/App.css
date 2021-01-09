@@ -9,6 +9,9 @@
 @import './img.css';
 @import './logo.css';
 
+mode-change {
+    grid-column: 2/4;
+}
 
 body {
     font-family: 'Montserrat', sans-serif;
@@ -18,7 +21,7 @@ body {
     grid-template-rows: 1fr 0.75fr 1.25fr 1fr;
     gap: 5px 5px;
     grid-template-areas: 
-    "logo modes-list modes-list"
+    "logo menu menu"
     "img-container title title"
     "img-container rules rules"
     "settings-button yellow-button red-button";

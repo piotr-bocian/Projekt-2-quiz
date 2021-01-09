@@ -10,7 +10,7 @@
     border-radius: 16px;
     width: 100%;
     grid-area: rules;
-    margin: auto auto;
+    margin: 0 auto auto;
 }
 
 #modeRules {
@@ -27,7 +27,7 @@
     text-align: center;
     font-size: 1.75em;
     box-sizing: border-box;
-    padding: 2em;
+    padding: 0.5em 1.5em;
 }
 
 #iconRules {
