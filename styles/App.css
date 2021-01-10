@@ -11,6 +11,8 @@
 
 mode-change {
     grid-column: 2/4;
+    margin: auto auto;
+    width: 60vw;
 }
 
 body {

@@ -20,11 +20,12 @@ const modeChange = () => {
                 display: flex;
                 justify-content: space-around;
                 align-items: center;
+                padding: 0;
             }
             
             .modes-list li{
                 width: 28%;
-                padding: 0.5rem 0;
+                padding: 0;
                 border-radius: 16px;
                 text-align: center;
                 font-family: Montserrat;
