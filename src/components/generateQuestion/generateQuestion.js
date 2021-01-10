@@ -2,52 +2,8 @@
 import 'regenerator-runtime/runtime' //async/await with Parcel
 import questionToAnswer from '../questionToAnswer/questionToAnswer'
 import renderQuestions from '../questionToAnswer/renderQuestions';
-
-
-const vehiclesArrayImg = [
-  4,
-  6,
-  7,
-  8,
-  14,
-  16,
-  18,
-  19,
-  20,
-  24,
-  25,
-  26,
-  30,
-  33,
-  34,
-  35,
-  36,
-  37,
-  38,
-  42,
-];
-const starshipArrayImg = [
-  5,
-  9,
-  10,
-  11,
-  12,
-  13,
-  15,
-  21,
-  22,
-  23,
-  27,
-  28,
-  29,
-  31,
-  39,
-  40,
-  41,
-  43,
-  47,
-  48,
-];
+import vehiclesArrayImg from '../starshipsAndVehicles';
+import starshipArrayImg from '../starshipsAndVehicles';
 
 
 function generadeRandomQuestions(answerAfterClickedQuestion) {
@@ -56,50 +12,50 @@ function generadeRandomQuestions(answerAfterClickedQuestion) {
 
     console.log(answerAfterClickedQuestion)
     const test = {}
-    const vehiclesArrayImg = [
-        4,
-        6,
-        7,
-        8,
-        14,
-        16,
-        18,
-        19,
-        20,
-        24,
-        25,
-        26,
-        30,
-        33,
-        34,
-        35,
-        36,
-        37,
-        38,
-        42,
-    ];
-    const starshipArrayImg = [
-        5,
-        9,
-        10,
-        11,
-        12,
-        13,
-        15,
-        21,
-        22,
-        23,
-        27,
-        28,
-        29,
-        31,
-        39,
-        40,
-        41,
-        43,
-        47,
-        48,
-    ];
+    // const vehiclesArrayImg = [
+    //     4,
+    //     6,
+    //     7,
+    //     8,
+    //     14,
+    //     16,
+    //     18,
+    //     19,
+    //     20,
+    //     24,
+    //     25,
+    //     26,
+    //     30,
+    //     33,
+    //     34,
+    //     35,
+    //     36,
+    //     37,
+    //     38,
+    //     42,
+    // ];
+    // const starshipArrayImg = [
+    //     5,
+    //     9,
+    //     10,
+    //     11,
+    //     12,
+    //     13,
+    //     15,
+    //     21,
+    //     22,
+    //     23,
+    //     27,
+    //     28,
+    //     29,
+    //     31,
+    //     39,
+    //     40,
+    //     41,
+    //     43,
+    //     47,
+    //     48,
+    // ];
 
     const urlPeopleRequest = 'https://swapi.dev/api/people/';
     const urlVehiclesRequest = 'https://swapi.dev/api/vehicles/';

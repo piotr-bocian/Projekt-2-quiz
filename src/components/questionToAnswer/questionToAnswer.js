@@ -1,25 +1,29 @@
-import generadeRandomQuestions from '../generateQuestion/generateQuestion'
+import generadeRandomQuestions from '../generateQuestion/LocalGenerateQuestion'
+import {answerAgainCPU, cpu } from '../playerCPU/playerCPU'
+
+
 
 const questionToAnswer = (answersObj, answerAfterClickedQuestion) => {
-console.log('caly obiekt ', answersObj)
-console.log('zwrocona true albo false ', answerAfterClickedQuestion)
+// console.log('caly obiekt ', answersObj)
+// console.log('zwrocona true albo false ', answerAfterClickedQuestion)
 
 const allAnswers = answersObj.answers;
-const rightAnswer = answersObj.rightAnswer
+const rightAnswer = answersObj.rightAnswer;
+const img = answersObj.image;
 let checkedAnswer = false;
 
 const checkAnswer = (answer)=>{
 
-  if(rightAnswer === answer.textContent){
+  if(rightAnswer === answer){
     checkedAnswer = true;
     answer.className += " corectAnswer";
   }
   else{
     answer.className += " wrongAnswer";
   }
-  
   return checkedAnswer;
 }
+
 
 document.getElementById('swquiz-app').innerHTML  = `
     <style>
@@ -46,6 +50,10 @@ document.getElementById('swquiz-app').innerHTML  = `
       <div id="test" class="questions_item">${allAnswers[2]}</div>
       <div id="test" class="questions_item">${allAnswers[3]}</div>
     </div>
+    <br>
+    <div>
+      <img src="../../../static/assets/img/modes/all/${img}">
+    </div>
     `;
 
   var allLi = document.getElementsByClassName("questions_item");
@@ -53,20 +61,19 @@ document.getElementById('swquiz-app').innerHTML  = `
   for (var i = 0; i < allLi.length; i++) {
     allLi[i].addEventListener("click", function(e) {
       let choicedAnswer = e.target;
-      console.log('clicked item: ' + e.target)
+      // console.log('clicked item: ' + e.target)
 
       // check if the answer is correct
       checkAnswer(choicedAnswer);
       // draw another question and answers
-      setTimeout(function(){ generadeRandomQuestions(checkedAnswer) }, 1000);
+      setTimeout(function(){ generadeRandomQuestions(checkedAnswer) }, 500);
+      setTimeout(() => {answerAgainCPU()}, 600);
     });
   }
 
 }
 
 export default questionToAnswer;
-
-
 
 // zrobić pózniej ładne generowanie "li"
 // ${allAnswers.map(a)=>{<div class="questions_item">${a}</div>}

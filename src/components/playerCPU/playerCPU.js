@@ -1,5 +1,3 @@
-// import 'regenerator-runtime/runtime' //async/await with Parcel
-
 class PlayerCPU {
     constructor() {
         this.noOfAnswers = 0;
@@ -9,7 +7,7 @@ class PlayerCPU {
 
     askQuestion() {
         const question = [];
-        const childDivs = [...document.querySelectorAll('.q')];
+        const childDivs = [...document.querySelectorAll('.questions_item')];
         for (let i = 0; i < childDivs.length; i++) {
             question.push(childDivs[i].innerText);
         }
@@ -22,6 +20,7 @@ class PlayerCPU {
         const cpuAnswer = question[cpuRandomPicked];;
         this.noOfAnswers +=1;
         this.answer = cpuAnswer;
+        // console.log(this.answer);
         return this.answer;
     }
 
@@ -30,40 +29,20 @@ class PlayerCPU {
         this.correctAnswers = 0;
         this.answer = '';
     }
-
-    set qAsked(val) {
-        this.questionAsked = val;
-        this.answerQuestion();
-    }
 }
 
 const cpu = new PlayerCPU();
 
-const startGame = () => {
+const startGameCPU = () => {
     cpu.restoreDefault();
     cpu.answerQuestion();
     console.log(cpu);
     return cpu;
 }
 
-
-
-
-function inputTxt() {
-    const tab = ['Siara', 'Killer', 'Wąski', 'Ryba'];
-    const rndPicked = Math.floor(Math.random()*4);
-    const ans = tab[rndPicked];
-    const div1 = document.getElementById('1');
-    div1.textContent = ans;
+function answerAgainCPU() {
     cpu.answerQuestion();
     console.log(cpu);
 }
 
-const questionQuery = [...document.querySelectorAll('.q')];
-questionQuery.map((element) => {
-    element.addEventListener('click', inputTxt);
-});
-
-const playTheGameBtn = document.getElementById('p-t-g');
-playTheGameBtn.addEventListener('click', startGame);
-
+export {cpu, startGameCPU, answerAgainCPU};
