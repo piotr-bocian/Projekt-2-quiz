@@ -20,4 +20,5 @@ star-wars-loader::part(counter) {
       star-wars-loader::part(timer) {
          color: #d81e06;
          font-size: 24px;
+         font-weight: 900;
       }

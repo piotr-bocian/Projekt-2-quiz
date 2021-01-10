@@ -51,9 +51,15 @@ const timerComponent = () => {
     }
     timer() {
       let sec = 60;
+      let min = 1;
       const count = this.shadowRoot.querySelector('.timer');
       const countdown = setInterval(function () {
-        count.innerText = `: ${sec}s`;
+        if (sec === 60) {
+          count.innerText = `: ${min}m 00s`;
+        } else if (sec !== 60) {
+          min = 0;
+          count.innerText = `: ${min}m ${sec}s`;
+        }
         sec--;
         //trzeba naprawić skaczący tekst oraz dodać minuty
         if (sec <= 0) {
