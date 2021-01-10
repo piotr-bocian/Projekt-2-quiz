@@ -6,8 +6,5 @@ body {
     display: none;
 }
 .corectAnswer{
-    background-color: green;
-}
-.wrongAnswer{
-    background-color: red;;
+    background-color: gree;
 }

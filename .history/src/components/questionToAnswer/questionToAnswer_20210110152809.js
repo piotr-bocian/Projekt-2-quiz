@@ -15,7 +15,7 @@ const checkAnswer = (answer)=>{
     answer.className += " corectAnswer";
   }
   else{
-    answer.className += " wrongAnswer";
+    e.target.className += " wrongAnswer";
   }
   
   return checkedAnswer;
@@ -58,7 +58,8 @@ document.getElementById('swquiz-app').innerHTML  = `
       // check if the answer is correct
       checkAnswer(choicedAnswer);
       // draw another question and answers
-      setTimeout(function(){ generadeRandomQuestions(checkedAnswer) }, 1000);
+
+      generadeRandomQuestions(checkedAnswer);
     });
   }
 

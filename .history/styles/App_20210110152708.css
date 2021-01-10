@@ -5,9 +5,4 @@ body {
 .display-none{
     display: none;
 }
-.corectAnswer{
-    background-color: green;
-}
-.wrongAnswer{
-    background-color: red;;
-}
+.corectAnswer

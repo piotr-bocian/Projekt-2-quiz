@@ -59,6 +59,7 @@ document.getElementById('swquiz-app').innerHTML  = `
       checkAnswer(choicedAnswer);
       // draw another question and answers
       setTimeout(function(){ generadeRandomQuestions(checkedAnswer) }, 1000);
+ 
     });
   }
 

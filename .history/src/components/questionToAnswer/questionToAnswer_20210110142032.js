@@ -10,14 +10,8 @@ let checkedAnswer = false;
 
 const checkAnswer = (answer)=>{
 
-  if(rightAnswer === answer.textContent){
-    checkedAnswer = true;
-    answer.className += " corectAnswer";
-  }
-  else{
-    answer.className += " wrongAnswer";
-  }
-  
+  if()
+  checkedAnswer = (rightAnswer === answer)?true:false;
   return checkedAnswer;
 }
 
@@ -52,13 +46,13 @@ document.getElementById('swquiz-app').innerHTML  = `
 
   for (var i = 0; i < allLi.length; i++) {
     allLi[i].addEventListener("click", function(e) {
-      let choicedAnswer = e.target;
-      console.log('clicked item: ' + e.target)
-
+      let choicedAnswer = e.target.textContent;
+      console.log('clicked item: ' + e.target.textContent)
       // check if the answer is correct
       checkAnswer(choicedAnswer);
       // draw another question and answers
-      setTimeout(function(){ generadeRandomQuestions(checkedAnswer) }, 1000);
+
+      generadeRandomQuestions(checkedAnswer);
     });
   }
 

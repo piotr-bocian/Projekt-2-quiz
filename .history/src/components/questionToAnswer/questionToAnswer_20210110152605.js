@@ -12,10 +12,10 @@ const checkAnswer = (answer)=>{
 
   if(rightAnswer === answer.textContent){
     checkedAnswer = true;
-    answer.className += " corectAnswer";
+    console.log(answer)
   }
   else{
-    answer.className += " wrongAnswer";
+    
   }
   
   return checkedAnswer;
@@ -54,11 +54,12 @@ document.getElementById('swquiz-app').innerHTML  = `
     allLi[i].addEventListener("click", function(e) {
       let choicedAnswer = e.target;
       console.log('clicked item: ' + e.target)
-
+      e.target.className ="addClasss";
       // check if the answer is correct
       checkAnswer(choicedAnswer);
       // draw another question and answers
-      setTimeout(function(){ generadeRandomQuestions(checkedAnswer) }, 1000);
+
+      // generadeRandomQuestions(checkedAnswer);
     });
   }
 
