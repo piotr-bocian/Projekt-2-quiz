@@ -1,10 +1,14 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import 'regenerator-runtime/runtime' //async/await with Parcel
 import questionToAnswer from '../questionToAnswer/questionToAnswer'
 import renderQuestions from '../questionToAnswer/renderQuestions';
 =======
 import { check } from "prettier";
 
+=======
+import 'regenerator-runtime/runtime'
+>>>>>>> playerHuman
 const vehiclesArrayImg = [
   4,
   6,
