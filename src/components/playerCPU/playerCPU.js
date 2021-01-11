@@ -20,7 +20,6 @@ class PlayerCPU {
         const cpuAnswer = question[cpuRandomPicked];;
         this.noOfAnswers +=1;
         this.answer = cpuAnswer;
-        // console.log(this.answer);
         return this.answer;
     }
 
@@ -36,13 +35,7 @@ const cpu = new PlayerCPU();
 const startGameCPU = () => {
     cpu.restoreDefault();
     cpu.answerQuestion();
-    console.log(cpu);
     return cpu;
 }
 
-function answerAgainCPU() {
-    cpu.answerQuestion();
-    console.log(cpu);
-}
-
-export {cpu, startGameCPU, answerAgainCPU};
+export {cpu, startGameCPU};
