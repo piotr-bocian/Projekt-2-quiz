@@ -13,7 +13,7 @@ class PlayerCPU {
         }
         return question;
     }
-    
+
     answerQuestion() {
         const question = this.askQuestion();
         const cpuRandomPicked = Math.floor(Math.random()*4);

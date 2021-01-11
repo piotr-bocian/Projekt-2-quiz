@@ -1,31 +1,23 @@
-import generadeRandomQuestions from '../generateQuestion/LocalGenerateQuestion'
-import {answerAgainCPU, cpu } from '../playerCPU/playerCPU'
+import generadeRandomQuestions from '../generateQuestion/LocalGenerateQuestion';
+import { answerAgainCPU, cpu } from '../playerCPU/playerCPU';
+import { playerUpdate } from '../playerHuman/playerHuman';
+const questionToAnswer = (answersObj) => {
+  const allAnswers = answersObj.answers;
+  const rightAnswer = answersObj.rightAnswer;
+  const img = answersObj.image;
+  let checkedAnswer = false;
 
+  const checkAnswer = (answer) => {
+    if (rightAnswer === answer.innerHTML) {
+      checkedAnswer = true;
+      answer.className += ' corectAnswer';
+    } else {
+      answer.className += ' wrongAnswer';
+    }
+    return checkedAnswer;
+  };
 
-
-const questionToAnswer = (answersObj, answerAfterClickedQuestion) => {
-// console.log('caly obiekt ', answersObj)
-// console.log('zwrocona true albo false ', answerAfterClickedQuestion)
-
-const allAnswers = answersObj.answers;
-const rightAnswer = answersObj.rightAnswer;
-const img = answersObj.image;
-let checkedAnswer = false;
-
-const checkAnswer = (answer)=>{
-
-  if(rightAnswer === answer){
-    checkedAnswer = true;
-    answer.className += " corectAnswer";
-  }
-  else{
-    answer.className += " wrongAnswer";
-  }
-  return checkedAnswer;
-}
-
-
-document.getElementById('swquiz-app').innerHTML  = `
+  document.getElementById('swquiz-app').innerHTML = `
     <style>
       .questions{
           display:grid;
@@ -56,24 +48,22 @@ document.getElementById('swquiz-app').innerHTML  = `
     </div>
     `;
 
-  var allLi = document.getElementsByClassName("questions_item");
+  var allLi = document.getElementsByClassName('questions_item');
 
-  for (var i = 0; i < allLi.length; i++) {
-    allLi[i].addEventListener("click", function(e) {
+  for (let i = 0; i < allLi.length; i++) {
+    allLi[i].addEventListener('click', function (e) {
       let choicedAnswer = e.target;
-      // console.log('clicked item: ' + e.target)
-
-      // check if the answer is correct
       checkAnswer(choicedAnswer);
-      // draw another question and answers
-      setTimeout(function(){ generadeRandomQuestions(checkedAnswer) }, 500);
-      setTimeout(() => {answerAgainCPU()}, 600);
+      //tutaj Update dla gracza player
+      playerUpdate(e, checkAnswer(choicedAnswer));
+      setTimeout(function () {
+        generadeRandomQuestions(checkedAnswer);
+      }, 1000);
+      setTimeout(() => {
+        answerAgainCPU();
+      }, 600);
     });
   }
-
-}
+};
 
 export default questionToAnswer;
-
-// zrobić pózniej ładne generowanie "li"
-// ${allAnswers.map(a)=>{<div class="questions_item">${a}</div>}
