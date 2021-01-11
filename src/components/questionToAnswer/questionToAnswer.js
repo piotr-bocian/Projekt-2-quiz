@@ -1,11 +1,12 @@
 import generadeRandomQuestions from '../generateQuestion/LocalGenerateQuestion';
-import { answerAgainCPU, cpu } from '../playerCPU/playerCPU';
+import { cpu } from '../playerCPU/playerCPU';
 import { playerUpdate } from '../playerHuman/playerHuman';
 const questionToAnswer = (answersObj) => {
   const allAnswers = answersObj.answers;
   const rightAnswer = answersObj.rightAnswer;
   const img = answersObj.image;
   let checkedAnswer = false;
+  let checkedCPUAnswer = false;
 
   const checkAnswer = (answer) => {
     if (rightAnswer === answer.innerHTML) {
@@ -16,6 +17,17 @@ const questionToAnswer = (answersObj) => {
     }
     return checkedAnswer;
   };
+
+  const checkCPUAnswer = (ans) => {
+    if (rightAnswer === ans) {
+      checkedCPUAnswer = true;
+      cpu.correctAnswers +=1;
+    }
+    console.log(cpu);
+    return;
+  };
+
+  setTimeout(() => checkCPUAnswer(cpu.answer),100);
 
   document.getElementById('swquiz-app').innerHTML = `
     <style>
@@ -58,9 +70,9 @@ const questionToAnswer = (answersObj) => {
       playerUpdate(e, checkAnswer(choicedAnswer));
       setTimeout(function () {
         generadeRandomQuestions(checkedAnswer);
-      }, 1000);
+      }, 500);
       setTimeout(() => {
-        answerAgainCPU();
+        cpu.answerQuestion();
       }, 600);
     });
   }
