@@ -1,6 +1,6 @@
 import 'regenerator-runtime/runtime' //async/await with Parcel
 import questionToAnswer from '../questionToAnswer/questionToAnswer'
-import renderQuestions from '../questionToAnswer/renderQuestions';
+// import renderQuestions from '../questionToAnswer/renderQuestions';
 
 
 function generadeRandomQuestions(answerAfterClickedQuestion) {
@@ -76,7 +76,7 @@ function generadeRandomQuestions(answerAfterClickedQuestion) {
         }
     }
     // renderuje puste odpowiedzi
-    renderQuestions();
+    // renderQuestions();
     // startuje funkcję z wybranego 'mode' wraz z wylosowanymi pytaniami. Obiekt przekazywany w argumencie.
     checkMode('people').then(e => {
         // funkcja wyswietla odpowiedzi na stronie
