@@ -1,4 +1,5 @@
-import generadeRandomQuestions from '../generateQuestion/LocalGenerateQuestion';
+// import generadeRandomQuestions from '../generateQuestion/LocalGenerateQuestion';
+import generadeRandomQuestions from '../generateQuestion/generateQuestion';
 import { cpu } from '../playerCPU/playerCPU';
 import { playerUpdate } from '../playerHuman/playerHuman';
 const questionToAnswer = (answersObj) => {
@@ -56,10 +57,13 @@ const questionToAnswer = (answersObj) => {
     </div>
     <br>
     <div>
-      <img src="../../../static/assets/img/modes/all/${img}">
+
+      <img src="../../../static/assets/img/modes/${img}">
     </div>
     `;
 
+    //podmień img dla wersji lokalnej
+{/* <img src="../../../static/assets/img/modes/all/${img}"></img> */}
   var allLi = document.getElementsByClassName('questions_item');
 
   for (let i = 0; i < allLi.length; i++) {
