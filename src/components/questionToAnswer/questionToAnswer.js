@@ -1,13 +1,12 @@
 // import generadeRandomQuestions from '../generateQuestion/LocalGenerateQuestion';
 import generadeRandomQuestions from '../generateQuestion/generateQuestion';
-import { cpu } from '../playerCPU/playerCPU';
 import { playerUpdate } from '../playerHuman/playerHuman';
+import { cpu } from '../playerCPU/playerCPU';
 const questionToAnswer = (answersObj) => {
   const allAnswers = answersObj.answers;
   const rightAnswer = answersObj.rightAnswer;
   const img = answersObj.image;
   let checkedAnswer = false;
-  let checkedCPUAnswer = false;
 
   const checkAnswer = (answer) => {
     if (rightAnswer === answer.innerHTML) {
@@ -19,16 +18,13 @@ const questionToAnswer = (answersObj) => {
     return checkedAnswer;
   };
 
-  const checkCPUAnswer = (ans) => {
-    if (rightAnswer === ans) {
-      checkedCPUAnswer = true;
+  const checkCPUAnswer = (cpuAns) => {
+    if (rightAnswer === cpuAns) {
       cpu.correctAnswers += 1;
     }
     console.log(cpu);
     return;
   };
-
-  setTimeout(() => checkCPUAnswer(cpu.answer), 100);
 
   document.getElementById('swquiz-app').innerHTML = `
     <style>
@@ -72,14 +68,12 @@ const questionToAnswer = (answersObj) => {
     divsWithAnswers[i].addEventListener('click', function (e) {
       let choicedAnswer = e.target;
       checkAnswer(choicedAnswer);
+      checkCPUAnswer(cpu.answer);
       //tutaj Update dla gracza player
       playerUpdate(e, checkAnswer(choicedAnswer));
       setTimeout(function () {
         generadeRandomQuestions(checkedAnswer);
       }, 500);
-      setTimeout(() => {
-        cpu.answerQuestion();
-      }, 600);
     });
   }
 };
