@@ -1,54 +1,54 @@
 import 'regenerator-runtime/runtime'; //async/await with Parcel
 import questionToAnswer from '../questionToAnswer/questionToAnswer';
-import renderQuestions from '../questionToAnswer/renderQuestions';
-// import vehiclesArrayImg from '../starshipsAndVehicles';
-// import starshipArrayImg from '../starshipsAndVehicles';
+// import renderQuestions from '../questionToAnswer/renderQuestions';
+import { cpu } from '../playerCPU/playerCPU';
+import { vehiclesArrayImg, starshipArrayImg } from '../starshipsAndVehicles';
 
 function generadeRandomQuestions(answerAfterClickedQuestion) {
-  const vehiclesArrayImg = [
-    4,
-    6,
-    7,
-    8,
-    14,
-    16,
-    18,
-    19,
-    20,
-    24,
-    25,
-    26,
-    30,
-    33,
-    34,
-    35,
-    36,
-    37,
-    38,
-    42,
-  ];
-  const starshipArrayImg = [
-    5,
-    9,
-    10,
-    11,
-    12,
-    13,
-    15,
-    21,
-    22,
-    23,
-    27,
-    28,
-    29,
-    31,
-    39,
-    40,
-    41,
-    43,
-    47,
-    48,
-  ];
+  // const vehiclesArrayImg = [
+  //   4,
+  //   6,
+  //   7,
+  //   8,
+  //   14,
+  //   16,
+  //   18,
+  //   19,
+  //   20,
+  //   24,
+  //   25,
+  //   26,
+  //   30,
+  //   33,
+  //   34,
+  //   35,
+  //   36,
+  //   37,
+  //   38,
+  //   42,
+  // ];
+  // const starshipArrayImg = [
+  //   5,
+  //   9,
+  //   10,
+  //   11,
+  //   12,
+  //   13,
+  //   15,
+  //   21,
+  //   22,
+  //   23,
+  //   27,
+  //   28,
+  //   29,
+  //   31,
+  //   39,
+  //   40,
+  //   41,
+  //   43,
+  //   47,
+  //   48,
+  // ];
 
   const urlPeopleRequest = 'https://swapi.dev/api/people/';
   const urlVehiclesRequest = 'https://swapi.dev/api/vehicles/';
@@ -118,6 +118,7 @@ function generadeRandomQuestions(answerAfterClickedQuestion) {
       questions.answers = namesArr;
       questions.rightAnswer = namesArr[rndIds.indexOf(correctAns)];
       questions.image = getImg(mode, correctAns);
+      console.log(questions);
       return questions;
     } catch (error) {
       console.log(error);
@@ -140,6 +141,7 @@ function generadeRandomQuestions(answerAfterClickedQuestion) {
       questions.answers = namesArr;
       questions.rightAnswer = namesArr[rndIds.indexOf(correctAns)];
       questions.image = getImg(mode, correctAns);
+      console.log(questions);
       return questions;
     } catch (error) {
       console.log(error);
@@ -162,6 +164,7 @@ function generadeRandomQuestions(answerAfterClickedQuestion) {
       questions.answers = namesArr;
       questions.rightAnswer = namesArr[rndIds.indexOf(correctAns)];
       questions.image = getImg(mode, correctAns);
+      console.log(questions);
       return questions;
     } catch (error) {
       console.log(error);
@@ -179,9 +182,10 @@ function generadeRandomQuestions(answerAfterClickedQuestion) {
     }
   }
   // renderuje puste odpowiedzi
-  renderQuestions();
+  // renderQuestions();
   // startuje funkcję z wybranego 'mode' wraz z wylosowanymi pytaniami. Obiekt przekazywany w argumencie.
   checkMode('people').then((e) => {
+    cpu.answerQuestion(e.answers);
     // funkcja wyswietla odpowiedzi na stronie
     questionToAnswer(e, answerAfterClickedQuestion);
   });
