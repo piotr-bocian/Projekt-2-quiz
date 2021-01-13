@@ -4,7 +4,7 @@
     grid-area: yellow-button;
     width: 25vw;
     height: fit-content;
-    margin: 0 auto;
+    margin: 30px auto;
 }
 
 button:hover{

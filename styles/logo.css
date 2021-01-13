@@ -1,8 +1,10 @@
-.logo { grid-area: logo; }
+.logo { 
+    grid-area: logo;
+    margin: auto auto; }
 
 .logo img {
     display: block;
     max-width: 20vw;
     border-radius: 20px;
-    margin: auto;
+    margin: auto auto;
 }

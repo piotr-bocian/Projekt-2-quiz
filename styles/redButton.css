@@ -7,7 +7,7 @@
     opacity: 0.8;
     width: 25vw;
     height: fit-content;
-    margin: 0 auto;
+    margin: 30px auto;
     grid-area: red-button;
     font-family: 'Audiowide', cursive;
     font-size: 2em;
