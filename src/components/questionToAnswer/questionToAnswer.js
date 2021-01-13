@@ -22,13 +22,13 @@ const questionToAnswer = (answersObj) => {
   const checkCPUAnswer = (ans) => {
     if (rightAnswer === ans) {
       checkedCPUAnswer = true;
-      cpu.correctAnswers +=1;
+      cpu.correctAnswers += 1;
     }
     console.log(cpu);
     return;
   };
 
-  setTimeout(() => checkCPUAnswer(cpu.answer),100);
+  setTimeout(() => checkCPUAnswer(cpu.answer), 100);
 
   document.getElementById('swquiz-app').innerHTML = `
     <style>
@@ -50,10 +50,10 @@ const questionToAnswer = (answersObj) => {
     </style>
 
     <div class="questions">
-      <div id="test" class="questions_item">${allAnswers[0]}</div>
-      <div id="test" class="questions_item">${allAnswers[1]}</div>
-      <div id="test" class="questions_item">${allAnswers[2]}</div>
-      <div id="test" class="questions_item">${allAnswers[3]}</div>
+      <div class="questions_item">${allAnswers[0]}</div>
+      <div class="questions_item">${allAnswers[1]}</div>
+      <div class="questions_item">${allAnswers[2]}</div>
+      <div class="questions_item">${allAnswers[3]}</div>
     </div>
     <br>
     <div>
@@ -62,12 +62,14 @@ const questionToAnswer = (answersObj) => {
     </div>
     `;
 
-    //podmień img dla wersji lokalnej
-{/* <img src="../../../static/assets/img/modes/all/${img}"></img> */}
-  var allLi = document.getElementsByClassName('questions_item');
+  //podmień img dla wersji lokalnej
+  {
+    /* <img src="../../../static/assets/img/modes/all/${img}"></img> */
+  }
+  const divsWithAnswers = document.querySelectorAll('.questions_item');
 
-  for (let i = 0; i < allLi.length; i++) {
-    allLi[i].addEventListener('click', function (e) {
+  for (let i = 0; i < divsWithAnswers.length; i++) {
+    divsWithAnswers[i].addEventListener('click', function (e) {
       let choicedAnswer = e.target;
       checkAnswer(choicedAnswer);
       //tutaj Update dla gracza player
