@@ -1,5 +1,6 @@
 import 'regenerator-runtime/runtime' //async/await with Parcel
 import questionToAnswer from '../questionToAnswer/questionToAnswer'
+import { cpu } from '../playerCPU/playerCPU';
 // import renderQuestions from '../questionToAnswer/renderQuestions';
 
 
@@ -75,10 +76,9 @@ function generadeRandomQuestions(answerAfterClickedQuestion) {
                 return createSWobject(urlStarshipsRequest);
         }
     }
-    // renderuje puste odpowiedzi
-    // renderQuestions();
     // startuje funkcję z wybranego 'mode' wraz z wylosowanymi pytaniami. Obiekt przekazywany w argumencie.
-    checkMode('people').then(e => {
+    checkMode('vehicles').then(e => {
+        cpu.answerQuestion(e.answers);
         // funkcja wyswietla odpowiedzi na stronie
         questionToAnswer(e, answerAfterClickedQuestion)
     });
