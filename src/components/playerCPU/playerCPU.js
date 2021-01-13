@@ -5,17 +5,8 @@ class PlayerCPU {
         this.answer = '';
     }
 
-    askQuestion() {
-        const question = [];
-        const childDivs = [...document.querySelectorAll('.questions_item')];
-        for (let i = 0; i < childDivs.length; i++) {
-            question.push(childDivs[i].innerText);
-        }
-        return question;
-    }
-
-    answerQuestion() {
-        const question = this.askQuestion();
+    answerQuestion(arrWithAns) {
+        const question = [...arrWithAns];
         const cpuRandomPicked = Math.floor(Math.random()*4);
         const cpuAnswer = question[cpuRandomPicked];;
         this.noOfAnswers +=1;
@@ -32,10 +23,10 @@ class PlayerCPU {
 
 const cpu = new PlayerCPU();
 
-const startGameCPU = () => {
-    cpu.restoreDefault();
-    cpu.answerQuestion();
-    return cpu;
-}
+// const startGameCPU = () => {
+//     cpu.restoreDefault();
+//     return cpu;
+// }
 
-export {cpu, startGameCPU};
+export { cpu };
+// export {cpu, startGameCPU};
