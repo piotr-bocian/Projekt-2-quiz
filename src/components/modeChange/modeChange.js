@@ -44,6 +44,17 @@ const modeChange = () => {
             .modes-list li:hover{
                 cursor: pointer;
             }
+
+            @media only screen and (max-width: 812px) and (orientation: landscape){
+                
+                .modes-list li{
+                    font-size: 1.25em;
+                    line-height: 1.75em;
+                    padding: 5px;
+                    box-sizing: border-box;
+                }
+            }
+
         </style>
         <div class="menu">
             <ul class="modes-list">

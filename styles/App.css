@@ -99,4 +99,56 @@ body {
 
 /*PHONE PORTRAIT*/
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px)
-{}
+{
+    body{
+        grid-template-columns: 1fr;
+        /* grid-template-rows: 11.25fr 1fr 2fr 1fr 1.75fr 1fr 1fr 1fr; */
+        /* grid-template-rows: unset; */
+        grid-template-areas: 
+        "logo"
+        "menu"
+        "img-container"
+        "title"
+        "rules"
+        "settings-button"
+        "yellow-button"
+        "red-button";
+        padding-bottom: 1rem;
+    }
+
+    .logo img{
+        max-width: 55%;
+    }
+
+    mode-change{
+        grid-column: unset;
+        width: 100vw;
+    }
+
+    .img-container{
+        
+    }
+    
+    .img-container img{
+        max-height: 40vh;
+        max-width: 80vw;
+    }
+
+    .title{
+        width: 80vw;
+    }
+
+    .rules{
+        height: unset;
+        margin-top: 2rem;
+    }
+
+    .yellow-button{
+        width: 80vw;
+    }
+
+    .red-button{
+        width: 80vw;
+        margin-top: 0;
+    }
+}
