@@ -21,7 +21,9 @@ const questionToAnswer = (answersObj) => {
   const checkCPUAnswer = (cpuAns) => {
     if (rightAnswer === cpuAns) {
       cpu.correctAnswers += 1;
+      cpu.noOfAnswers += 1;
     }
+    cpu.noOfAnswers += 1;
     console.log(cpu);
     return;
   };
