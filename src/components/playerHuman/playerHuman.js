@@ -3,7 +3,6 @@ class PlayerHuman {
     this.allAnswer = 0;
     this.rightAnswer = 0;
     this.playerAnswer = '';
-    this.answeredQuestion = false;
   }
 
   playerChose(click) {
@@ -11,7 +10,6 @@ class PlayerHuman {
   }
 
   answerCounter(calFn) {
-    this.answeredQuestion = true;
     const correctAns = calFn;
     if (correctAns) {
       this.rightAnswer++;
@@ -24,7 +22,6 @@ class PlayerHuman {
   restoreDefault() {
     this.allAnswer = 0;
     this.playerAnswer = '';
-    this.answeredQuestion = false;
   }
 }
 
