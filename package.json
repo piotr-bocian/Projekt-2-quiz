@@ -27,6 +27,7 @@
   "dependencies": {
     "parcel": "^1.12.4",
     "regenerator-runtime": "^0.13.7",
+    "src": "^1.1.2",
     "uuid": "^8.3.0"
   },
   "devDependencies": {

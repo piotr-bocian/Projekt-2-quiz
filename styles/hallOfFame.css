@@ -1,0 +1,31 @@
+.fame-container{
+    padding: 0;
+    grid-area: rules;
+}
+
+.fame-paragraph{
+    font-size: 1.2rem;
+    line-height: 1.2rem;
+    color: #FFE81F;
+    text-align: center;
+}
+
+.ranking{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+}
+
+.ranking ul {
+    list-style-type: none;
+}
+
+.ranking li{
+    color: #FFE81F;
+    margin-bottom: 0.5rem;
+}
+
+.fame-container li.bold{
+    font-weight: bold;
+}

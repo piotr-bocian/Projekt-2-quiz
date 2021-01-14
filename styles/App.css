@@ -1,3 +1,190 @@
+@import "./question.css";
+@import './gameRules.css';
+@import './modeChange.css';
+
+@import './buttons.css';
+@import './hallOfFame.css';
+
+@import './redButton.css';
+@import './img.css';
+@import './logo.css';
+
+mode-change {
+    grid-column: 2/4;
+    margin: auto auto;
+    width: 60vw;
+}
+
 body {
     font-family: 'Montserrat', sans-serif;
+    background-image: url(../static/assets/ui/QuizBackground.png);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 0.9fr 0.6fr 1.5fr 1fr;
+    grid-template-areas: 
+    "logo menu menu"
+    "img-container title title"
+    "img-container rules rules"
+    "settings-button yellow-button red-button";
+    justify-content: center;
+    margin: 0;
+    height: 100vh;
+}
+
+/*TABLET LANDSCAPE*/
+@media only screen and (max-width: 1024px) and (orientation: landscape) 
+{}
+
+/*PHONE LANDSCAPE*/
+@media only screen and (max-width: 812px) and (orientation: landscape) 
+{
+    .logo img {
+        max-width: 22.5vw;
+    }
+
+    .title{
+        margin: auto auto;
+        font-size: 1.25em;
+        border-radius: 16px;
+        width: 60vw;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25), 2px 2px 20px rgba(255, 230, 0, 0.9), inset 2px 3px 2px rgba(0, 0, 0, 0.5);
+    }
+    
+    .rules {
+        width: 100%;
+        height: 30vh;
+        margin: 10px auto auto;
+    }
+    
+    #modeRules {
+        font-size: 1.25em;
+        line-height: 1em;
+        padding: 5px;
+        box-sizing: border-box;
+    }
+    
+    #gameRules {
+        font-size: 0.9em;
+        box-sizing: border-box;
+        padding: 0.25em 1.25em;
+    }
+    
+    #iconRules {
+        height: 1em;
+    }
+
+    .yellow-button {
+        width: 25vw;
+        height: fit-content;
+        margin: 15px auto;
+    }
+    
+    .hall-of-fame-btn{
+        width: 100%;
+        font-size: 1em;
+        padding: 10px;
+    }
+    
+    .red-button {
+        width: 25vw;
+        height: fit-content;
+        margin: 15px auto;
+        font-size: 1em;
+    }
+    
+    .red-button p {
+        margin: 0;
+    }
+
+}
+
+/*TABLET PORTRAIT*/
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) 
+ {}
+
+/*PHONE PORTRAIT*/
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px)
+{
+    body{
+        grid-template-columns: 1fr;
+        grid-template-rows: 2fr 1fr 4fr 1fr 3fr 1fr 1fr;
+        grid-template-rows: unset;
+        grid-template-areas: 
+        "logo"
+        "menu"
+        "img-container"
+        "title"
+        "rules"
+        "yellow-button"
+        "red-button"
+        "settings-button";
+    }
+
+    .logo img{
+        max-width: 35vw;
+    }
+
+    mode-change{
+        grid-column: unset;
+        width: 100vw;
+    }
+
+    .img-container { 
+        height: 30vh;
+        margin: 0 auto;
+    }
+    
+    .img-container img {
+        max-height: 30vh;
+        max-width: 35vw;
+    }
+
+    .title{
+        width: 95vw;
+        font-size: 1.2em;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25), 2px 2px 20px rgba(255, 230, 0, 0.9), inset 2px 3px 2px rgba(0, 0, 0, 0.5);
+    }
+
+    .rules {
+        width: 100%;
+        height: 20vh;
+        margin: auto auto;
+    }
+    
+    #modeRules {
+        font-size: 1.1em;
+        line-height: 0.8em;
+        padding: 5px;
+    }
+    
+    #gameRules {
+        font-size: 0.9em;
+        padding: 0.15em 0.85em;
+    }
+    
+    #iconRules {
+        height: 1em;
+    }
+
+    .yellow-button {
+        width: 80vw;
+        margin: 5px auto;
+    }
+    
+    .hall-of-fame-btn{
+        width: 100%;
+        font-size: 1em;
+        padding: 5px;
+    }
+    
+    .red-button {
+        width: 80vw;;
+        margin: 5px auto;
+        font-size: 1em;
+        padding: 5px;
+    }
+    
+    .red-button p {
+        margin: 0;
+    }
 }
