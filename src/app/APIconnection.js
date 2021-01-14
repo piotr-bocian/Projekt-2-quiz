@@ -2,6 +2,7 @@
 
 const addingEl = (obj) => {
   console.log(obj);
+  //html template
   const htmlSegmentAllData = `<div class="user">
                            <h1>${obj.name}</h1>
                             <img src="../../../../static/assets/img/modes/${obj.type}/${obj.id}.jpg" >
