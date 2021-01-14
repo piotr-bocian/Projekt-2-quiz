@@ -20,7 +20,7 @@ body {
     background-image: url(../static/assets/ui/QuizBackground.png);
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 0.6fr 1.4fr 1fr;
+    grid-template-rows: 0.9fr 0.6fr 1.5fr 1fr;
     grid-template-areas: 
     "logo menu menu"
     "img-container title title"
@@ -38,11 +38,16 @@ body {
 /*PHONE LANDSCAPE*/
 @media only screen and (max-width: 812px) and (orientation: landscape) 
 {
+    .logo img {
+        max-width: 22.5vw;
+    }
+
     .title{
         margin: auto auto;
         font-size: 1.25em;
         border-radius: 16px;
         width: 60vw;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25), 2px 2px 20px rgba(255, 230, 0, 0.9), inset 2px 3px 2px rgba(0, 0, 0, 0.5);
     }
     
     .rules {
@@ -53,15 +58,15 @@ body {
     
     #modeRules {
         font-size: 1.25em;
-        line-height: 1.75em;
+        line-height: 1em;
         padding: 5px;
         box-sizing: border-box;
     }
     
     #gameRules {
-        font-size: 1em;
+        font-size: 0.9em;
         box-sizing: border-box;
-        padding: 0.5em 1.5em;
+        padding: 0.25em 1.25em;
     }
     
     #iconRules {
@@ -102,22 +107,21 @@ body {
 {
     body{
         grid-template-columns: 1fr;
-        /* grid-template-rows: 11.25fr 1fr 2fr 1fr 1.75fr 1fr 1fr 1fr; */
-        /* grid-template-rows: unset; */
+        grid-template-rows: 2fr 1fr 4fr 1fr 3fr 1fr 1fr;
+        grid-template-rows: unset;
         grid-template-areas: 
         "logo"
         "menu"
         "img-container"
         "title"
         "rules"
-        "settings-button"
         "yellow-button"
-        "red-button";
-        padding-bottom: 1rem;
+        "red-button"
+        "settings-button";
     }
 
     .logo img{
-        max-width: 55%;
+        max-width: 35vw;
     }
 
     mode-change{
@@ -125,30 +129,62 @@ body {
         width: 100vw;
     }
 
-    .img-container{
-        
+    .img-container { 
+        height: 30vh;
+        margin: 0 auto;
     }
     
-    .img-container img{
-        max-height: 40vh;
-        max-width: 80vw;
+    .img-container img {
+        max-height: 30vh;
+        max-width: 35vw;
     }
 
     .title{
-        width: 80vw;
+        width: 95vw;
+        font-size: 1.2em;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25), 2px 2px 20px rgba(255, 230, 0, 0.9), inset 2px 3px 2px rgba(0, 0, 0, 0.5);
     }
 
-    .rules{
-        height: unset;
-        margin-top: 2rem;
+    .rules {
+        width: 100%;
+        height: 20vh;
+        margin: auto auto;
+    }
+    
+    #modeRules {
+        font-size: 1.1em;
+        line-height: 0.8em;
+        padding: 5px;
+    }
+    
+    #gameRules {
+        font-size: 0.9em;
+        padding: 0.15em 0.85em;
+    }
+    
+    #iconRules {
+        height: 1em;
     }
 
-    .yellow-button{
+    .yellow-button {
         width: 80vw;
+        margin: 5px auto;
     }
-
-    .red-button{
-        width: 80vw;
-        margin-top: 0;
+    
+    .hall-of-fame-btn{
+        width: 100%;
+        font-size: 1em;
+        padding: 5px;
+    }
+    
+    .red-button {
+        width: 80vw;;
+        margin: 5px auto;
+        font-size: 1em;
+        padding: 5px;
+    }
+    
+    .red-button p {
+        margin: 0;
     }
 }

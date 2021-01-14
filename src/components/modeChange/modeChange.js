@@ -48,10 +48,21 @@ const modeChange = () => {
             @media only screen and (max-width: 812px) and (orientation: landscape){
                 
                 .modes-list li{
-                    font-size: 1.25em;
-                    line-height: 1.75em;
+                    font-size: 1.15em;
+                    line-height: 1.5em;
                     padding: 5px;
                     box-sizing: border-box;
+                }
+            }
+            @media only screen and (min-device-width: 320px) and (max-device-width: 480px){
+                
+                .modes-list{
+                    margin: 5px;
+                }
+                .modes-list li{
+                    font-size: 1em;
+                    line-height: 1em;
+                    padding: 5px;
                 }
             }
 
