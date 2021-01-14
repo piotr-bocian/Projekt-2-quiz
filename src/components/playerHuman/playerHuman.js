@@ -35,4 +35,4 @@ function playerUpdate(e, callFn) {
   return playerHuman;
 }
 
-export { playerUpdate, PlayerHuman };
+export { playerUpdate, PlayerHuman, playerHuman };

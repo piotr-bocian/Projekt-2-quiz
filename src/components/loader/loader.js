@@ -1,3 +1,7 @@
+import { cpu } from "../playerCPU/playerCPU";
+import { playerHuman } from "../playerHuman/playerHuman";
+
+
 const timerComponent = () => {
   const template = document.createElement('template');
   template.innerHTML = `
@@ -50,21 +54,29 @@ const timerComponent = () => {
       this.shadowRoot.querySelector('.countdown-text').innerText = `Time Left`;
     }
     timer() {
-      let sec = 60;
+      let time = 5
+      let sec = time;
       let min = 1;
       const count = this.shadowRoot.querySelector('.timer');
       const countdown = setInterval(function () {
-        if (sec === 60) {
+        sec--;
+        if (sec === time) {
           count.innerText = `: ${min}m 00s`;
-        } else if (sec !== 60) {
+        } else if (sec !== time) {
           min = 0;
           count.innerText = `: ${min}m ${sec}s`;
         }
-        sec--;
         //trzeba naprawić skaczący tekst oraz dodać minuty
-        if (sec <= 0) {
+        if (sec < 0) {
+          count.innerText = `: ${min}m 0s`
           clearInterval(countdown);
           count.innerText = `: Twój czas się skończył`;
+
+          //zaimportowane obiekty playerHuman i cpu - z nich wzięlismy
+          // properties zwracające wszystkie poprawne odpowiedzi (dla człowieka
+          //rightAnswer, dla cpu - correctAnswer) oraz wszystkie odpowiedzi (człowiek allAnswer, cpu - noOfAnswers)
+
+          alert(`Twój wynik to: ${playerHuman.rightAnswer}/${playerHuman.allAnswer}, a komputera: ${cpu.correctAnswers}/${cpu.noOfAnswers}`);
         }
       }, 1000);
     }
