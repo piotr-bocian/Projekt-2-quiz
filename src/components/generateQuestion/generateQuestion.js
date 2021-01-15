@@ -19,7 +19,7 @@ export const randomId = (data) => {
   const randomizator = Math.floor(Math.random() * (data.length - 1) + 1);
   return randomizator;
 };
-const rndArrayOfIds = (arr, arr2) => {
+export const rndArrayOfIds = (arr, arr2) => {
   while (arr.length < 4) {
     let id = arr2[randomId(arr2)];
     if (!arr.includes(id)) {
@@ -29,7 +29,7 @@ const rndArrayOfIds = (arr, arr2) => {
   return arr;
 };
 
-const getImg = (mode, id) => {
+export const getImg = (mode, id) => {
   const imgQuestion = `${mode}/${id}.jpg`;
   return imgQuestion;
 };
