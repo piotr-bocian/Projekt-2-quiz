@@ -1,3 +1,5 @@
+import getDefaultRanking from '../localStorage/localStorage.js';
+
 function showHallOfFame(text){
 
     const fameContainer = document.createElement('div');
@@ -11,6 +13,10 @@ function showHallOfFame(text){
 
     const ranking = document.createElement('div');
     ranking.classList.add('ranking');
+    
+    const mode = document.querySelector('mode-change').getCurrentMode();
+    const rankingValues = JSON.parse(localStorage.getItem('ranking')) || getDefaultRanking();
+    
     ranking.innerHTML = `
         <ul>
             <li class="bold">Place</li>
@@ -18,18 +24,21 @@ function showHallOfFame(text){
             <li>2nd</li>
             <li>3rd</li>
         </ul>
+
         <ul class="ranking-people">
             <li class="bold">Player</li>
-            <li>Ania</li>
-            <li>Mateusz</li>
-            <li>Leia Organa</li>
+            <li>${rankingValues[mode.toLowerCase()][0].nick}</li>
+            <li>${rankingValues[mode.toLowerCase()][1].nick}</li>
+            <li>${rankingValues[mode.toLowerCase()][2].nick}</li>
         </ul>
+
         <ul class="ranking-score">
             <li class="bold">Answered</li>
-            <li>15/20</li>
-            <li>14/30</li>
-            <li>1/23</li>
+            <li>${rankingValues[mode.toLowerCase()][0].correctAnswers}/${rankingValues[mode.toLowerCase()][0].answers}</li>
+            <li>${rankingValues[mode.toLowerCase()][1].correctAnswers}/${rankingValues[mode.toLowerCase()][1].answers}</li>
+            <li>${rankingValues[mode.toLowerCase()][2].correctAnswers}/${rankingValues[mode.toLowerCase()][2].answers}</li>
         </ul>
+    
     `
 
     fameContainer.appendChild(ranking);
