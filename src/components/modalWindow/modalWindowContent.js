@@ -40,6 +40,7 @@ function modalWindowContent(playerCorrect, playerAll, computerCorrect, computerA
     player.type = "text";
     player.required;
     player.size = 20;
+    player.id = "player-input"
     input.appendChild(player);
     const fillName = document.createElement("div");
     fillName.innerHTML = "Please fill your name in order to receive eternal glory in the whole Galaxy!";
@@ -52,10 +53,19 @@ function modalWindowContent(playerCorrect, playerAll, computerCorrect, computerA
     btn.innerHTML = "MAY THE FORCE BE WITH YOU";
     forceBtn.appendChild(btn);
 
+    let yourInput = document.getElementById('player-input');
+
     btn.addEventListener('click', () => {
-        // pobranie danych do hall of fame
-        btn.click = "../../../index.html"
+        var input = yourInput.value;
+        let obj = new Object();
+        if (player) {
+            obj[input] = input;
+            obj.playerCorrect = playerCorrect.value;
+            obj.playerAll = playerAll.value;
+        } else {
+            return; //throw error
+        }
     })
-    return btn;
+    return obj;
 
 }
