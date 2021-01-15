@@ -1,5 +1,6 @@
 function modalWindowContent(playerCorrect, playerAll, computerCorrect, computerAll){
 
+    //GAME OVER DIV
     const gameOver = document.createElement("div");
     gameOver.className = "game-over";
 
@@ -14,6 +15,7 @@ function modalWindowContent(playerCorrect, playerAll, computerCorrect, computerA
     gameOver.appendChild(text);
 
 
+    //RESULTS TABLE DIV
     const results = document.createElement("div");
     results.className = "results";
 
@@ -27,55 +29,74 @@ function modalWindowContent(playerCorrect, playerAll, computerCorrect, computerA
     table.appendChild(resultsList);
 
 
-
+    //YODA PICTURE DIV
     const yoda = document.createElement("img");
     yoda.className = "yoda";
     const src = "../../../static/assets/ui/MasterYodaLeft.png";
     yoda.setAttribute('src', src);
 
 
-    const input = document.createElement("div");
-    input.className = "input";
+    // STUPID NOT WORKING DIV WITH FORM INPUT AND A BUTTON
+    const inputTry = document.createElement("form");
+    const labelTry = document.createElement("label");
+    inputTry.id = "inputTry";
     const player = document.createElement("input");
     player.type = "text";
-    player.required;
-    player.size = 20;
+    player.minLength = "3";
+    player.maxLength = "20";
     player.id = "player-input"
-    input.appendChild(player);
+    player.required = "required";
+    labelTry.appendChild(player);
+    labelTry.htmlFor = "player-input";
     const fillName = document.createElement("div");
     fillName.innerHTML = "Please fill your name in order to receive eternal glory in the whole Galaxy!";
-    input.appendChild(fillName);
+    labelTry.appendChild(fillName);
+    inputTry.appendChild(labelTry);
+
 
 
     const forceBtn = document.createElement("div");
     forceBtn.className = "force-button";
-    const btn = document.createElement("button");
+    const btn = document.createElement("input");
     btn.innerHTML = "MAY THE FORCE BE WITH YOU";
-    forceBtn.appendChild(btn);
+    btn.type = "submit";
+    inputTry.appendChild(btn);
+    // btn.form = "inputTry";
 
-    
-    btn.addEventListener('click', () => {
+    const objReturn = () =>  {
         let yourInput = document.getElementById('player-input');
         let input = yourInput.value;
         let obj = new Object();
         
-        if (player) {
+        if (input.length >= 3) {
             obj.nick = input;
             obj.playerCorrect = playerCorrect;
             obj.playerAll = playerAll;
         } else {
-            return; //throw error?
+            throw "Please enter a correct value!"
         }
 
         console.log(obj);
         return obj;
+    }
+
+    const returnToMainPage = () => {
+        location.replace("../../../index.html");
+    }
+
+
+    btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        objReturn();
+        // returnToMainPage();
     })
     
     const superDiv = document.createElement("div");
+    superDiv.className = "superDiv";
     superDiv.appendChild(gameOver);
     superDiv.appendChild(results);
     superDiv.appendChild(yoda);
-    superDiv.appendChild(input);
+    superDiv.appendChild(inputTry);
     superDiv.appendChild(forceBtn);
     return superDiv;
 
