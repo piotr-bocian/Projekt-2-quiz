@@ -36,32 +36,38 @@ function modalWindowContent(playerCorrect, playerAll, computerCorrect, computerA
     yoda.setAttribute('src', src);
 
 
-    // STUPID NOT WORKING DIV WITH FORM INPUT AND A BUTTON
+    // STUPID NOT WORKING DIV WITH FORM INPUT AND A BUTTON // ok it works now, we're cool
+    //FORM
     const inputTry = document.createElement("form");
-    const labelTry = document.createElement("label");
     inputTry.id = "inputTry";
+
+    const labelTry = document.createElement("label");
+
     const player = document.createElement("input");
     player.type = "text";
     player.minLength = "3";
     player.maxLength = "20";
     player.id = "player-input"
     player.required = "required";
+    
     labelTry.appendChild(player);
     labelTry.htmlFor = "player-input";
+    
     const fillName = document.createElement("div");
+    fillName.className = "fill-name";
     fillName.innerHTML = "Please fill your name in order to receive eternal glory in the whole Galaxy!";
+    
     labelTry.appendChild(fillName);
     inputTry.appendChild(labelTry);
 
-
-
-    const forceBtn = document.createElement("div");
-    forceBtn.className = "force-button";
+    //BUTTON
     const btn = document.createElement("input");
-    btn.innerHTML = "MAY THE FORCE BE WITH YOU";
+    btn.value = "MAY THE FORCE BE WITH YOU";
     btn.type = "submit";
+    btn.className = "force-button";
+
     inputTry.appendChild(btn);
-    // btn.form = "inputTry";
+
 
     const objReturn = () =>  {
         let yourInput = document.getElementById('player-input');
@@ -87,7 +93,8 @@ function modalWindowContent(playerCorrect, playerAll, computerCorrect, computerA
 
     btn.addEventListener('click', (e) => {
         e.preventDefault();
-        objReturn();
+        const playerObject = objReturn();
+        const currentMode = document.body.querySelector("mode-change").shadowRoot.querySelector(".dark").innerHTML;
         // returnToMainPage();
     })
     
@@ -97,7 +104,6 @@ function modalWindowContent(playerCorrect, playerAll, computerCorrect, computerA
     superDiv.appendChild(results);
     superDiv.appendChild(yoda);
     superDiv.appendChild(inputTry);
-    superDiv.appendChild(forceBtn);
     return superDiv;
 
 }

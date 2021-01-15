@@ -11,4 +11,4 @@ function modalWindow (content) {
 }
 
 const window = document.body.appendChild(modalWindow());
-export default modalWindow;
+export default modalWinodow;
