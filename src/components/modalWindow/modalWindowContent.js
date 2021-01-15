@@ -66,6 +66,16 @@ function modalWindowContent(playerCorrect, playerAll, computerCorrect, computerA
             return; //throw error
         }
     })
-    return obj;
+    
+    const superDiv = document.createElement("div");
+    superDiv.appendChild(gameOver);
+    superDiv.appendChild(results);
+    superDiv.appendChild(yoda);
+    superDiv.appendChild(input);
+    superDiv.appendChild(forceBtn);
+    return superDiv;
 
 }
+
+// const modalContent = document.body.appendChild(modalWindowContent(1, 5, 6, 7));
+export default modalWindowContent;
