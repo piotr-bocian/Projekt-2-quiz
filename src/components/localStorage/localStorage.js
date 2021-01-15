@@ -23,6 +23,7 @@ function modifyStorage(mode, pNick, pCorrectAnswers, pAnswers){
     localStorage.setItem('ranking', JSON.stringify(rankingValues)); 
 }
 
-modifyStorage('people', 'Jan', 100, 100)
+// modifyStorage('people', 'Jan', 100, 100)
 
-export default getDefaultRanking;
+export default getDefaultRanking; 
+export {modifyStorage};

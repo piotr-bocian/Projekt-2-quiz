@@ -1,4 +1,5 @@
-
+import getDefaultRanking from '../localStorage/localStorage.js';
+import {modifyStorage} from '../localStorage/localStorage.js';
 
 function modalWindowContent(playerCorrect, playerAll, computerCorrect, computerAll){
 
@@ -97,21 +98,32 @@ function modalWindowContent(playerCorrect, playerAll, computerCorrect, computerA
     btn.addEventListener('click', (e) => {
         e.preventDefault();
         const playerObject = objReturn();
-        const currentMode = document.body.querySelector("mode-change").shadowRoot.querySelector(".dark").innerHTML;
-        // returnToMainPage();
-    })
+        const mode = document.body.querySelector("mode-change").shadowRoot.querySelector(".dark").innerHTML;
+        returnToMainPage();
+
+         // HALLOFFAME LOCALSTORAGE
+        let pNick = playerObject.nick;
+        let pCorrectAnswers = playerObject.playerCorrect;
+        let pAnswers = playerObject.playerAll;
+        modifyStorage(mode, pNick, pCorrectAnswers, pAnswers);
+     })
 
     //HALLOFFAME LOCALSTORAGE
-    
+    // let pNick = playerObject.nick;
+    // let pCorrectAnswers = playerObject.playerCorrect;
+    // let pAnswers = playerObject.playerAll;
+    // modifyStorage(mode, pNick, pCorrectAnswers, pAnswers);
+
+
+    //BRINGING IT ALL TOGETHER
     const superDiv = document.createElement("div");
     superDiv.className = "superDiv";
     superDiv.appendChild(gameOver);
     superDiv.appendChild(results);
     superDiv.appendChild(yoda);
     superDiv.appendChild(inputTry);
-    return superDiv;
 
+    return superDiv;
 }
 
-// const modalContent = document.body.appendChild(modalWindowContent(1, 5, 6, 7));
 export default modalWindowContent;
