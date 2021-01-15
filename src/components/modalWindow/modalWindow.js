@@ -1,4 +1,4 @@
-function modalWindow () {
+function modalWindow (content, cb) {
 
     const modalWindow = document.createElement("div");
     modalWindow.className = "modal-window";
