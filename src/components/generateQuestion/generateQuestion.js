@@ -34,7 +34,16 @@ export const getImg = (mode, id) => {
   return imgQuestion;
 };
 
-
+export async function getNames(arr, basicUrl) {
+  const names = await Promise.all(
+    arr.map(async (num) => {
+      const response = await fetch(basicUrl + num + '/');
+      const fullObject = await response.json();
+      return fullObject.name;
+    }),
+  );
+  return names;
+}
 
 function generadeRandomQuestions(answerAfterClickedQuestion) {
   // const vehiclesArrayImg = [
@@ -86,16 +95,7 @@ function generadeRandomQuestions(answerAfterClickedQuestion) {
   const urlVehiclesRequest = 'https://swapi.dev/api/vehicles/';
   const urlStarshipsRequest = 'https://swapi.dev/api/starships/';
 
-  async function getNames(arr, basicUrl) {
-    const names = await Promise.all(
-      arr.map(async (num) => {
-        const response = await fetch(basicUrl + num + '/');
-        const fullObject = await response.json();
-        return fullObject.name;
-      }),
-    );
-    return names;
-  }
+
 
   async function createPeopleObject(url) {
     const mode = 'people';

@@ -2,7 +2,8 @@ import {
   arrayIds,
   randomId,
   rndArrayOfIds,
-  getImg
+  getImg,
+  getNames
 } from '../src/components/generateQuestion/generateQuestion';
 
 it('should return array of numbers', () => {
@@ -47,3 +48,10 @@ it('should return path to img', () => {
    const id = 32;
    expect(getImg(mode, id)).toBe(`people/32.jpg`)
  });
+
+//  it('should return object.name from API', async() => {
+//    const names = require('../swapi-json-server/people.json')
+//    expect.assertions(1);
+//    const data = await names.getUserName(1);
+//    expect(data).toEqual("Luke Skywalker")
+//  });
