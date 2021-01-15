@@ -75,7 +75,7 @@ const questionToAnswer = (answersObj) => {
       playerUpdate(e, checkAnswer(choicedAnswer));
       setTimeout(function () {
         generadeRandomQuestions(checkedAnswer);
-      }, 500);
+      }, 50);
     });
   }
 };

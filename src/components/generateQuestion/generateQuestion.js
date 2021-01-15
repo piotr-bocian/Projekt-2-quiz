@@ -95,8 +95,6 @@ function generadeRandomQuestions(answerAfterClickedQuestion) {
   const urlVehiclesRequest = 'https://swapi.dev/api/vehicles/';
   const urlStarshipsRequest = 'https://swapi.dev/api/starships/';
 
-
-
   async function createPeopleObject(url) {
     const mode = 'people';
     const questions = {
@@ -185,7 +183,7 @@ function generadeRandomQuestions(answerAfterClickedQuestion) {
   // renderQuestions();
   // startuje funkcję z wybranego 'mode' wraz z wylosowanymi pytaniami. Obiekt przekazywany w argumencie.
   checkMode('people').then((e) => {
-    cpu.answerQuestion(e.answers);
+    cpu.answerQuestion(e.answers, e.image);
     // funkcja wyswietla odpowiedzi na stronie
     questionToAnswer(e, answerAfterClickedQuestion);
   });

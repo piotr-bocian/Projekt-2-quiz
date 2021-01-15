@@ -69,4 +69,4 @@ it('should restore values to default', () => {
 //     expect(playerUpdate(e, true)).toContain('lipa')
 //   })
 
-// });
+});

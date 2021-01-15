@@ -3,10 +3,12 @@ class PlayerHuman {
     this.allAnswer = 0;
     this.rightAnswer = 0;
     this.playerAnswer = '';
+    this.allPlayerAnswers = [];
   }
 
   playerChose(click) {
     this.playerAnswer = click;
+    this.allPlayerAnswers.push(this.playerAnswer);
   }
 
   answerCounter(calFn) {
