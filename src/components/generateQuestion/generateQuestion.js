@@ -4,6 +4,38 @@ import questionToAnswer from '../questionToAnswer/questionToAnswer';
 import { cpu } from '../playerCPU/playerCPU';
 import { vehiclesArrayImg, starshipArrayImg } from '../starshipsAndVehicles';
 
+export const arrayIds = (num) => {
+  const idArray = [];
+  for (let i = 1; idArray.length < num; i++) {
+    if (i !== 17) {
+      idArray.push(i);
+    } else {
+      continue;
+    }
+  }
+  return idArray;
+};
+export const randomId = (data) => {
+  const randomizator = Math.floor(Math.random() * (data.length - 1) + 1);
+  return randomizator;
+};
+const rndArrayOfIds = (arr, arr2) => {
+  while (arr.length < 4) {
+    let id = arr2[randomId(arr2)];
+    if (!arr.includes(id)) {
+      arr.push(id);
+    }
+  }
+  return arr;
+};
+
+const getImg = (mode, id) => {
+  const imgQuestion = `${mode}/${id}.jpg`;
+  return imgQuestion;
+};
+
+
+
 function generadeRandomQuestions(answerAfterClickedQuestion) {
   // const vehiclesArrayImg = [
   //   4,
@@ -54,33 +86,6 @@ function generadeRandomQuestions(answerAfterClickedQuestion) {
   const urlVehiclesRequest = 'https://swapi.dev/api/vehicles/';
   const urlStarshipsRequest = 'https://swapi.dev/api/starships/';
 
-  const arrayIds = (num) => {
-    const idArray = [];
-    for (let i = 1; idArray.length < num; i++) {
-      if (i !== 17) {
-        idArray.push(i);
-      } else {
-        continue;
-      }
-    }
-    return idArray;
-  };
-
-  const randomId = (data) => {
-    const randomizator = Math.floor(Math.random() * (data.length - 1) + 1);
-    return randomizator;
-  };
-
-  const rndArrayOfIds = (arr, arr2) => {
-    while (arr.length < 4) {
-      let id = arr2[randomId(arr2)];
-      if (!arr.includes(id)) {
-        arr.push(id);
-      }
-    }
-    return arr;
-  };
-
   async function getNames(arr, basicUrl) {
     const names = await Promise.all(
       arr.map(async (num) => {
@@ -91,11 +96,6 @@ function generadeRandomQuestions(answerAfterClickedQuestion) {
     );
     return names;
   }
-
-  const getImg = (mode, id) => {
-    const imgQuestion = `${mode}/${id}.jpg`;
-    return imgQuestion;
-  };
 
   async function createPeopleObject(url) {
     const mode = 'people';

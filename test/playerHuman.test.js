@@ -1,4 +1,7 @@
-import { PlayerHuman } from '../src/components/playerHuman/playerHuman';
+import {
+  PlayerHuman,
+  playerUpdate,
+} from '../src/components/playerHuman/playerHuman';
 
 it('should create new player human', () => {
   const player = new PlayerHuman();
@@ -54,3 +57,16 @@ it('should restore values to default', () => {
     playerAnswer: '',
   });
 });
+
+// it('should change playerAnswer and answer count', () => {
+//   const player = new PlayerHuman();
+//   player.allAnswer = 0;
+//   player.rightAnswer = 0;
+//   player.playerAnswer = 'Yoda';
+//   document.body.innerHTML = '<div class="questions_item">Palpatine</div>'
+//   const a = document.querySelector('div');
+//   a.addEventListener('click', e =>{
+//     expect(playerUpdate(e, true)).toContain('lipa')
+//   })
+
+// });
