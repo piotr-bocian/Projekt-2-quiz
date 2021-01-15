@@ -1,3 +1,5 @@
+
+
 function modalWindowContent(playerCorrect, playerAll, computerCorrect, computerAll){
 
     //GAME OVER DIV
@@ -68,6 +70,7 @@ function modalWindowContent(playerCorrect, playerAll, computerCorrect, computerA
 
     inputTry.appendChild(btn);
 
+    //FUNCTIONALITY
 
     const objReturn = () =>  {
         let yourInput = document.getElementById('player-input');
@@ -97,6 +100,8 @@ function modalWindowContent(playerCorrect, playerAll, computerCorrect, computerA
         const currentMode = document.body.querySelector("mode-change").shadowRoot.querySelector(".dark").innerHTML;
         // returnToMainPage();
     })
+
+    //HALLOFFAME LOCALSTORAGE
     
     const superDiv = document.createElement("div");
     superDiv.className = "superDiv";
