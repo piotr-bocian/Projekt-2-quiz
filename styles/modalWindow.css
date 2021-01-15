@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+
+.modal-window {
+    display: block;
+    position: absolute;
+    z-index: 100;
+    width: 80vw;
+    height: 90vh;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: black;
+    box-shadow: 2px 2px 15px darkred;
+    border-radius: 20px;
+}
+
+.superDiv {
+    display: grid;
+    grid-template-columns: 0.6fr 1.4fr;
+    grid-template-rows: 1.75fr 4.5fr 1.75fr;
+    gap: 0px 0px;
+    grid-template-areas:
+        "game-over game-over"
+        "yoda results"
+        "inputTry inputTry";
+    font-family: 'Montserrat', sans-serif;
+    height: 100%;
+}
+
+.game-over { 
+    grid-area: game-over;
+    text-align: center; }
+
+.game-over h1{
+    color: white;
+    font-size: 2em;
+    font-family: 'Audiowide', cursive;
+}
+
+.game-over p{
+    color: white;
+    font-size: 1.5em;
+}
+
+.results { 
+    grid-area: results;
+    box-shadow: 2px 2px 15px rgba(255, 230, 0, 0.9);
+    border-radius: 20px;
+    width: 90%;
+    height: 90%;
+    margin: auto;
+}
+
+.results h2 {
+    color: white;
+    margin: 0.5em;
+}
+
+.yoda {
+    grid-area: yoda;
+    width: 90%;
+    margin: auto;
+}
+
+#inputTry {
+    grid-area: inputTry;
+    color: white;
+    text-align: center;
+    margin: auto;
+}
+
+#player-input {
+    width: 30vw;
+    margin: 0.5em 1em;
+    box-sizing: border-box;
+}
+
+#player-input[type="text"]
+{
+    font-size: 1.5em;
+}
+
+.fill-name {
+    display: inline-block;
+    margin:0.5em 1em;
+    font-size: 1em;
+}
+
+.force-button { 
+    background-color: red;
+    border: 1px solid rgba(255, 0, 0, 0.5);
+    box-sizing: border-box;
+    opacity: 0.8;
+    font-family: 'Audiowide', cursive;
+    font-size: 2em;
+    text-align: center;
+    color: white;
+    border-radius: 16px;
+    padding: 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 4px 4px 40px rgba(255, 0, 0, 0.9);
+    margin: 0.5em;
+}
