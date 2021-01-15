@@ -26,11 +26,50 @@ function modalWindowContent(playerCorrect, playerAll, computerCorrect, computerA
     resultTitle.innerHTML = "Detailed answers"
     results.appendChild(resultTitle);
 
-    const resultsList = document.createElement("div");
-    results.appendChild(resultsList);
-    const table = document.createElement('table');
-    table.appendChild(resultsList);
+    const superAnswer = document.createElement("div");
+    superAnswer.className = "super-answer";
+    results.appendChild(superAnswer);
 
+    const superAnswerHeader = document.createElement("div");
+    superAnswerHeader.className = "super-answer-header";
+    superAnswer.appendChild(superAnswerHeader);
+
+    superAnswerHeader.innerHTML = `
+    <p></p>
+    <p>Correct</p>
+    <p>You</p>
+    <p>Computer</p>
+    `;
+
+    const superAnswerBody = document.createElement("div");
+    superAnswerBody.className = "super-answer-body";
+    superAnswer.appendChild(superAnswerBody);
+
+    // const superAnswerBodyRow = (correct, playerAnswer, computerAnswer) => {
+
+    //     for (let i = 0; i < correct.length; i++) {
+
+    //         const summaryDiv = document.createElement("div");
+
+    //         const correctAnswerNameElement = document.createElement("p");
+    //         correctAnswerNameElement.innerText = correct[i];
+    //         correctAnswerNameElement.className = "answers-correct-right"
+
+    //         const humanAnswerNameElement = document.createElement("p");
+    //         humanAnswerNameElement.innerText = playerAnswer[i];
+    //         humanAnswerNameElement.className = (playerAnswer === correct) ? "answers-table-correct" : "answers-table-incorrect";
+
+    //         const computerAnswerNameElement = document.createElement("p");
+    //         computerAnswerNameElement.innerText = computerAnswer[i];
+    //         computerAnswerNameElement.className = (computerAnswer === computerAnswer) ? "answers-table-correct" : "answers-table-incorrect";
+
+    //         summaryDiv.appendChild(correctAnswerNameElement);
+    //         summaryDiv.appendChild(humanAnswerNameElement);
+    //         summaryDiv.appendChild(computerAnswerNameElement);
+
+    //         superAnswerBody.appendChild(summaryDiv);
+    //     }
+    // }
 
     //YODA PICTURE DIV
     const yoda = document.createElement("img");
@@ -48,7 +87,7 @@ function modalWindowContent(playerCorrect, playerAll, computerCorrect, computerA
 
     const player = document.createElement("input");
     player.type = "text";
-    player.minLength = "3";
+    player.minLength = "2";
     player.maxLength = "20";
     player.id = "player-input"
     player.required = "required";
@@ -71,14 +110,14 @@ function modalWindowContent(playerCorrect, playerAll, computerCorrect, computerA
 
     inputTry.appendChild(btn);
 
-    //FUNCTIONALITY
+    //FUNCTIONALITY WITH FORM & LOCAL STORAGE
 
     const objReturn = () =>  {
         let yourInput = document.getElementById('player-input');
         let input = yourInput.value;
         let obj = new Object();
         
-        if (input.length >= 3) {
+        if (input.length >= 2) {
             obj.nick = input;
             obj.playerCorrect = playerCorrect;
             obj.playerAll = playerAll;
@@ -108,11 +147,6 @@ function modalWindowContent(playerCorrect, playerAll, computerCorrect, computerA
         modifyStorage(mode, pNick, pCorrectAnswers, pAnswers);
      })
 
-    //HALLOFFAME LOCALSTORAGE
-    // let pNick = playerObject.nick;
-    // let pCorrectAnswers = playerObject.playerCorrect;
-    // let pAnswers = playerObject.playerAll;
-    // modifyStorage(mode, pNick, pCorrectAnswers, pAnswers);
 
 
     //BRINGING IT ALL TOGETHER
