@@ -1,0 +1,28 @@
+.modal-window {
+    display: block;
+    position: absolute;
+    z-index: 100;
+    width: 70vw;
+    height: fit-content;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: black;
+    }
+
+.game-over h1{
+    color: white;
+    font-size: 2em;
+}
+
+.game-over p{
+    color: white;
+}
+
+.yoda {
+    width: 20vw;
+}
+
+.input {
+    color: white;
+}

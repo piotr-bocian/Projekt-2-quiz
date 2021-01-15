@@ -28,9 +28,9 @@ function modalWindowContent(playerCorrect, playerAll, computerCorrect, computerA
 
 
 
-    const yoda = document.createElement("div");
+    const yoda = document.createElement("img");
     yoda.className = "yoda";
-    const src = "../../../static/assets/ui/MasterYodaLeft.png"
+    const src = "../../../static/assets/ui/MasterYodaLeft.png";
     yoda.setAttribute('src', src);
 
 
@@ -53,18 +53,22 @@ function modalWindowContent(playerCorrect, playerAll, computerCorrect, computerA
     btn.innerHTML = "MAY THE FORCE BE WITH YOU";
     forceBtn.appendChild(btn);
 
-    let yourInput = document.getElementById('player-input');
-
+    
     btn.addEventListener('click', () => {
-        var input = yourInput.value;
+        let yourInput = document.getElementById('player-input');
+        let input = yourInput.value;
         let obj = new Object();
+        
         if (player) {
-            obj[input] = input;
-            obj.playerCorrect = playerCorrect.value;
-            obj.playerAll = playerAll.value;
+            obj.nick = input;
+            obj.playerCorrect = playerCorrect;
+            obj.playerAll = playerAll;
         } else {
-            return; //throw error
+            return; //throw error?
         }
+
+        console.log(obj);
+        return obj;
     })
     
     const superDiv = document.createElement("div");
