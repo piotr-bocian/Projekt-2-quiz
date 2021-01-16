@@ -1,7 +1,8 @@
 import getDefaultRanking from '../localStorage/localStorage.js';
 import {modifyStorage} from '../localStorage/localStorage.js';
+import resultsWindow from './importResultsFuntion.js';
 
-function modalWindowContent(playerCorrect, playerAll, computerCorrect, computerAll){
+function modalWindowContent(playerCPU, playerHuman){
 
     //GAME OVER DIV
     const gameOver = document.createElement("div");
@@ -14,7 +15,7 @@ function modalWindowContent(playerCorrect, playerAll, computerCorrect, computerA
 
     const text = document.createElement("p");
     text.className = "game-over";
-    text.innerHTML = `The force is strong in you young Padawan! During 1 minute you have answered ${playerCorrect} / ${playerAll} questions. And Google quessed ${computerCorrect} / ${computerAll}.`
+    text.innerHTML = `The force is strong in you young Padawan! During 1 minute you have answered ${playerHuman.rightAnswer} / ${playerHuman.allAnswer} questions. And Google quessed ${playerCPU.correctAnswers} / ${playerCPU.noOfAnswers}.`
     gameOver.appendChild(text);
 
 
@@ -28,6 +29,7 @@ function modalWindowContent(playerCorrect, playerAll, computerCorrect, computerA
 
     const superAnswer = document.createElement("div");
     superAnswer.className = "super-answer";
+    superAnswer.style.color = "white";
     results.appendChild(superAnswer);
 
     const superAnswerHeader = document.createElement("div");
@@ -45,31 +47,10 @@ function modalWindowContent(playerCorrect, playerAll, computerCorrect, computerA
     superAnswerBody.className = "super-answer-body";
     superAnswer.appendChild(superAnswerBody);
 
-    // const superAnswerBodyRow = (correct, playerAnswer, computerAnswer) => {
+    //function initialized with dummy
+    let resultsxd = resultsWindow(playerCPU, playerHuman);
 
-    //     for (let i = 0; i < correct.length; i++) {
-
-    //         const summaryDiv = document.createElement("div");
-
-    //         const correctAnswerNameElement = document.createElement("p");
-    //         correctAnswerNameElement.innerText = correct[i];
-    //         correctAnswerNameElement.className = "answers-correct-right"
-
-    //         const humanAnswerNameElement = document.createElement("p");
-    //         humanAnswerNameElement.innerText = playerAnswer[i];
-    //         humanAnswerNameElement.className = (playerAnswer === correct) ? "answers-table-correct" : "answers-table-incorrect";
-
-    //         const computerAnswerNameElement = document.createElement("p");
-    //         computerAnswerNameElement.innerText = computerAnswer[i];
-    //         computerAnswerNameElement.className = (computerAnswer === computerAnswer) ? "answers-table-correct" : "answers-table-incorrect";
-
-    //         summaryDiv.appendChild(correctAnswerNameElement);
-    //         summaryDiv.appendChild(humanAnswerNameElement);
-    //         summaryDiv.appendChild(computerAnswerNameElement);
-
-    //         superAnswerBody.appendChild(summaryDiv);
-    //     }
-    // }
+    superAnswerBody.appendChild(resultsxd);
 
     //YODA PICTURE DIV
     const yoda = document.createElement("img");

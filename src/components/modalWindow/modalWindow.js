@@ -1,14 +1,18 @@
+import  {playerCPU, playerHuman} from './dummyModalWindowResults.js'
 import modalWindowContent from './modalWindowContent.js';
 
-function modalWindow () {
+let playerHuman1 = playerHuman;
+let playerCPU1 = playerCPU;
+
+function modalWindow (playerCPU, playerHuman) {   
 
     const modalWindow = document.createElement("div");
     modalWindow.className = "modal-window";
 
-    modalWindow.appendChild(modalWindowContent(110, 110, 8 , 10));
+    modalWindow.appendChild(modalWindowContent(playerCPU, playerHuman));
 
     return modalWindow;
 }
 
-const window = document.body.appendChild(modalWindow());
+const window = document.body.appendChild(modalWindow(playerCPU1, playerHuman1));
 // export default modalWinodow;
