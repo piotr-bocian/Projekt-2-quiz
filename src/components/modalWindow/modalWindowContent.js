@@ -45,6 +45,17 @@ function modalWindowContent(playerCorrect, playerAll, computerCorrect, computerA
     superAnswerBody.className = "super-answer-body";
     superAnswer.appendChild(superAnswerBody);
 
+    // do testu:
+    // let objQuestion = {
+    //     correct = ['a', 'b', 'b', 'c']
+    // }
+    // let objPlayer = {
+    //     playerAnswer = ['a', 'c', 'c', 'a']
+    // }
+    // let objComputer = {
+    //     computerAnswer = ['b', 'b', 'b', 'b']
+    // }
+
     // const superAnswerBodyRow = (correct, playerAnswer, computerAnswer) => {
 
     //     for (let i = 0; i < correct.length; i++) {
