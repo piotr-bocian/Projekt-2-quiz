@@ -183,7 +183,7 @@ function generadeRandomQuestions(answerAfterClickedQuestion) {
   // renderQuestions();
   // startuje funkcję z wybranego 'mode' wraz z wylosowanymi pytaniami. Obiekt przekazywany w argumencie.
   checkMode('people').then((e) => {
-    cpu.answerQuestion(e.answers, e.image);
+    cpu.answerQuestion(e.answers, e.image, e.rightAnswer);
     // funkcja wyswietla odpowiedzi na stronie
     questionToAnswer(e, answerAfterClickedQuestion);
   });

@@ -5,9 +5,10 @@ class PlayerCPU {
         this.answer = '';
         this.allImageArr = [];
         this.allCpuAnswers = [];
+        this.allCorrectAnswers = [];
     }
 
-    answerQuestion(arrWithAns, image) {
+    answerQuestion(arrWithAns, image, correctAnswers) {
         const question = [...arrWithAns];
         this.allImageArr.push(image);
         const cpuRandomPicked = Math.floor(Math.random()*4);
@@ -15,6 +16,7 @@ class PlayerCPU {
         // this.noOfAnswers +=1;
         this.answer = cpuAnswer;
         this.allCpuAnswers.push(this.answer);
+        this.allCorrectAnswers.push(correctAnswers)
         return this.answer;
     }
 
