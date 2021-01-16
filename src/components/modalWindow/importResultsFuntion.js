@@ -13,7 +13,6 @@ for (let i = 0; i < allAnswers.length; i++) {
 
     const correctAnswerImage = document.createElement("img");
     correctAnswerImage.src = `../../../static/assets/img/modes/${allImages[i]}`;
-    correctAnswerImage.style.maxWidth = "10%";
 
     const correctAnswerElement = document.createElement("p");
     correctAnswerElement.innerText = allAnswers[i];

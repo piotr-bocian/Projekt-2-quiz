@@ -17,7 +17,7 @@
 .superDiv {
     display: grid;
     grid-template-columns: 0.6fr 1.4fr;
-    grid-template-rows: 1.75fr 4.5fr 1.75fr;
+    grid-template-rows: 1.75fr 4fr 2.25fr;
     gap: 0px 0px;
     grid-template-areas:
         "game-over game-over"
@@ -33,13 +33,15 @@
 
 .game-over h1{
     color: white;
-    font-size: 2em;
+    font-size: 1.5em;
     font-family: 'Audiowide', cursive;
+    margin: 0.4em;
 }
 
 .game-over p{
     color: white;
-    font-size: 1.5em;
+    font-size: 1em;
+    margin: 0.4em;
 }
 
 .results { 
@@ -47,17 +49,18 @@
     box-shadow: 2px 2px 15px rgba(255, 230, 0, 0.9);
     border-radius: 20px;
     width: 90%;
-    height: 90%;
-    margin: auto;
+    height: 85%;
+    margin: 1em auto auto auto;
 }
 
 .results h2 {
     color: white;
     box-sizing: border-box;
-    padding: 1em;
+    padding: 0.5em;
     position: sticky;
     height: 20%;
     margin: 0;
+    font-size: 1.25em;
 }
 
 .super-answer {
@@ -65,7 +68,10 @@
 }
 
 .super-answer-header {
+    display: grid;
     height: 10%;
+    grid-template-columns: 0.7fr 1.1fr 1.1fr 1.1fr;
+    font-size: 1.25em;
 }
 
 .super-answer p {
@@ -77,6 +83,27 @@
     height: 90%;
     overflow-y: auto;
 }
+::-webkit-scrollbar {
+    width: 3px;
+  }
+.super-answer-body div div {
+    display: grid;
+    grid-template-columns: 0.7fr 1.1fr 1.1fr 1.1fr;
+    font-size: 1em;
+    align-items: center;
+}
+
+.super-answer-body div div img {
+    max-width: 60%;
+    margin: auto;
+}
+
+.answers-table-correct {
+    color: green;
+}
+.answers-table-incorrect {
+    color: red;
+}
 
 .super-answer-header > p{
     padding: 0;
@@ -85,7 +112,7 @@
 
 .yoda {
     grid-area: yoda;
-    width: 90%;
+    width: 75%;
     margin: auto;
 }
 
@@ -104,12 +131,12 @@
 
 #player-input[type="text"]
 {
-    font-size: 1.5em;
+    font-size: 1em;
 }
 
 .fill-name {
     display: inline-block;
-    margin:0.5em 1em;
+    margin:0.5em 0.5em;
     font-size: 1em;
 }
 
@@ -119,11 +146,11 @@
     box-sizing: border-box;
     opacity: 0.8;
     font-family: 'Audiowide', cursive;
-    font-size: 2em;
+    font-size: 1.25em;
     text-align: center;
     color: white;
     border-radius: 16px;
-    padding: 10px;
+    padding: 7px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 4px 4px 40px rgba(255, 0, 0, 0.9);
     margin: 0.5em;
 }
