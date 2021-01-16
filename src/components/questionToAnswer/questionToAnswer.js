@@ -2,6 +2,7 @@
 import generadeRandomQuestions from '../generateQuestion/generateQuestion';
 import { playerUpdate } from '../playerHuman/playerHuman';
 import { cpu } from '../playerCPU/playerCPU';
+
 const questionToAnswer = (answersObj) => {
   const allAnswers = answersObj.answers;
   const rightAnswer = answersObj.rightAnswer;
@@ -74,7 +75,7 @@ const questionToAnswer = (answersObj) => {
       //tutaj Update dla gracza player
       playerUpdate(e, checkAnswer(choicedAnswer));
       setTimeout(function () {
-        generadeRandomQuestions(checkedAnswer);
+        generadeRandomQuestions();
       }, 50);
     });
   }

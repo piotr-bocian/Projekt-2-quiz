@@ -10,6 +10,9 @@ export const App = ({ options }) => {
     playGameButton.classList.add('display-none');
     cpu.restoreDefault();
     generadeRandomQuestions();
-    timerComponent();
+    //ROZWIĄZANIE NIE IDEALNE ALE DZIAŁA
+    setTimeout(function () {
+      timerComponent();
+    }, 400);
   });
 };

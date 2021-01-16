@@ -4,6 +4,10 @@ import questionToAnswer from '../questionToAnswer/questionToAnswer';
 import { cpu } from '../playerCPU/playerCPU';
 import { vehiclesArrayImg, starshipArrayImg } from '../starshipsAndVehicles';
 
+const urlPeopleRequest = 'https://swapi.dev/api/people/';
+const urlVehiclesRequest = 'https://swapi.dev/api/vehicles/';
+const urlStarshipsRequest = 'https://swapi.dev/api/starships/';
+
 export const arrayIds = (num) => {
   const idArray = [];
   for (let i = 1; idArray.length < num; i++) {
@@ -119,73 +123,25 @@ async function createVehiclesObject(url) {
   }
 }
 
-function generadeRandomQuestions(answerAfterClickedQuestion) {
-  // const vehiclesArrayImg = [
-  //   4,
-  //   6,
-  //   7,
-  //   8,
-  //   14,
-  //   16,
-  //   18,
-  //   19,
-  //   20,
-  //   24,
-  //   25,
-  //   26,
-  //   30,
-  //   33,
-  //   34,
-  //   35,
-  //   36,
-  //   37,
-  //   38,
-  //   42,
-  // ];
-  // const starshipArrayImg = [
-  //   5,
-  //   9,
-  //   10,
-  //   11,
-  //   12,
-  //   13,
-  //   15,
-  //   21,
-  //   22,
-  //   23,
-  //   27,
-  //   28,
-  //   29,
-  //   31,
-  //   39,
-  //   40,
-  //   41,
-  //   43,
-  //   47,
-  //   48,
-  // ];
-
-  const urlPeopleRequest = 'https://swapi.dev/api/people/';
-  const urlVehiclesRequest = 'https://swapi.dev/api/vehicles/';
-  const urlStarshipsRequest = 'https://swapi.dev/api/starships/';
-
-  function checkMode(mode) {
-    switch (mode.toLowerCase()) {
-      case 'people':
-        return createPeopleObject(urlPeopleRequest);
-      case 'vehicles':
-        return createVehiclesObject(urlVehiclesRequest);
-      case 'starships':
-        return createStarshipsObject(urlStarshipsRequest);
-    }
+function checkMode(mode) {
+  switch (mode.toLowerCase()) {
+    case 'people':
+      return createPeopleObject(urlPeopleRequest);
+    case 'vehicles':
+      return createVehiclesObject(urlVehiclesRequest);
+    case 'starships':
+      return createStarshipsObject(urlStarshipsRequest);
   }
+}
+function generadeRandomQuestions() {
   // renderuje puste odpowiedzi
   // renderQuestions();
   // startuje funkcję z wybranego 'mode' wraz z wylosowanymi pytaniami. Obiekt przekazywany w argumencie.
   checkMode('people').then((e) => {
     cpu.answerQuestion(e.answers, e.image, e.rightAnswer);
     // funkcja wyswietla odpowiedzi na stronie
-    questionToAnswer(e, answerAfterClickedQuestion);
+    // questionToAnswer(e, answerAfterClickedQuestion);
+    questionToAnswer(e);
   });
 }
 export default generadeRandomQuestions;
