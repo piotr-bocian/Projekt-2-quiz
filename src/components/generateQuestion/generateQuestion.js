@@ -1,6 +1,5 @@
 import 'regenerator-runtime/runtime'; //async/await with Parcel
 import questionToAnswer from '../questionToAnswer/questionToAnswer';
-// import renderQuestions from '../questionToAnswer/renderQuestions';
 import { cpu } from '../playerCPU/playerCPU';
 import { vehiclesArrayImg, starshipArrayImg } from '../starshipsAndVehicles';
 
@@ -134,13 +133,10 @@ export function checkMode(mode) {
   }
 }
 function generadeRandomQuestions() {
-  // renderuje puste odpowiedzi
-  // renderQuestions();
   // startuje funkcję z wybranego 'mode' wraz z wylosowanymi pytaniami. Obiekt przekazywany w argumencie.
   checkMode('people').then((e) => {
-    cpu.answerQuestion(e.answers, e.image, e.rightAnswer);
+    cpu.answerQuestion(e.answers);
     // funkcja wyswietla odpowiedzi na stronie
-    // questionToAnswer(e, answerAfterClickedQuestion);
     questionToAnswer(e);
   });
 }

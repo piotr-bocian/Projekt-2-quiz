@@ -24,7 +24,7 @@ const questionToAnswer = (answersObj) => {
       cpu.correctAnswers += 1;
       cpu.noOfAnswers += 1;
     } else {cpu.noOfAnswers += 1;}
-    
+    cpu.addDataToArrays(img, rightAnswer);
     console.log(cpu);
     return;
   };

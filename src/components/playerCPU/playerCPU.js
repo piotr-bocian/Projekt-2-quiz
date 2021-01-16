@@ -8,16 +8,18 @@ class PlayerCPU {
         this.allCorrectAnswers = [];
     }
 
-    answerQuestion(arrWithAns, image, correctAnswers) {
+    answerQuestion(arrWithAns) {
         const question = [...arrWithAns];
-        this.allImageArr.push(image);
         const cpuRandomPicked = Math.floor(Math.random()*4);
         const cpuAnswer = question[cpuRandomPicked];;
-        // this.noOfAnswers +=1;
         this.answer = cpuAnswer;
-        this.allCpuAnswers.push(this.answer);
-        this.allCorrectAnswers.push(correctAnswers)
         return this.answer;
+    }
+
+    addDataToArrays(image, correctAnswers) {
+        this.allImageArr.push(image);
+        this.allCpuAnswers.push(this.answer);
+        this.allCorrectAnswers.push(correctAnswers);
     }
 
     restoreDefault() {
