@@ -1,6 +1,5 @@
-import { cpu } from "../playerCPU/playerCPU";
-import { playerHuman } from "../playerHuman/playerHuman";
-
+import { cpu } from '../playerCPU/playerCPU';
+import { playerHuman } from '../playerHuman/playerHuman';
 
 const timerComponent = () => {
   const template = document.createElement('template');
@@ -39,7 +38,7 @@ const timerComponent = () => {
       </div>
       <div part='counter'>
          <p part='countdown-text' class = 'countdown-text'></p>
-         <p part= 'timer' class = 'timer'></p>
+         <span part= 'timer' class = 'timer'>: 1m 00s</span>
       </div>
   `;
   class StarWarsTimer extends HTMLElement {
@@ -51,10 +50,10 @@ const timerComponent = () => {
       this.shadowRoot.querySelector('.lighstaberHandler').src =
         '../../../static/assets/ui/LightsaberHandle.png';
       this.shadowRoot.querySelector('.lightsaberColor');
-      this.shadowRoot.querySelector('.countdown-text').innerText = `Time Left`;
+      this.shadowRoot.querySelector('.countdown-text').innerText = `Time Left `;
     }
     timer() {
-      let time = 60
+      let time = 60;
       let sec = time;
       let min = 1;
       const count = this.shadowRoot.querySelector('.timer');
@@ -68,9 +67,9 @@ const timerComponent = () => {
         }
         //trzeba naprawić skaczący tekst oraz dodać minuty
         if (sec < 0) {
-          count.innerText = `: ${min}m 0s`
+          count.innerText = `: ${min}m 0s`;
           clearInterval(countdown);
-          count.innerText = `: Twój czas się skończył`;
+          count.innerText = `: your time is up, young Padawan!`;
 
           //zaimportowane obiekty playerHuman i cpu - z nich wzięlismy
           // properties zwracające wszystkie poprawne odpowiedzi (dla człowieka
