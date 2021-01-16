@@ -25,6 +25,7 @@ class PlayerHuman {
     this.allAnswer = 0;
     this.rightAnswer = 0;
     this.playerAnswer = '';
+    this.allPlayerAnswers = [];
   }
 }
 

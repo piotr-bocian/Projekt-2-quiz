@@ -23,8 +23,8 @@ const questionToAnswer = (answersObj) => {
     if (rightAnswer === cpuAns) {
       cpu.correctAnswers += 1;
       cpu.noOfAnswers += 1;
-    }
-    cpu.noOfAnswers += 1;
+    } else {cpu.noOfAnswers += 1;}
+    
     console.log(cpu);
     return;
   };
@@ -76,7 +76,7 @@ const questionToAnswer = (answersObj) => {
       playerUpdate(e, checkAnswer(choicedAnswer));
       setTimeout(function () {
         generadeRandomQuestions();
-      }, 50);
+      }, 100);
     });
   }
 };
