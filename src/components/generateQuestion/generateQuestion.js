@@ -45,6 +45,80 @@ export async function getNames(arr, basicUrl) {
   return names;
 }
 
+async function createPeopleObject(url) {
+  const mode = 'people';
+  const questions = {
+    image: '',
+    answers: [],
+    rightAnswer: '',
+  };
+  let data;
+  let numOfRes;
+  let fourAnswers = [];
+  try {
+    const responsePeople = await fetch(url);
+    data = await responsePeople.json();
+    numOfRes = data.count;
+    const apiIds = arrayIds(numOfRes);
+    const rndIds = rndArrayOfIds(fourAnswers, apiIds);
+    const correctAns = rndIds[Math.floor(Math.random() * rndIds.length)];
+    const namesArr = await getNames(rndIds, url);
+    questions.answers = namesArr;
+    questions.rightAnswer = namesArr[rndIds.indexOf(correctAns)];
+    questions.image = getImg(mode, correctAns);
+    console.log(questions);
+    return questions;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function createStarshipsObject(url) {
+  const mode = 'starships';
+  const questions = {
+    image: '',
+    answers: [],
+    rightAnswer: '',
+  };
+  let fourAnswers = [];
+  try {
+    const apiIds = starshipArrayImg;
+    const rndIds = rndArrayOfIds(fourAnswers, apiIds);
+    const correctAns = rndIds[Math.floor(Math.random() * rndIds.length)];
+    const namesArr = await getNames(rndIds, url);
+    questions.answers = namesArr;
+    questions.rightAnswer = namesArr[rndIds.indexOf(correctAns)];
+    questions.image = getImg(mode, correctAns);
+    console.log(questions);
+    return questions;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function createVehiclesObject(url) {
+  const mode = 'vehicles';
+  const questions = {
+    image: '',
+    answers: [],
+    rightAnswer: '',
+  };
+  let fourAnswers = [];
+  try {
+    const apiIds = vehiclesArrayImg;
+    const rndIds = rndArrayOfIds(fourAnswers, apiIds);
+    const correctAns = rndIds[Math.floor(Math.random() * rndIds.length)];
+    const namesArr = await getNames(rndIds, url);
+    questions.answers = namesArr;
+    questions.rightAnswer = namesArr[rndIds.indexOf(correctAns)];
+    questions.image = getImg(mode, correctAns);
+    console.log(questions);
+    return questions;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 function generadeRandomQuestions(answerAfterClickedQuestion) {
   // const vehiclesArrayImg = [
   //   4,
@@ -94,80 +168,6 @@ function generadeRandomQuestions(answerAfterClickedQuestion) {
   const urlPeopleRequest = 'https://swapi.dev/api/people/';
   const urlVehiclesRequest = 'https://swapi.dev/api/vehicles/';
   const urlStarshipsRequest = 'https://swapi.dev/api/starships/';
-
-  async function createPeopleObject(url) {
-    const mode = 'people';
-    const questions = {
-      image: '',
-      answers: [],
-      rightAnswer: '',
-    };
-    let data;
-    let numOfRes;
-    let fourAnswers = [];
-    try {
-      const responsePeople = await fetch(url);
-      data = await responsePeople.json();
-      numOfRes = data.count;
-      const apiIds = arrayIds(numOfRes);
-      const rndIds = rndArrayOfIds(fourAnswers, apiIds);
-      const correctAns = rndIds[Math.floor(Math.random() * rndIds.length)];
-      const namesArr = await getNames(rndIds, url);
-      questions.answers = namesArr;
-      questions.rightAnswer = namesArr[rndIds.indexOf(correctAns)];
-      questions.image = getImg(mode, correctAns);
-      console.log(questions);
-      return questions;
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  async function createStarshipsObject(url) {
-    const mode = 'starships';
-    const questions = {
-      image: '',
-      answers: [],
-      rightAnswer: '',
-    };
-    let fourAnswers = [];
-    try {
-      const apiIds = starshipArrayImg;
-      const rndIds = rndArrayOfIds(fourAnswers, apiIds);
-      const correctAns = rndIds[Math.floor(Math.random() * rndIds.length)];
-      const namesArr = await getNames(rndIds, url);
-      questions.answers = namesArr;
-      questions.rightAnswer = namesArr[rndIds.indexOf(correctAns)];
-      questions.image = getImg(mode, correctAns);
-      console.log(questions);
-      return questions;
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  async function createVehiclesObject(url) {
-    const mode = 'vehicles';
-    const questions = {
-      image: '',
-      answers: [],
-      rightAnswer: '',
-    };
-    let fourAnswers = [];
-    try {
-      const apiIds = vehiclesArrayImg;
-      const rndIds = rndArrayOfIds(fourAnswers, apiIds);
-      const correctAns = rndIds[Math.floor(Math.random() * rndIds.length)];
-      const namesArr = await getNames(rndIds, url);
-      questions.answers = namesArr;
-      questions.rightAnswer = namesArr[rndIds.indexOf(correctAns)];
-      questions.image = getImg(mode, correctAns);
-      console.log(questions);
-      return questions;
-    } catch (error) {
-      console.log(error);
-    }
-  }
 
   function checkMode(mode) {
     switch (mode.toLowerCase()) {

@@ -76,7 +76,7 @@ const timerComponent = () => {
           // properties zwracające wszystkie poprawne odpowiedzi (dla człowieka
           //rightAnswer, dla cpu - correctAnswer) oraz wszystkie odpowiedzi (człowiek allAnswer, cpu - noOfAnswers)
 
-          alert(`Twój wynik to: ${playerHuman.rightAnswer}/${playerHuman.allAnswer}, a komputera: ${cpu.correctAnswers}/${cpu.noOfAnswers}`);
+          // alert(`Twój wynik to: ${playerHuman.rightAnswer}/${playerHuman.allAnswer}, a komputera: ${cpu.correctAnswers}/${cpu.noOfAnswers}`);
         }
       }, 1000);
     }
