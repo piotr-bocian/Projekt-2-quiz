@@ -3,7 +3,7 @@ import {
   randomId,
   rndArrayOfIds,
   getImg,
-  getNames
+  checkMode
 } from '../src/components/generateQuestion/generateQuestion';
 
 it('should return array of numbers', () => {
@@ -49,9 +49,15 @@ it('should return path to img', () => {
    expect(getImg(mode, id)).toBe(`people/32.jpg`)
  });
 
+
+// jest.mock('./generateQuestion')
 //  it('should return object.name from API', async() => {
-//    const names = require('../swapi-json-server/people.json')
-//    expect.assertions(1);
-//    const data = await names.getUserName(1);
-//    expect(data).toEqual("Luke Skywalker")
+//   checkMode('people').then(e=>{
+//     expect(e).toBe({
+//       image: 'people/4.jpg',
+//       answers: ['Darth Vader', 'Leia Organa', 'Beru Whitesun lars', 'Zam Wesell'],
+//       rightAnswer: 'Darth Vader',
+//     })
+//   })
+
 //  });

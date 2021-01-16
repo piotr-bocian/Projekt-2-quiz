@@ -38,7 +38,7 @@ export const getImg = (mode, id) => {
   return imgQuestion;
 };
 
-export async function getNames(arr, basicUrl) {
+async function getNames(arr, basicUrl) {
   const names = await Promise.all(
     arr.map(async (num) => {
       const response = await fetch(basicUrl + num + '/');
@@ -123,7 +123,7 @@ async function createVehiclesObject(url) {
   }
 }
 
-function checkMode(mode) {
+export function checkMode(mode) {
   switch (mode.toLowerCase()) {
     case 'people':
       return createPeopleObject(urlPeopleRequest);
