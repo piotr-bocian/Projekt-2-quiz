@@ -2,6 +2,7 @@ import 'regenerator-runtime/runtime'; //async/await with Parcel
 import questionToAnswer from '../questionToAnswer/questionToAnswer';
 import { cpu } from '../playerCPU/playerCPU';
 import { vehiclesArrayImg, starshipArrayImg } from '../starshipsAndVehicles';
+import { timerComponent } from '../loader/loader';
 
 const urlPeopleRequest = 'https://swapi.dev/api/people/';
 const urlVehiclesRequest = 'https://swapi.dev/api/vehicles/';
@@ -132,12 +133,15 @@ export function checkMode(mode) {
       return createStarshipsObject(urlStarshipsRequest);
   }
 }
-function generadeRandomQuestions() {
+function generadeRandomQuestions(trigger) {
   // startuje funkcję z wybranego 'mode' wraz z wylosowanymi pytaniami. Obiekt przekazywany w argumencie.
   checkMode('people').then((e) => {
     cpu.answerQuestion(e.answers);
     // funkcja wyswietla odpowiedzi na stronie
     questionToAnswer(e);
+    if(trigger){
+      timerComponent();
+    }
   });
 }
 export default generadeRandomQuestions;

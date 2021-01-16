@@ -9,11 +9,7 @@ export const App = ({ options }) => {
   playGameButton.addEventListener('click', () => {
     playGameButton.classList.add('display-none');
     cpu.restoreDefault();
-    generadeRandomQuestions();
+    generadeRandomQuestions(true);
     
-    //ROZWIĄZANIE NIE IDEALNE ALE DZIAŁA
-    setTimeout(function () {
-      timerComponent();
-    }, 400);
   });
 };
