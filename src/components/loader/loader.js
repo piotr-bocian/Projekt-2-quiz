@@ -53,7 +53,7 @@ const timerComponent = () => {
       this.shadowRoot.querySelector('.countdown-text').innerText = `Time Left `;
     }
     timer() {
-      let time = 3;
+      let time = 60;
       let sec = time;
       let min = 1;
       const count = this.shadowRoot.querySelector('.timer');

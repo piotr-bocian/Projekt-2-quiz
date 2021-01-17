@@ -2,6 +2,7 @@
 import generadeRandomQuestions from '../generateQuestion/generateQuestion';
 import { playerUpdate } from '../playerHuman/playerHuman';
 import { cpu } from '../playerCPU/playerCPU';
+import { getRightSelector } from './getRightSelector';
 
 const questionToAnswer = (answersObj) => {
   const allAnswers = answersObj.answers;
@@ -29,7 +30,7 @@ const questionToAnswer = (answersObj) => {
     return;
   };
 
-  document.querySelector('.rules').innerHTML = `
+  getRightSelector().innerHTML = `
     <style>
       .questions{
           width: 90%;

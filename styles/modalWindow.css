@@ -80,6 +80,7 @@
 }
 
 .super-answer-body {
+    /* height: 255px; */
     height: 90%;
     overflow-y: auto;
 }

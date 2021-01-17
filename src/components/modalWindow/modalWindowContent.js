@@ -15,7 +15,7 @@ function modalWindowContent(playerCPU, playerHuman){
 
     const text = document.createElement("p");
     text.className = "game-over";
-    text.innerHTML = `The force is strong in you young Padawan! During 1 minute you have answered ${playerHuman.rightAnswer} / ${playerHuman.allAnswer} questions. And Google quessed ${playerCPU.correctAnswers} / ${playerCPU.noOfAnswers}.`
+    text.innerHTML = `The force is strong in you young Padawan! During 1 minute you have answered ${playerHuman.rightAnswer} / ${playerHuman.allAnswer} questions. And AI quessed ${playerCPU.correctAnswers} / ${playerCPU.noOfAnswers}.`
     gameOver.appendChild(text);
 
 
