@@ -101,8 +101,8 @@ function modalWindowContent(playerCPU, playerHuman){
         
         if (input.length >= 2) {
             obj.nick = input;
-            obj.playerCorrect = playerCorrect;
-            obj.playerAll = playerAll;
+            obj.playerCorrect = playerHuman.rightAnswer;
+            obj.playerAll = playerHuman.allAnswer;
         } else {
             throw "Please enter a correct value!"
         }

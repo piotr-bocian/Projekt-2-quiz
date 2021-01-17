@@ -1,6 +1,6 @@
 import { cpu } from '../playerCPU/playerCPU';
 import { playerHuman } from '../playerHuman/playerHuman';
-
+import { modalWindow } from '../modalWindow/modalWindow';
 const timerComponent = () => {
   const template = document.createElement('template');
   template.innerHTML = `
@@ -53,7 +53,7 @@ const timerComponent = () => {
       this.shadowRoot.querySelector('.countdown-text').innerText = `Time Left `;
     }
     timer() {
-      let time = 60;
+      let time = 3;
       let sec = time;
       let min = 1;
       const count = this.shadowRoot.querySelector('.timer');
@@ -70,6 +70,7 @@ const timerComponent = () => {
           count.innerText = `: ${min}m 0s`;
           clearInterval(countdown);
           count.innerText = `: your time is up, young Padawan!`;
+          const window = document.body.appendChild(modalWindow (cpu, playerHuman));
 
           //zaimportowane obiekty playerHuman i cpu - z nich wzięlismy
           // properties zwracające wszystkie poprawne odpowiedzi (dla człowieka
