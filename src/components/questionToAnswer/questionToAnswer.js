@@ -32,24 +32,25 @@ const questionToAnswer = (answersObj) => {
   document.querySelector('.rules').innerHTML = `
     <style>
       .questions{
-          width: 100%;
-          height: 100%;
+          width: 90%;
+          height: 50%;
           display:grid;
           grid-template-columns: 1fr 1fr;
           justify-items: center;
           grid-gap:10%;
       }
       .questions_item{
-
           color: white;
           font-size: 1.5em;
           display:flex;
-          padding:5px 20px;
+          padding:10px 20px;
           border:1px solid white;
           border-radius:10px;
           justify-self: stretch;
           justify-content: center;
           text-align:center;
+          align-items: center;
+          align-self: center;
       }
     </style>
 
