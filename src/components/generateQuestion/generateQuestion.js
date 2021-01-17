@@ -133,9 +133,21 @@ export function checkMode(mode) {
       return createStarshipsObject(urlStarshipsRequest);
   }
 }
+
+const getGameMode = () => {
+  const mode = document.querySelectorAll('li');
+  console.log(mode);
+  let gameMode = mode.textContent;
+  console.log(gameMode);
+  return gameMode;
+}
+
+
+
+
 function generadeRandomQuestions(trigger) {
   // startuje funkcję z wybranego 'mode' wraz z wylosowanymi pytaniami. Obiekt przekazywany w argumencie.
-  checkMode('people').then((e) => {
+  checkMode(getGameMode()).then((e) => {
     cpu.answerQuestion(e.answers);
     // funkcja wyswietla odpowiedzi na stronie
     questionToAnswer(e);
