@@ -15,6 +15,12 @@ function modifyStorage(mode, pNick, pCorrectAnswers, pAnswers){
     rankingValues[mode.toLowerCase()].sort((a, b) => {
         if(a.correctAnswers<b.correctAnswers) return 1;
         if(a.correctAnswers>b.correctAnswers) return -1;
+
+        if(a.correctAnswers==b.correctAnswers){
+            if(a.answers<b.answers) return -1;
+            if(a.answers>b.answers) return 1;
+        }
+
         return 0;
     });
     
@@ -23,7 +29,9 @@ function modifyStorage(mode, pNick, pCorrectAnswers, pAnswers){
     localStorage.setItem('ranking', JSON.stringify(rankingValues)); 
 }
 
+
 // modifyStorage('people', 'Jan', 100, 100)
 
 export default getDefaultRanking; 
 export {modifyStorage};
+
