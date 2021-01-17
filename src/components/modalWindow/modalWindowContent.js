@@ -60,6 +60,7 @@ function modalWindowContent(playerCPU, playerHuman){
 
 
     // STUPID NOT WORKING DIV WITH FORM INPUT AND A BUTTON // ok it works now, we're cool
+    
     //FORM
     const inputTry = document.createElement("form");
     inputTry.id = "inputTry";
