@@ -12,9 +12,9 @@
 
 @import './modalWindow.css';
 
-/* .display-none{
+.display-none{
     display: none;
-} */
+}
 .corectAnswer{
     background-color: green;
 }
@@ -42,6 +42,10 @@ body {
     justify-content: center;
     margin: 0;
     height: 100vh;
+}
+
+star-wars-loader {
+    grid-column: 1/-1;
 }
 
 /*TABLET LANDSCAPE*/

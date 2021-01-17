@@ -2,7 +2,6 @@
 import generadeRandomQuestions from '../generateQuestion/generateQuestion';
 import { playerUpdate } from '../playerHuman/playerHuman';
 import { cpu } from '../playerCPU/playerCPU';
-import { img } from '../imgContainer/img';
 
 const questionToAnswer = (answersObj) => {
   const allAnswers = answersObj.answers;
@@ -30,19 +29,24 @@ const questionToAnswer = (answersObj) => {
     return;
   };
 
-  document.getElementById('swquiz-app').innerHTML = `
+  document.querySelector('.rules').innerHTML = `
     <style>
       .questions{
+          width: 100%;
+          height: 100%;
           display:grid;
           grid-template-columns: 1fr 1fr;
           justify-items: center;
           grid-gap:10%;
       }
       .questions_item{
+
+          color: white;
+          font-size: 1.5em;
           display:flex;
           padding:5px 20px;
-          border:1px solid black;
-          border-radius:20px;
+          border:1px solid white;
+          border-radius:10px;
           justify-self: stretch;
           justify-content: center;
           text-align:center;
@@ -59,6 +63,9 @@ const questionToAnswer = (answersObj) => {
 
     `;
 
+  const imga = document.querySelector(".img-container > img");
+  imga.setAttribute('src',`../../../static/assets/img/modes/${img}` );
+
   //   <div>
 
   //   <img src="../../../static/assets/img/modes/${img}">
@@ -68,9 +75,9 @@ const questionToAnswer = (answersObj) => {
   {
     /* <img src="../../../static/assets/img/modes/all/${img}"></img> */
   }
+
   const divsWithAnswers = document.querySelectorAll('.questions_item');
-  const imageContainer = document.body.querySelector('.img-container');
-  document.body.replaceChild(img(`../../../static/assets/img/modes/${img}`), imageContainer);
+  
   for (let i = 0; i < divsWithAnswers.length; i++) {
     divsWithAnswers[i].addEventListener('click', function (e) {
       
