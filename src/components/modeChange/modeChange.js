@@ -93,7 +93,6 @@ const modeChange = () => {
                 mode.addEventListener('click', (e) => {
                     this.currentMode = e.target.innerText;
                   //  alert('Wybrano tryb: ' + this.currentMode);
-                    
                     modes.forEach(mode => mode.classList.remove('dark'));   //usuwamy klasę dark ze wszystkich elementów li
                     e.target.classList.add('dark');   //dodajemy klasę dark do klikniętego elementu li
                    

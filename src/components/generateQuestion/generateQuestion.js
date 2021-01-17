@@ -134,14 +134,12 @@ export function checkMode(mode) {
   }
 }
 
-const getGameMode = () => {
-  const mode = document.querySelectorAll('li');
-  console.log(mode);
-  let gameMode = mode.textContent;
-  console.log(gameMode);
-  return gameMode;
-}
 
+const getGameMode = () => {
+  const mode = document.querySelector("mode-change");
+  console.log(mode.currentMode);
+  return mode.currentMode;
+}
 
 
 
