@@ -7,7 +7,7 @@ import questionText from '../question/questionText.js';
 
 
 import hallOfFameButton from '../buttons/hallOfFameBtn.js';
-import img from '../imgContainer/img.js';
+import { img } from '../imgContainer/img.js';
 import redButton from '../redButton/redButton.js';
 import logo from '../logoStarWars/logo.js';
 

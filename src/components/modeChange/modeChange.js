@@ -4,7 +4,7 @@ import gameQuestion from '../question/question.js';
 import questionText from '../question/questionText.js';
 import showHallOfFame from '../hallOfFame/hallOfFame.js';
 import fameText from '../hallOfFame/hallOfFameText.js';
-import img from '../imgContainer/img.js';
+import { img } from '../imgContainer/img.js';
 import imgSrc from '../imgContainer/imgSrc.js'
 
 const modeChange = () => {

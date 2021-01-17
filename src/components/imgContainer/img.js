@@ -11,4 +11,4 @@ function img(src) {
     return divImg;
 }
 
-export default img
+export { img }

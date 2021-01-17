@@ -2,6 +2,7 @@
 import generadeRandomQuestions from '../generateQuestion/generateQuestion';
 import { playerUpdate } from '../playerHuman/playerHuman';
 import { cpu } from '../playerCPU/playerCPU';
+import { img } from '../imgContainer/img';
 
 const questionToAnswer = (answersObj) => {
   const allAnswers = answersObj.answers;
@@ -55,20 +56,24 @@ const questionToAnswer = (answersObj) => {
       <div class="questions_item">${allAnswers[3]}</div>
     </div>
     <br>
-    <div>
 
-      <img src="../../../static/assets/img/modes/${img}">
-    </div>
     `;
+
+  //   <div>
+
+  //   <img src="../../../static/assets/img/modes/${img}">
+  // </div>
 
   //podmień img dla wersji lokalnej
   {
     /* <img src="../../../static/assets/img/modes/all/${img}"></img> */
   }
   const divsWithAnswers = document.querySelectorAll('.questions_item');
-
+  const imageContainer = document.body.querySelector('.img-container');
+  document.body.replaceChild(img(`../../../static/assets/img/modes/${img}`), imageContainer);
   for (let i = 0; i < divsWithAnswers.length; i++) {
     divsWithAnswers[i].addEventListener('click', function (e) {
+      
       let choicedAnswer = e.target;
       checkAnswer(choicedAnswer);
       checkCPUAnswer(cpu.answer);
