@@ -9,6 +9,8 @@
 @import './img.css';
 @import './logo.css';
 
+@import './modalWindow.css';
+
 mode-change {
     grid-column: 2/4;
     margin: auto auto;
@@ -96,6 +98,82 @@ body {
         margin: 0;
     }
 
+    .modal-window {
+        width: 90vw;
+        height: 90vh;
+    }
+
+    .superDiv {
+        grid-template-rows: 1.5fr 3.25fr 2.75fr;
+    }
+
+    .game-over h1{
+        font-size: 1em;
+        margin: 0.4em;
+    }
+    
+    .game-over p{
+        font-size: 0.75em;
+        margin: 0.25em;
+    }
+
+    .results { 
+        width: 95%;
+        height: 75%;
+        margin: auto auto;
+    }
+    
+    .results h2 {
+        padding: 0.25em 1.5em;
+        height: 20%;
+        font-size: 1em;
+    }
+
+    
+    .super-answer {
+        height: 80%;
+    }
+
+    .super-answer-header {
+        font-size: 1em;
+        height: 20%;
+    }
+
+    .super-answer-body {
+        height: 77.5%;
+    }
+
+    .super-answer-body div div {
+        font-size: 0.75em;
+        align-items: center;
+    }
+    
+    .super-answer-body div div img {
+        max-width: 50%;
+        margin: auto;
+    }
+
+    #player-input {
+        width: 20vw;
+        margin: 0.25em 0.5em;
+    }
+    
+    #player-input[type="text"]
+    {
+        font-size: 0.75em;
+    }
+    
+    .fill-name {
+        display: inline-block;
+        margin:0.25em 0.25em;
+        font-size: 0.75em;
+    }
+
+    .force-button { 
+        font-size: 1em;
+        padding: 4px;
+        margin: 0.25em;
+    }
 }
 
 /*TABLET PORTRAIT*/
@@ -186,5 +264,85 @@ body {
     
     .red-button p {
         margin: 0;
+    }
+
+    .modal-window {
+        width: 95vw;
+        height: 95vh;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .superDiv {
+        grid-template-columns: 100%;
+        grid-template-rows: 1.5fr 4fr 2fr;
+        grid-template-areas:
+            "game-over"
+            "results"
+            "inputTry";
+    }
+
+    .game-over h1{
+        font-size: 1em;
+        margin: 0.525em;
+    }
+    
+    .game-over p{
+        font-size: 1em;
+        margin: 0.25em;
+    }
+
+    .results { 
+        width: 95%;
+        height: 85%;
+        margin: auto auto;
+    }
+    
+    .results h2 {
+        padding: 0.25em 1em;
+        height: 12.5%;
+        font-size: 1em;
+        ;
+    }
+
+    .super-answer {
+        height: 85%;
+    }
+
+    .super-answer-header {
+        font-size: 1em;
+        height: 15%;
+    }
+
+    .super-answer-body {
+        height: 82.5%;
+    }
+
+    .super-answer-body div div {
+        font-size: 0.8em;
+        align-items: center;
+    }
+
+    #player-input {
+        width: 40vw;
+        margin: 0.25em 0.5em;
+    }
+    
+    #player-input[type="text"]
+    {
+        font-size: 1em;
+    }
+    
+    .fill-name {
+        display: inline-block;
+        margin:0.25em 0.25em;
+        font-size: 1em;
+    }
+
+    .force-button { 
+        font-size: 1em;
+        padding: 4px;
+        margin: 0.75em;
     }
 }
