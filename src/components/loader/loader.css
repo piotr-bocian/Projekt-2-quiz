@@ -1,0 +1,24 @@
+star-wars-loader::part(lightsaber),
+star-wars-loader::part(counter) {
+         display: flex;
+         flex-wrap: no-wrap;
+         justify-content: center;
+         align-items: center;
+      }
+
+      star-wars-loader::part(lighstaberHandler) {
+         flex-shrink: 0;
+      }
+
+      star-wars-loader::part(lightsaberColor) {
+         width: 100%;
+         height: 20px;
+         border-radius: 20px;
+         background-color: #bcbcbc;
+      }
+      star-wars-loader::part(countdown-text),
+      star-wars-loader::part(timer) {
+         color: #d81e06;
+         font-size: 24px;
+         font-weight: 900;
+      }

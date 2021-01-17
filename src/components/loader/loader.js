@@ -1,69 +1,47 @@
-//loader
+import { cpu } from '../playerCPU/playerCPU';
+import { playerHuman } from '../playerHuman/playerHuman';
 
-const loader = () => {
+const timerComponent = () => {
   const template = document.createElement('template');
   template.innerHTML = `
   <style>
-      .lightsaber,
-      .counter {
-         display: flex;
-         flex-wrap: no-wrap;
-         justify-content: center;
-         align-items: center;
-      }
+  .hider {
+   display: block;
+   width: 100%;
+   height: 20px;
+   background-color: white;
+   border-radius: 20px;
+   box-shadow: 0px 0px 10px 10px #fa250e;
+   animation: slider 60s linear;
+   animation-play-state: running;
+   animation-fill-mode: forwards;
+}
 
-      .lighstaberHandler {
-         flex-shrink: 0;
-      }
+@keyframes slider {
+   0% {
+      width: 100%
+   }
 
-      .lightsaberColor {
-         width: 100%;
-         height: 20px;
+   100% {
+      width: 0;
+   }
+}
+  </style>
+  <div part="loader">
+      <div part='lightsaber'>
 
-      }
+         <img part='lighstaberHandler' class = 'lighstaberHandler' src="../../../static/assets/ui/LightsaberHandle.png">
 
-      .hider{
-         display: block;
-         width: 100%;
-         height: 20px;
-         background-color: red;
-         border-radius: 20px;
-         box-shadow: -2px 1px 10px 9px rgba(255, 13, 13, 0.96);
-         animation: slider 100s linear;
-         animation-play-state: running;
-         animation-fill-mode: forwards;
-      }
-
-      @keyframes slider {
-         0% {
-            width: 100%
-         }
-
-         100% {
-            width: 0;
-         }
-      }
-
-      .countdown-text, .timer {
-         color: rgb(158, 42, 42);
-         font-size: 50px;
-      }
-   </style>
-  <div class="loader">
-      <div class='lightsaber'>
-
-         <img class='lighstaberHandler' src="../../../static/assets/ui/LightsaberHandle.png">
-
-         <div class='lightsaberColor'>
-            <span class='hider'></span>
+         <div part='lightsaberColor' class = 'lightsaberColor'>
+            <span part='hider' class = 'hider'></span>
          </div>
       </div>
-      <div class='counter'>
-         <p class='countdown-text'></p>
-         <p class= 'timer'></p>
+      <div part='counter'>
+         <p part='countdown-text' class = 'countdown-text'></p>
+         <span part= 'timer' class = 'timer'>: 1m 00s</span>
       </div>
   `;
-  class StarWarsLoader extends HTMLElement {
+  class StarWarsTimer extends HTMLElement {
     constructor() {
       super();
 
@@ -71,22 +49,33 @@ const loader = () => {
       this.shadowRoot.appendChild(template.content.cloneNode(true));
       this.shadowRoot.querySelector('.lighstaberHandler').src =
         '../../../static/assets/ui/LightsaberHandle.png';
-      this.shadowRoot.querySelector(
-        '.countdown-text',
-      ).innerText = `Time Left: `;
       this.shadowRoot.querySelector('.lightsaberColor');
-      // this.shadowRoot.querySelector('.timer').innerText = `${sec}s`;
-      this.shadowRoot.querySelector('.countdown-text').innerText = `Time Left:`;
+      this.shadowRoot.querySelector('.countdown-text').innerText = `Time Left `;
     }
-
     timer() {
-      let sec = 100;
+      let time = 60;
+      let sec = time;
+      let min = 1;
       const count = this.shadowRoot.querySelector('.timer');
-      const timer = setInterval(function () {
-         count.innerText = `${sec}s`
+      const countdown = setInterval(function () {
         sec--;
+        if (sec === time) {
+          count.innerText = `: ${min}m 00s`;
+        } else if (sec !== time) {
+          min = 0;
+          count.innerText = `: ${min}m ${sec}s`;
+        }
+        //trzeba naprawić skaczący tekst oraz dodać minuty
         if (sec < 0) {
-          clearInterval(timer);
+          count.innerText = `: ${min}m 0s`;
+          clearInterval(countdown);
+          count.innerText = `: your time is up, young Padawan!`;
+
+          //zaimportowane obiekty playerHuman i cpu - z nich wzięlismy
+          // properties zwracające wszystkie poprawne odpowiedzi (dla człowieka
+          //rightAnswer, dla cpu - correctAnswer) oraz wszystkie odpowiedzi (człowiek allAnswer, cpu - noOfAnswers)
+
+          // alert(`Twój wynik to: ${playerHuman.rightAnswer}/${playerHuman.allAnswer}, a komputera: ${cpu.correctAnswers}/${cpu.noOfAnswers}`);
         }
       }, 1000);
     }
@@ -94,8 +83,7 @@ const loader = () => {
       window.addEventListener('load', this.timer());
     }
   }
-
-  window.customElements.define('star-wars-loader', StarWarsLoader);
+  window.customElements.define('star-wars-loader', StarWarsTimer);
 };
 
-export { loader };
+export { timerComponent };

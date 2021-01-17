@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 //Dynamiczne ładuje cały moduł do wskazanego miejsca po wykonaniu akcji
 // 1. place - selektor mijesca gdzie ma być załadowany moduł
 // 2. listenerSelector - selektor elementu na którym nasłuchujemy
@@ -21,52 +22,15 @@ const moduleLoader = (listenerSelector, folderName, fileName) => {
 };
 
 //moduleLoader('.btn', 'loader', 'loader.js');
+=======
+>>>>>>> localVersion
 
+import {timerComponent} from './loader/loader.js'
 //Funkcja przyjmuje dwa argumenty:
 // 1. module => callback z templatka html
-// 2. selector => selektor html rodzica - miejsce dodania elementu
-const renderFn = (module, selector) => {
-  const htmlTemplate = `${module}`;
+// 2. selector => wyzwalacz
+export const renderFn = (module, selector) => {
   const place = document.querySelector(selector);
-  place.innerHTML = htmlTemplate;
+  place.addEventListener('click', module);
 };
-
-const rankingTemplates = () => {
-  const place = document.querySelector('#swquiz-app');
-  const liInject = `<ul class="ranking-people">
-   <li class="bold">Player</li>
-   <li>Karolina</li>
- </ul>`;
-  return (place.innerHTML = liInject);
-};
-
-// renderFn(rankingTemplates(), '#swquiz-app');
-
-// DO TESTOWANIA
-// const rankingTemplate = (name, selector) => {
-//   const liInject = `<ul class="ranking-people">
-//    <li class="bold">Player</li>
-//    <li>${name}</li>
-//  </ul>`;
-//   const place = document.querySelector(selector);
-//   place.innerHTML = liInject;
-// };
-
-// export const renderFunction = (selector) => {
-//   const htmlTemplate = document.createElement('img');
-//   htmlTemplate.setAttribute(
-//     'src',
-//     'src="../../static/assets/img/modes/people/16.jpg"',
-//   );
-//   const place = document.querySelector(selector);
-//   place.prepend(htmlTemplate);
-// };
-
-// export const rankingTemplate = (name, selector) => {
-//   const liInject = `<ul class="ranking-people">
-//    <li class="bold">Player</li>
-//    <li>${name}</li>
-//  </ul>`;
-//  const place = document.querySelector(selector)
-//   place.innerHTML = liInject
-// };
+// renderFn(timerComponent, '.btn')

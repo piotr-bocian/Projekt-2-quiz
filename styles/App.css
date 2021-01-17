@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @import "./question.css";
 @import './gameRules.css';
 @import './modeChange.css';
@@ -17,6 +18,9 @@ mode-change {
     width: 60vw;
 }
 
+=======
+@import '../src/components/loader/loader.css';
+>>>>>>> localVersion
 body {
     font-family: 'Montserrat', sans-serif;
     background-image: url(../static/assets/ui/QuizBackground.png);
@@ -176,6 +180,7 @@ body {
     }
 }
 
+<<<<<<< HEAD
 /*TABLET PORTRAIT*/
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) 
  {}
@@ -345,4 +350,14 @@ body {
         padding: 4px;
         margin: 0.75em;
     }
+=======
+.display-none{
+    display: none;
+}
+.corectAnswer{
+    background-color: green;
+}
+.wrongAnswer{
+    background-color: red;;
+>>>>>>> localVersion
 }
