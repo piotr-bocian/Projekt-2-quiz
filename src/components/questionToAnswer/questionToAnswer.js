@@ -53,6 +53,10 @@ const questionToAnswer = (answersObj) => {
           align-items: center;
           align-self: center;
       }
+      @media only screen and (min-device-width: 320px) and (max-device-width: 480px){
+        .questions {
+          font-size: .8em;
+        }
     </style>
 
     <div class="questions">
