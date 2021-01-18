@@ -55,8 +55,11 @@ const questionToAnswer = (answersObj) => {
       }
       @media only screen and (min-device-width: 320px) and (max-device-width: 480px){
         .questions {
+          grid-gap: 4%;
+          height: 100%;
+          padding:3px 20px;
           grid-template-columns: 1fr;
-          font-size: .8em;
+          font-size: .7em;
         }
     </style>
 
