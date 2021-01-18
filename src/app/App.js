@@ -5,13 +5,14 @@ import { mainMenu } from '../components/mainMenu/mainMenu.js';
 export const App = ({ options }) => {
   mainMenu();
   const playGameButton = document.querySelector('.red-button');
-  const yellowButton = document.querySelector('.yellow-button');
   // const hallOfGame = document.querySelector('.hall-of-fame-btn');
   playGameButton.addEventListener('click', () => {
     // block item after start the game
     const getModeMenu = document.querySelector("mode-change");
     const ModeItems = getModeMenu.shadowRoot.lastElementChild;
     ModeItems.setAttribute("style", "pointer-events: none");
+
+    const yellowButton = document.querySelector('.yellow-button');
 
     playGameButton.classList.add('display-none');
     yellowButton.classList.add('display-none');
