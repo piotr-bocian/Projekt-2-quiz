@@ -31,12 +31,13 @@ const timerComponent = () => {
   .hider, .lighstaberHandler, .lightsaberColor{
     display: none;
   }
+}
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
   .hider, .lighstaberHandler, .lightsaberColor{
     display: none;
   }
-
+}
   </style>
   <div part="loader">
       <div part='lightsaber'>
