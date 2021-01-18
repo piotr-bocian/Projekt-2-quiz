@@ -101,44 +101,54 @@ const modeChange = () => {
                     const imageContainer = document.body.querySelector('.img-container');
                     const hallOfFameContainer = document.body.querySelector('.fame-container');
                     
-                    switch (this.currentMode){
-                        case 'People':
-                          //console.log(gameRules(rulesText.people));
-                          gameQuestion(questionText.people);
-                          if(gameRulesContainer != null && !(document.querySelector('.questions')))
-                            document.body.replaceChild(gameRules(rulesText.people), gameRulesContainer);
-                          if(!(document.querySelector('.questions')))
-                            document.body.replaceChild(gameQuestion(questionText.people), questionContainer);
-                          if(hallOfFameContainer != null && !(document.querySelector('.questions')))
-                            document.body.replaceChild(showHallOfFame(fameText.people), hallOfFameContainer);
-                          if(!(document.querySelector('.questions')))
-                            document.body.replaceChild(img(imgSrc.people), imageContainer);
-                          break;
-                        case 'Vehicles':
-                          gameRules(rulesText.vehicles);
-                          gameQuestion(questionText.vehivles);
-                          if(gameRulesContainer != null && !(document.querySelector('.questions')))
-                            document.body.replaceChild(gameRules(rulesText.vehicles), gameRulesContainer);
-                          if(!(document.querySelector('.questions')))
-                            document.body.replaceChild(gameQuestion(questionText.vehicles), questionContainer);
-                          if(hallOfFameContainer != null && !(document.querySelector('.questions')))
-                            document.body.replaceChild(showHallOfFame(fameText.vehicles), hallOfFameContainer);
-                          if(!(document.querySelector('.questions')))
-                            document.body.replaceChild(img(imgSrc.vehicles), imageContainer);
-                          break;
-                        case 'Starships':
-                           gameRules(rulesText.starships);
-                           gameQuestion(questionText.starships);
-                           if(gameRulesContainer != null && !(document.querySelector('.questions')))
-                            document.body.replaceChild(gameRules(rulesText.starships), gameRulesContainer);
-                           if(!(document.querySelector('.questions')))
-                            document.body.replaceChild(gameQuestion(questionText.starships), questionContainer);
-                           if(hallOfFameContainer != null && !(document.querySelector('.questions')))
-                            document.body.replaceChild(showHallOfFame(fameText.starships), hallOfFameContainer);
-                           if(!(document.querySelector('.questions')))
-                            document.body.replaceChild(img(imgSrc.starships), imageContainer);
-                           break; 
-                    }
+
+                    if(!(document.querySelector('.questions'))){
+                        if(gameRulesContainer != null)
+                            document.body.replaceChild(gameRules(rulesText[this.currentMode.toLowerCase()]), gameRulesContainer);
+                        if(hallOfFameContainer != null)
+                            document.body.replaceChild(showHallOfFame(fameText[this.currentMode.toLowerCase()]), hallOfFameContainer);
+                        document.body.replaceChild(gameQuestion(questionText[this.currentMode.toLowerCase()]), questionContainer);
+                        document.body.replaceChild(img(imgSrc[this.currentMode.toLowerCase()]), imageContainer);
+                        }
+
+                    // switch (this.currentMode){
+                    //     case 'People':
+                    //       //console.log(gameRules(rulesText.people));
+                    //       gameQuestion(questionText.people);
+                    //       if(gameRulesContainer != null && !(document.querySelector('.questions')))
+                    //         document.body.replaceChild(gameRules(rulesText.people), gameRulesContainer);
+                    //       if(!(document.querySelector('.questions')))
+                    //         document.body.replaceChild(gameQuestion(questionText.people), questionContainer);
+                    //       if(hallOfFameContainer != null && !(document.querySelector('.questions')))
+                    //         document.body.replaceChild(showHallOfFame(fameText.people), hallOfFameContainer);
+                    //       if(!(document.querySelector('.questions')))
+                    //         document.body.replaceChild(img(imgSrc.people), imageContainer);
+                    //       break;
+                    //     case 'Vehicles':
+                    //       gameRules(rulesText.vehicles);
+                    //       gameQuestion(questionText.vehivles);
+                    //       if(gameRulesContainer != null && !(document.querySelector('.questions')))
+                    //         document.body.replaceChild(gameRules(rulesText.vehicles), gameRulesContainer);
+                    //       if(!(document.querySelector('.questions')))
+                    //         document.body.replaceChild(gameQuestion(questionText.vehicles), questionContainer);
+                    //       if(hallOfFameContainer != null && !(document.querySelector('.questions')))
+                    //         document.body.replaceChild(showHallOfFame(fameText.vehicles), hallOfFameContainer);
+                    //       if(!(document.querySelector('.questions')))
+                    //         document.body.replaceChild(img(imgSrc.vehicles), imageContainer);
+                    //       break;
+                    //     case 'Starships':
+                    //        gameRules(rulesText.starships);
+                    //        gameQuestion(questionText.starships);
+                    //        if(gameRulesContainer != null && !(document.querySelector('.questions')))
+                    //         document.body.replaceChild(gameRules(rulesText.starships), gameRulesContainer);
+                    //        if(!(document.querySelector('.questions')))
+                    //         document.body.replaceChild(gameQuestion(questionText.starships), questionContainer);
+                    //        if(hallOfFameContainer != null && !(document.querySelector('.questions')))
+                    //         document.body.replaceChild(showHallOfFame(fameText.starships), hallOfFameContainer);
+                    //        if(!(document.querySelector('.questions')))
+                    //         document.body.replaceChild(img(imgSrc.starships), imageContainer);
+                    //        break; 
+                    // }
 
                 })
             })
