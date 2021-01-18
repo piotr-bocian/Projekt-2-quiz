@@ -66,7 +66,7 @@ const questionToAnswer = (answersObj) => {
     `;
 
   const imga = document.querySelector(".img-container > img");
-  imga.setAttribute('src',`../../../static/assets/img/modes/${img}` );
+  imga.setAttribute('src',`../../../../Projekt-2-quiz/static/assets/img/modes/${img}` );
 
   //   <div>
 
