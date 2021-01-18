@@ -31,6 +31,10 @@ const timerComponent = () => {
   .hider, .lighstaberHandler, .lightsaberColor{
     display: none;
   }
+  @media only screen and (max-width: 812px) and (orientation: landscape) {
+    .hider, .lighstaberHandler, .lightsaberColor{
+      display: none;
+    }
   </style>
   <div part="loader">
       <div part='lightsaber'>

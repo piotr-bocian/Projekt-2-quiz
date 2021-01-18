@@ -55,6 +55,7 @@ const questionToAnswer = (answersObj) => {
       }
       @media only screen and (min-device-width: 320px) and (max-device-width: 480px){
         .questions {
+          grid-template-columns: 1fr;
           font-size: .8em;
         }
     </style>
