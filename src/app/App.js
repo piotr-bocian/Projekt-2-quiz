@@ -9,7 +9,7 @@ export const App = ({ options }) => {
   // const hallOfGame = document.querySelector('.hall-of-fame-btn');
   playGameButton.addEventListener('click', () => {
     playGameButton.classList.add('display-none');
-    yellowButton.classList.add('display-none');
+    yellowButton.classList.style.display = 'none';
     // hallOfGame.classList.add('display-none');
     cpu.restoreDefault();
     generadeRandomQuestions(true);
