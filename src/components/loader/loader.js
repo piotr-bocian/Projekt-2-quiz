@@ -26,6 +26,11 @@ const timerComponent = () => {
       width: 0;
    }
 }
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px){
+  .hider, .lighstaberHandler, .lightsaberColor{
+    display: none;
+  }
   </style>
   <div part="loader">
       <div part='lightsaber'>
