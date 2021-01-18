@@ -30,7 +30,7 @@ const timerComponent = () => {
   <div part="loader">
       <div part='lightsaber'>
 
-         <img part='lighstaberHandler' class = 'lighstaberHandler' src="../../../static/assets/ui/LightsaberHandle.png">
+         <img part='lighstaberHandler' class = 'lighstaberHandler' src="../../../../Projekt-2-quiz/static/assets/ui/LightsaberHandle.png">
 
          <div part='lightsaberColor' class = 'lightsaberColor'>
             <span part='hider' class = 'hider'></span>
