@@ -1,4 +1,3 @@
-import  {playerCPU, playerHuman} from './dummyModalWindowResults.js'
 import modalWindowContent from './modalWindowContent.js';
 
 let playerHuman1 = playerHuman;
