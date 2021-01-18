@@ -48,7 +48,7 @@ const timerComponent = () => {
       this.attachShadow({ mode: 'open' });
       this.shadowRoot.appendChild(template.content.cloneNode(true));
       this.shadowRoot.querySelector('.lighstaberHandler').src =
-        '../../../static/assets/ui/LightsaberHandle.png';
+        '../../../../Projekt-2-quiz/static/assets/ui/LightsaberHandle.png';
       this.shadowRoot.querySelector('.lightsaberColor');
       this.shadowRoot.querySelector('.countdown-text').innerText = `Time Left `;
     }
