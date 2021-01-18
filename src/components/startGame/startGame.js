@@ -1,5 +1,6 @@
-import generadeRandomQuestions from '../generateQuestion/generateQuestion';
-import { cpu } from '../playerCPU/playerCPU';
+import 'regenerator-runtime/runtime'; //async/await with Parcel
+import generadeRandomQuestions from '../generateQuestion/generateQuestion.js';
+import { cpu } from '../playerCPU/playerCPU.js';
 
 const playGameButton = document.querySelector('.red-button');
 const yellowButton = document.querySelector('.yellow-button');
