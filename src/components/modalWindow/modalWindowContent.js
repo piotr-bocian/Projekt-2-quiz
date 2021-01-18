@@ -55,7 +55,7 @@ function modalWindowContent(playerCPU, playerHuman){
     //YODA PICTURE DIV
     const yoda = document.createElement("img");
     yoda.className = "yoda";
-    const src = "../../../static/assets/ui/MasterYodaLeft.png";
+    const src = "../../../../Projekt-2-quiz/static/assets/ui/MasterYodaLeft.png";
     yoda.setAttribute('src', src);
 
 
@@ -112,7 +112,7 @@ function modalWindowContent(playerCPU, playerHuman){
     }
 
     const returnToMainPage = () => {
-        location.replace("../../../index.html");
+        location.reload();
     }
 
 

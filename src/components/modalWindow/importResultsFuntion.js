@@ -12,7 +12,7 @@ for (let i = 0; i < allAnswers.length; i++) {
     let summaryDiv = document.createElement("div");
 
     const correctAnswerImage = document.createElement("img");
-    correctAnswerImage.src = `../../../static/assets/img/modes/${allImages[i]}`;
+    correctAnswerImage.src = `../../../../Projekt-2-quiz/static/assets/img/modes/${allImages[i]}`;
 
     const correctAnswerElement = document.createElement("p");
     correctAnswerElement.innerText = allAnswers[i];
