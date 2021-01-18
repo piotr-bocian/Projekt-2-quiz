@@ -8,7 +8,7 @@ function gameRules(text) {
     divRules.innerHTML = text;
 
     const icon = document.createElement("img");
-    const src = "../../../static/assets/ui/graduation-cap-solid.svg";
+    const src = "../../../../Projekt-2-quiz/static/assets/ui/graduation-cap-solid.svg";
     icon.setAttribute('src', src);
     icon.id = 'iconRules';
 

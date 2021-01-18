@@ -34,7 +34,7 @@ const playerHuman = new PlayerHuman();
 function playerUpdate(e, callFn) {
   playerHuman.playerChose(e.target.innerHTML);
   playerHuman.answerCounter(callFn);
-  console.log(playerHuman);
+  // console.log(playerHuman);
   return playerHuman;
 }
 

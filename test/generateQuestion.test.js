@@ -3,7 +3,6 @@ import {
   randomId,
   rndArrayOfIds,
   getImg,
-  checkMode
 } from '../src/components/generateQuestion/generateQuestion';
 
 it('should return array of numbers', () => {
@@ -48,16 +47,3 @@ it('should return path to img', () => {
    const id = 32;
    expect(getImg(mode, id)).toBe(`people/32.jpg`)
  });
-
-
-// jest.mock('./generateQuestion')
-//  it('should return object.name from API', async() => {
-//   checkMode('people').then(e=>{
-//     expect(e).toBe({
-//       image: 'people/4.jpg',
-//       answers: ['Darth Vader', 'Leia Organa', 'Beru Whitesun lars', 'Zam Wesell'],
-//       rightAnswer: 'Darth Vader',
-//     })
-//   })
-
-//  });

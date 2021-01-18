@@ -26,7 +26,7 @@ const questionToAnswer = (answersObj) => {
       cpu.noOfAnswers += 1;
     } else {cpu.noOfAnswers += 1;}
     cpu.addDataToArrays(img, rightAnswer);
-    console.log(cpu);
+    // console.log(cpu);
     return;
   };
 

@@ -70,7 +70,7 @@ async function createPeopleObject(url) {
     questions.answers = namesArr;
     questions.rightAnswer = namesArr[rndIds.indexOf(correctAns)];
     questions.image = getImg(mode, correctAns);
-    console.log(questions);
+    // console.log(questions);
     return questions;
   } catch (error) {
     console.log(error);
@@ -93,7 +93,7 @@ async function createStarshipsObject(url) {
     questions.answers = namesArr;
     questions.rightAnswer = namesArr[rndIds.indexOf(correctAns)];
     questions.image = getImg(mode, correctAns);
-    console.log(questions);
+    // console.log(questions);
     return questions;
   } catch (error) {
     console.log(error);
@@ -116,7 +116,7 @@ async function createVehiclesObject(url) {
     questions.answers = namesArr;
     questions.rightAnswer = namesArr[rndIds.indexOf(correctAns)];
     questions.image = getImg(mode, correctAns);
-    console.log(questions);
+    // console.log(questions);
     return questions;
   } catch (error) {
     console.log(error);
@@ -137,7 +137,6 @@ export function checkMode(mode) {
 
 const getGameMode = () => {
   const mode = document.querySelector("mode-change");
-  console.log(mode.currentMode);
   return mode.currentMode;
 }
 
