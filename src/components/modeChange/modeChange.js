@@ -105,30 +105,30 @@ const modeChange = () => {
                         case 'People':
                           //console.log(gameRules(rulesText.people));
                           gameQuestion(questionText.people);
-                          if(gameRulesContainer != null)
+                          if(gameRulesContainer != null && !(document.querySelector('.questions')))
                             document.body.replaceChild(gameRules(rulesText.people), gameRulesContainer);
                           document.body.replaceChild(gameQuestion(questionText.people), questionContainer);
-                          if(hallOfFameContainer != null)
+                          if(hallOfFameContainer != null && !(document.querySelector('.questions')))
                             document.body.replaceChild(showHallOfFame(fameText.people), hallOfFameContainer);
                           document.body.replaceChild(img(imgSrc.people), imageContainer);
                           break;
                         case 'Vehicles':
                           gameRules(rulesText.vehicles);
                           gameQuestion(questionText.vehivles);
-                          if(gameRulesContainer != null)
+                          if(gameRulesContainer != null && !(document.querySelector('.questions')))
                             document.body.replaceChild(gameRules(rulesText.vehicles), gameRulesContainer);
                           document.body.replaceChild(gameQuestion(questionText.vehicles), questionContainer);
-                          if(hallOfFameContainer != null)
+                          if(hallOfFameContainer != null && !(document.querySelector('.questions')))
                             document.body.replaceChild(showHallOfFame(fameText.vehicles), hallOfFameContainer);
                           document.body.replaceChild(img(imgSrc.vehicles), imageContainer);
                           break;
                         case 'Starships':
                            gameRules(rulesText.starships);
                            gameQuestion(questionText.starships);
-                           if(gameRulesContainer != null)
+                           if(gameRulesContainer != null && !(document.querySelector('.questions')))
                             document.body.replaceChild(gameRules(rulesText.starships), gameRulesContainer);
                            document.body.replaceChild(gameQuestion(questionText.starships), questionContainer);
-                           if(hallOfFameContainer != null)
+                           if(hallOfFameContainer != null && !(document.querySelector('.questions')))
                             document.body.replaceChild(showHallOfFame(fameText.starships), hallOfFameContainer);
                            document.body.replaceChild(img(imgSrc.starships), imageContainer);
                            break; 
