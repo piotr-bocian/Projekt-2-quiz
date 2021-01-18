@@ -1,4 +1,4 @@
-import 'regenerator-runtime/runtime.js'; //async/await with Parcel
+require('regenerator-runtime/runtime.js').path; //async/await with Parcel
 import "core-js/stable";
 import {App} from "./app/App.js";
 
