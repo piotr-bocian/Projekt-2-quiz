@@ -1,4 +1,4 @@
-// import '../node_modules/regenerator-runtime/runtime'; //async/await with Parcel
+import 'regenerator-runtime/runtime'; //async/await with Parcel
 import {App} from "./app/App";
 
 const ONE_SECOND_MILLIS = 1000;
