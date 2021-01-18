@@ -1,8 +1,8 @@
 // import 'regenerator-runtime/runtime'; //async/await with Parcel
-import questionToAnswer from '../questionToAnswer/questionToAnswer';
-import { cpu } from '../playerCPU/playerCPU';
-import { vehiclesArrayImg, starshipArrayImg } from '../starshipsAndVehicles';
-import { timerComponent } from '../loader/loader';
+import questionToAnswer from '../questionToAnswer/questionToAnswer.js';
+import { cpu } from '../playerCPU/playerCPU.js';
+import { vehiclesArrayImg, starshipArrayImg } from '../starshipsAndVehicles.js';
+import { timerComponent } from '../loader/loader.js';
 
 const urlPeopleRequest = 'https://swapi.dev/api/people/';
 const urlVehiclesRequest = 'https://swapi.dev/api/vehicles/';

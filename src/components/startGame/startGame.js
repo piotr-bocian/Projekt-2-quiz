@@ -1,4 +1,4 @@
-import 'regenerator-runtime/runtime'; //async/await with Parcel
+import 'regenerator-runtime/runtime.js'; //async/await with Parcel
 import generadeRandomQuestions from '../generateQuestion/generateQuestion.js';
 import { cpu } from '../playerCPU/playerCPU.js';
 
