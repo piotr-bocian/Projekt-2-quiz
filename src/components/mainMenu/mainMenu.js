@@ -12,7 +12,7 @@ import redButton from '../redButton/redButton.js';
 import logo from '../logoStarWars/logo.js';
 
 
-const mainMenu = () => {
+export const mainMenu = () => {
     modeChange();
     document.body.appendChild(gameQuestion(questionText.people));
     document.body.appendChild(gameRules(rulesText.people));
@@ -22,4 +22,4 @@ const mainMenu = () => {
     document.body.appendChild(logo());
 }
 
-mainMenu();
+// mainMenu();
