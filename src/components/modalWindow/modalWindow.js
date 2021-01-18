@@ -1,8 +1,5 @@
 import modalWindowContent from './modalWindowContent.js';
 
-let playerHuman1 = playerHuman;
-let playerCPU1 = playerCPU;
-
 export function modalWindow (playerCPU, playerHuman) {   
 
     const modalWindow = document.createElement("div");
