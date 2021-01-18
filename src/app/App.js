@@ -12,9 +12,10 @@ export const App = ({ options }) => {
     const getModeMenu = document.querySelector("mode-change");
     const ModeItems = getModeMenu.shadowRoot.lastElementChild;
     ModeItems.setAttribute("style", "pointer-events: none");
-    
+
     playGameButton.classList.add('display-none');
-    yellowButton.style.display = 'none';
+    yellowButton.classList.add('display-none');
+    // yellowButton.style.display = 'none';
     // hallOfGame.classList.add('display-none');
     cpu.restoreDefault();
     generadeRandomQuestions(true);

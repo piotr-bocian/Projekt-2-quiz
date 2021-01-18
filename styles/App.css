@@ -13,7 +13,7 @@
 @import './modalWindow.css';
 
 .display-none{
-    display: none;
+    display: none !important;
 }
 .corectAnswer{
     background-color: green;
