@@ -1,4 +1,4 @@
-import 'regenerator-runtime/runtime' //async/await with Parcel
+// import 'regenerator-runtime/runtime' //async/await with Parcel
 import questionToAnswer from '../questionToAnswer/questionToAnswer'
 import { cpu } from '../playerCPU/playerCPU';
 // import renderQuestions from '../questionToAnswer/renderQuestions';
