@@ -1,6 +1,6 @@
-import { cpu } from '../playerCPU/playerCPU';
-import { playerHuman } from '../playerHuman/playerHuman';
-import { modalWindow } from '../modalWindow/modalWindow';
+import { cpu } from '../playerCPU/playerCPU.js';
+import { playerHuman } from '../playerHuman/playerHuman.js';
+import { modalWindow } from '../modalWindow/modalWindow.js';
 const timerComponent = () => {
   const template = document.createElement('template');
   template.innerHTML = `

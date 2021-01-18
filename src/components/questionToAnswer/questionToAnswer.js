@@ -1,8 +1,8 @@
 // import generadeRandomQuestions from '../generateQuestion/LocalGenerateQuestion';
-import generadeRandomQuestions from '../generateQuestion/generateQuestion';
-import { playerUpdate } from '../playerHuman/playerHuman';
-import { cpu } from '../playerCPU/playerCPU';
-import { getRightSelector } from './getRightSelector';
+import generadeRandomQuestions from '../generateQuestion/generateQuestion.js';
+import { playerUpdate } from '../playerHuman/playerHuman.js';
+import { cpu } from '../playerCPU/playerCPU.js';
+import { getRightSelector } from './getRightSelector.js';
 
 const questionToAnswer = (answersObj) => {
   const allAnswers = answersObj.answers;
