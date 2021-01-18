@@ -11,7 +11,7 @@ star-wars-loader::part(counter) {
       }
 
       star-wars-loader::part(lightsaberColor) {
-         width: 100%;
+         width: 70vw;
          height: 20px;
          border-radius: 20px;
          background-color: #bcbcbc;
